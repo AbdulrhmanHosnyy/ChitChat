@@ -1,0 +1,5 @@
+D:\ChitChat\ChitChat\x64\Debug\ChitChat.vcxproj.AssemblyReference.cache
+D:\ChitChat\ChitChat\x64\Debug\ChitChat.vcxproj.SuggestedBindingRedirects.cache
+D:\ChitChat\ChitChat\x64\Debug\ChitChat.LoginForm.resources
+D:\ChitChat\ChitChat\x64\Debug\ChitChat.RegisterForm.resources
+D:\ChitChat\ChitChat\x64\Debug\ChitChat.vcxproj.GenerateResource.cache
