@@ -1,17 +1,21 @@
 #include "LoginForm.h"
 #include "DashForm.h"
 #include "RegisterForm.h"
+#include "StoryMain.h"
 
 using namespace System;
 using namespace System::Windows::Forms;
 
 void main(array<String^>^ args) {
+
+
+
 	                      //////////////////////////
 	                     //THE LOGIN AND REGISTER//
 	                    //////////////////////////
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-
+	
 	Contacts^ cont = nullptr;
 	while (true)
 	{
@@ -39,8 +43,11 @@ void main(array<String^>^ args) {
 	if (cont != nullptr) {
 		//Loginpage::MainForm mainForm(cont);
 		//Application::Run(% mainForm);
-		MessageBox::Show("Login || Sign in Successfull......");
+		//MessageBox::Show("Login || Sign in Successfull......");
 		//this is will call a form of profile
+
+		ChitChat::StoryMain story;
+		story.ShowDialog();
 	}
 	else {
 		MessageBox::Show("Login Canceled");

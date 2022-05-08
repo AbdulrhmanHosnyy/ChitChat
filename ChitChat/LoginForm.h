@@ -355,12 +355,11 @@ namespace ChitChat {
 		this->Close();
 	}
 
-	public: Contacts^ cont = nullptr;
+	public:static Contacts^ cont = nullptr;
 
 	private: System::Void btnSubmit_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ Pnumber = this->tbPnumber->Text;
 		String^ Password = this->tbPassword->Text;
-
 		if (Pnumber->Length == 0 || Password->Length == 0) {
 			MessageBox::Show("Please enter phone number and password");
 			return;

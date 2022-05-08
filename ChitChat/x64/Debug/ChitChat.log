@@ -1,11 +1,1 @@
-﻿  LoginForm.cpp
-D:\ChitChat\ChitChat\LoginForm.h(395,21): warning C4101: 'e': unreferenced local variable
-  RegisterForm.cpp
-D:\ChitChat\ChitChat\RegisterForm.h(530,21): warning C4101: 'ex': unreferenced local variable
-  main.cpp
-D:\ChitChat\ChitChat\LoginForm.h(395,21): warning C4101: 'e': unreferenced local variable
-D:\ChitChat\ChitChat\RegisterForm.h(530,21): warning C4101: 'ex': unreferenced local variable
-D:\ChitChat\ChitChat\main.cpp(8,33): warning C4829: Possibly incorrect parameters to function main. Consider 'int main(Platform::Array<Platform::String^>^ argv)'
-  Generating Code...
-  DashForm.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
-  ChitChat.vcxproj -> D:\ChitChat\x64\Debug\ChitChat.exe
+﻿  ChitChat.vcxproj -> C:\Users\HP\source\repos\ChitChat\x64\Debug\ChitChat.exe

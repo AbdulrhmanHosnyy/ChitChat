@@ -27,6 +27,9 @@
     <ClCompile Include="DashForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="StoryMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LoginForm.h">
@@ -39,6 +42,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Contacts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StoryMain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

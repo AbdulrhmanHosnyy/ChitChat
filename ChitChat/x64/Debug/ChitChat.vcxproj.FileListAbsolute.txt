@@ -3,3 +3,9 @@ D:\ChitChat\ChitChat\x64\Debug\ChitChat.vcxproj.SuggestedBindingRedirects.cache
 D:\ChitChat\ChitChat\x64\Debug\ChitChat.LoginForm.resources
 D:\ChitChat\ChitChat\x64\Debug\ChitChat.RegisterForm.resources
 D:\ChitChat\ChitChat\x64\Debug\ChitChat.vcxproj.GenerateResource.cache
+C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.vcxproj.AssemblyReference.cache
+C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.vcxproj.SuggestedBindingRedirects.cache
+C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.LoginForm.resources
+C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.RegisterForm.resources
+C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.StoryMain.resources
+C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.vcxproj.GenerateResource.cache
