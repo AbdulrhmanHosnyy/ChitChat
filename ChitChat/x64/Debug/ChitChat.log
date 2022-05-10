@@ -1,1 +1,13 @@
-﻿  ChitChat.vcxproj -> C:\Users\HP\source\repos\ChitChat\x64\Debug\ChitChat.exe
+﻿  AddStory.cpp
+C:\Users\HP\source\repos\ChitChat\ChitChat\LoginForm.h(394,21): warning C4101: 'e': unreferenced local variable
+C:\Users\HP\source\repos\ChitChat\ChitChat\AddStory.h(198,12): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  main.cpp
+C:\Users\HP\source\repos\ChitChat\ChitChat\LoginForm.h(394,21): warning C4101: 'e': unreferenced local variable
+C:\Users\HP\source\repos\ChitChat\ChitChat\RegisterForm.h(530,21): warning C4101: 'ex': unreferenced local variable
+C:\Users\HP\source\repos\ChitChat\ChitChat\AddStory.h(198,12): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\HP\source\repos\ChitChat\ChitChat\main.cpp(10,33): warning C4829: Possibly incorrect parameters to function main. Consider 'int main(Platform::Array<Platform::String^>^ argv)'
+  MyStory.cpp
+C:\Users\HP\source\repos\ChitChat\ChitChat\LoginForm.h(394,21): warning C4101: 'e': unreferenced local variable
+  Generating Code...
+  AddStory.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  ChitChat.vcxproj -> C:\Users\HP\source\repos\ChitChat\x64\Debug\ChitChat.exe

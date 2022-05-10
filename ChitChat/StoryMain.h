@@ -193,7 +193,7 @@ namespace ChitChat {
 			reader->Close();
 
 			//Changing the image of the story button if the user has any story
-			String^ sqlQuery1 = "SELECT Image FROM Stories WHERE CID = @CID;";
+			String^ sqlQuery1 = "SELECT Image FROM UserProfile WHERE CID = @CID;";
 			SqlCommand command1(sqlQuery1, % sqlConn);
 			command1.Parameters->AddWithValue("@CID", LoginForm::cont->Id);
 

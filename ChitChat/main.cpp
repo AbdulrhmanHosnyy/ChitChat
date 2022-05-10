@@ -2,10 +2,11 @@
 #include "DashForm.h"
 #include "RegisterForm.h"
 #include "StoryMain.h"
-
+#include "AddStory.h"
+#include "MyStory.h"
 using namespace System;
 using namespace System::Windows::Forms;
-
+[STAThreadAttribute]
 void main(array<String^>^ args) {
 
 
@@ -15,7 +16,8 @@ void main(array<String^>^ args) {
 	                    //////////////////////////
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-	
+	//ChitChat::AddStory addStory;
+	//addStory.ShowDialog();
 	Contacts^ cont = nullptr;
 	while (true)
 	{
@@ -24,7 +26,7 @@ void main(array<String^>^ args) {
 
 		if (loginForm.switchToRegister) {
 			ChitChat::RegisterForm registerForm;
-			registerForm.ShowDialog();
+	        registerForm.ShowDialog();
 
 			if (registerForm.switchToLogin) {
 				continue;
@@ -46,7 +48,7 @@ void main(array<String^>^ args) {
 		//MessageBox::Show("Login || Sign in Successfull......");
 		//this is will call a form of profile
 
-		ChitChat::StoryMain story;
+		ChitChat::AddStory story;
 		story.ShowDialog();
 	}
 	else {

@@ -115,9 +115,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AddStory.cpp" />
     <ClCompile Include="DashForm.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MyStory.cpp" />
     <ClCompile Include="RegisterForm.cpp" />
     <ClCompile Include="StoryMain.cpp" />
   </ItemGroup>
@@ -129,6 +131,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddStory.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Contacts.h" />
     <ClInclude Include="DashForm.h">
       <FileType>CppForm</FileType>
@@ -136,16 +141,26 @@
     <ClInclude Include="LoginForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MyStory.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="RegisterForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Story.h" />
     <ClInclude Include="StoryMain.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddStory.resx">
+      <DependentUpon>AddStory.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyStory.resx">
+      <DependentUpon>MyStory.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.h</DependentUpon>

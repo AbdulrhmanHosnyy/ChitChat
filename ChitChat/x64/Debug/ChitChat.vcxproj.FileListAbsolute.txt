@@ -9,3 +9,5 @@ C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.LoginForm.resource
 C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.RegisterForm.resources
 C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.StoryMain.resources
 C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.vcxproj.GenerateResource.cache
+C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.AddStory.resources
+C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.MyStory.resources
