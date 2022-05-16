@@ -1,6 +1,7 @@
   ChitChat.AddStory.resources - Embedded, ContainedInManifestFile, 
   ChitChat.FriendStory.resources - Embedded, ContainedInManifestFile, 
   ChitChat.LoginForm.resources - Embedded, ContainedInManifestFile, 
+  ChitChat.MyForm.resources - Embedded, ContainedInManifestFile, 
   ChitChat.MyStory.resources - Embedded, ContainedInManifestFile, 
   ChitChat.RegisterForm.resources - Embedded, ContainedInManifestFile, 
   ChitChat.StoryMain.resources - Embedded, ContainedInManifestFile, 
@@ -73,6 +74,12 @@ Class ChitChat.MyStory: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
 Class ChitChat.StoryMain: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class ChitChat.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 z : Public
+    cliext.queue<message ^\,cliext::deque<message ^> ^> q : Public
 Class ChitChat.Testy: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

@@ -13,4 +13,18 @@ C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.AddStory.resources
 C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.MyStory.resources
 C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.Testy.resources
 C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.FriendStory.resources
+<<<<<<< HEAD
 C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.UserProfileForm.resources
+=======
+C:\Users\LENOVO\Downloads\ChitChat\ChitChat\x64\Debug\ChitChat.vcxproj.AssemblyReference.cache
+C:\Users\LENOVO\Downloads\ChitChat\ChitChat\x64\Debug\ChitChat.vcxproj.SuggestedBindingRedirects.cache
+C:\Users\LENOVO\Downloads\ChitChat\ChitChat\x64\Debug\ChitChat.AddStory.resources
+C:\Users\LENOVO\Downloads\ChitChat\ChitChat\x64\Debug\ChitChat.FriendStory.resources
+C:\Users\LENOVO\Downloads\ChitChat\ChitChat\x64\Debug\ChitChat.LoginForm.resources
+C:\Users\LENOVO\Downloads\ChitChat\ChitChat\x64\Debug\ChitChat.MyStory.resources
+C:\Users\LENOVO\Downloads\ChitChat\ChitChat\x64\Debug\ChitChat.RegisterForm.resources
+C:\Users\LENOVO\Downloads\ChitChat\ChitChat\x64\Debug\ChitChat.StoryMain.resources
+C:\Users\LENOVO\Downloads\ChitChat\ChitChat\x64\Debug\ChitChat.Testy.resources
+C:\Users\LENOVO\Downloads\ChitChat\ChitChat\x64\Debug\ChitChat.vcxproj.GenerateResource.cache
+C:\Users\LENOVO\Downloads\ChitChat\ChitChat\x64\Debug\ChitChat.MyForm.resources
+>>>>>>> 16eb74b87615dd37fd72d95a7a2eb852ba834f9c

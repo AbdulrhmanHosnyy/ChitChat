@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  UserProfileForm.cpp
 C:\Users\HP\source\repos\ChitChat\ChitChat\LoginForm.h(394,21): warning C4101: 'e': unreferenced local variable
 C:\Users\HP\source\repos\ChitChat\ChitChat\UserProfileForm.h(354,1): warning C4965: implicit box of integer 0; use nullptr or explicit cast
@@ -11,3 +12,6 @@ C:\Users\HP\source\repos\ChitChat\ChitChat\main.cpp(13,33): warning C4829: Possi
   Generating Code...
   AddStory.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   ChitChat.vcxproj -> C:\Users\HP\source\repos\ChitChat\x64\Debug\ChitChat.exe
+=======
+﻿  ChitChat.vcxproj -> C:\Users\LENOVO\Downloads\ChitChat\x64\Debug\ChitChat.exe
+>>>>>>> 16eb74b87615dd37fd72d95a7a2eb852ba834f9c

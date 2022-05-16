@@ -42,7 +42,14 @@
     <ClCompile Include="FriendStory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="UserProfileForm.cpp">
+=======
+    <ClCompile Include="message.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyForm.cpp">
+>>>>>>> 16eb74b87615dd37fd72d95a7a2eb852ba834f9c
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -77,8 +84,17 @@
     <ClInclude Include="FriendStory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="UserProfileForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+=======
+    <ClInclude Include="message.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyForm.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+>>>>>>> 16eb74b87615dd37fd72d95a7a2eb852ba834f9c
   </ItemGroup>
 </Project>
