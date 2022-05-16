@@ -3,6 +3,7 @@
 #include "RegisterForm.h"
 #include "StoryMain.h"
 #include "AddStory.h"
+#include "MyForm.h"
 #include "MyStory.h"
 #include "Testy.h"
 #include "FriendStory.h"
@@ -50,7 +51,7 @@ void main(array<String^>^ args) {
 		//MessageBox::Show("Login || Sign in Successfull......");
 		//this is will call a form of profile
 
-		ChitChat::StoryMain story;
+		ChitChat::MyForm story;
 		story.ShowDialog();
 		
 	}

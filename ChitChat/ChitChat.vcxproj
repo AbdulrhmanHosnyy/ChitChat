@@ -120,6 +120,8 @@
     <ClCompile Include="FriendStory.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="message.cpp" />
+    <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="MyStory.cpp" />
     <ClCompile Include="RegisterForm.cpp" />
     <ClCompile Include="StoryMain.cpp" />
@@ -146,6 +148,10 @@
     <ClInclude Include="LoginForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="message.h" />
+    <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MyStory.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -169,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm.resx">
+      <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyStory.resx">
       <DependentUpon>MyStory.h</DependentUpon>
