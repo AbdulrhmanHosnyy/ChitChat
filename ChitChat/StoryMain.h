@@ -1,7 +1,11 @@
 #pragma once
 #include "Contacts.h"
 #include "LoginForm.h"
+#include "Story.h"
 #include <cliext/list>
+#include <ctime>
+#include "MyStory.h"
+#include "FriendStory.h"
 namespace ChitChat {
 
 	using namespace System;
@@ -14,9 +18,6 @@ namespace ChitChat {
 	using namespace System::IO;
 	using namespace	System::Collections::Generic;
 
-	/// <summary>
-	/// Summary for StoryMain
-	/// </summary>
 	public ref class StoryMain : public System::Windows::Forms::Form
 	{
 	public:
@@ -29,9 +30,6 @@ namespace ChitChat {
 		}
 
 	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
 		~StoryMain()
 		{
 			if (components)
@@ -41,7 +39,6 @@ namespace ChitChat {
 		}
 	private: System::Windows::Forms::Button^ GoBackButton;
 	private: System::Windows::Forms::Button^ AddStoryButton;
-	private: System::Windows::Forms::Button^ MyStoryButton;
 	private: System::Windows::Forms::Label^ MyStoryLabel1;
 	private: System::Windows::Forms::Label^ MyStoryLabel2;
 	private: System::Windows::Forms::PictureBox^ MyStoryPictureBox;
@@ -49,38 +46,28 @@ namespace ChitChat {
 	private: System::Windows::Forms::PictureBox^ FriendStoryPictureBox;
 	private: System::Windows::Forms::Label^ FriendStoryLabel1;
 	private: System::Windows::Forms::Label^ FriendStoryLabel2;
-
-
-
-	protected:
-
-	protected:
+	private: System::Windows::Forms::Button^ MyStoryButton;
 
 	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
 		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
+		
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(StoryMain::typeid));
 			this->GoBackButton = (gcnew System::Windows::Forms::Button());
 			this->AddStoryButton = (gcnew System::Windows::Forms::Button());
 			this->MyStoryButton = (gcnew System::Windows::Forms::Button());
-			this->MyStoryLabel1 = (gcnew System::Windows::Forms::Label());
 			this->MyStoryLabel2 = (gcnew System::Windows::Forms::Label());
 			this->MyStoryPictureBox = (gcnew System::Windows::Forms::PictureBox());
+			this->MyStoryLabel1 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->MyStoryPictureBox))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// GoBackButton
 			// 
+			this->GoBackButton->BackColor = System::Drawing::Color::Transparent;
 			this->GoBackButton->FlatAppearance->BorderColor = System::Drawing::Color::White;
 			this->GoBackButton->FlatAppearance->BorderSize = 0;
 			this->GoBackButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -89,47 +76,46 @@ namespace ChitChat {
 			this->GoBackButton->Name = L"GoBackButton";
 			this->GoBackButton->Size = System::Drawing::Size(43, 33);
 			this->GoBackButton->TabIndex = 0;
-			this->GoBackButton->UseVisualStyleBackColor = true;
+			this->GoBackButton->UseVisualStyleBackColor = false;
 			// 
 			// AddStoryButton
 			// 
-			this->AddStoryButton->FlatAppearance->BorderColor = System::Drawing::Color::White;
+			this->AddStoryButton->BackColor = System::Drawing::Color::Transparent;
+			this->AddStoryButton->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->AddStoryButton->FlatAppearance->BorderSize = 0;
+			this->AddStoryButton->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Black;
+			this->AddStoryButton->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Black;
 			this->AddStoryButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->AddStoryButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"AddStoryButton.Image")));
 			this->AddStoryButton->Location = System::Drawing::Point(243, 2);
 			this->AddStoryButton->Name = L"AddStoryButton";
 			this->AddStoryButton->Size = System::Drawing::Size(78, 66);
 			this->AddStoryButton->TabIndex = 1;
-			this->AddStoryButton->UseVisualStyleBackColor = true;
+			this->AddStoryButton->UseVisualStyleBackColor = false;
 			// 
 			// MyStoryButton
 			// 
+			this->MyStoryButton->BackColor = System::Drawing::Color::Transparent;
 			this->MyStoryButton->FlatAppearance->BorderColor = System::Drawing::Color::White;
+			this->MyStoryButton->FlatAppearance->BorderSize = 3;
+			this->MyStoryButton->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Black;
+			this->MyStoryButton->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Black;
 			this->MyStoryButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->MyStoryButton->ForeColor = System::Drawing::SystemColors::ControlText;
 			this->MyStoryButton->Location = System::Drawing::Point(24, 94);
 			this->MyStoryButton->Name = L"MyStoryButton";
 			this->MyStoryButton->Size = System::Drawing::Size(284, 65);
 			this->MyStoryButton->TabIndex = 2;
-			this->MyStoryButton->UseVisualStyleBackColor = true;
-			// 
-			// MyStoryLabel1
-			// 
-			this->MyStoryLabel1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->MyStoryLabel1->Font = (gcnew System::Drawing::Font(L"MV Boli", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->MyStoryLabel1->Location = System::Drawing::Point(115, 104);
-			this->MyStoryLabel1->Name = L"MyStoryLabel1";
-			this->MyStoryLabel1->Size = System::Drawing::Size(88, 22);
-			this->MyStoryLabel1->TabIndex = 3;
-			this->MyStoryLabel1->Text = L"My Story";
+			this->MyStoryButton->UseVisualStyleBackColor = false;
+			this->MyStoryButton->Click += gcnew System::EventHandler(this, &StoryMain::MyStoryButton_Click);
 			// 
 			// MyStoryLabel2
 			// 
+			this->MyStoryLabel2->BackColor = System::Drawing::Color::Transparent;
 			this->MyStoryLabel2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->MyStoryLabel2->Font = (gcnew System::Drawing::Font(L"MV Boli", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->MyStoryLabel2->ForeColor = System::Drawing::Color::Transparent;
 			this->MyStoryLabel2->Location = System::Drawing::Point(115, 126);
 			this->MyStoryLabel2->Name = L"MyStoryLabel2";
 			this->MyStoryLabel2->Size = System::Drawing::Size(186, 23);
@@ -138,6 +124,8 @@ namespace ChitChat {
 			// 
 			// MyStoryPictureBox
 			// 
+			this->MyStoryPictureBox->BackColor = System::Drawing::Color::Transparent;
+			this->MyStoryPictureBox->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->MyStoryPictureBox->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"MyStoryPictureBox.Image")));
 			this->MyStoryPictureBox->Location = System::Drawing::Point(37, 104);
 			this->MyStoryPictureBox->Name = L"MyStoryPictureBox";
@@ -146,11 +134,25 @@ namespace ChitChat {
 			this->MyStoryPictureBox->TabIndex = 4;
 			this->MyStoryPictureBox->TabStop = false;
 			// 
+			// MyStoryLabel1
+			// 
+			this->MyStoryLabel1->BackColor = System::Drawing::Color::Transparent;
+			this->MyStoryLabel1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->MyStoryLabel1->Font = (gcnew System::Drawing::Font(L"MV Boli", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->MyStoryLabel1->ForeColor = System::Drawing::Color::White;
+			this->MyStoryLabel1->Location = System::Drawing::Point(115, 104);
+			this->MyStoryLabel1->Name = L"MyStoryLabel1";
+			this->MyStoryLabel1->Size = System::Drawing::Size(116, 22);
+			this->MyStoryLabel1->TabIndex = 3;
+			this->MyStoryLabel1->Text = L"My Story";
+			// 
 			// StoryMain
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoScroll = true;
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->ClientSize = System::Drawing::Size(336, 440);
 			this->Controls->Add(this->MyStoryLabel2);
 			this->Controls->Add(this->MyStoryPictureBox);
@@ -167,15 +169,35 @@ namespace ChitChat {
 
 		}
 #pragma endregion
+	
 	//Creating a list to store friend ids inside
 	public: static List<int>^ FriendID;
-	private: System::Void StoryMain_Load(System::Object^ sender, System::EventArgs^ e) {
-		//Changing the date of the story button if the user has any story
+    //list of all user friends stories
+	public: static List<Story^>^ FriendStories;
+	private: Story^ story;
+    //to get last story date for each friend
+	private:static List<Story^>^ lastTime;
+	//bool to check if i have a story
+	private: bool hasStory = false;
+	private: System::Void StoryMain_Load(System::Object^ sender, System::EventArgs^) {
+		System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(StoryMain::typeid));
+		FriendID = gcnew List<int>();
+		FriendStories = gcnew List<Story^>();
+		lastTime = gcnew List<Story^>();
 		try
 		{
+			//Delete story if it has passsed 25 hours
+			time_t TimeDate = time(0);
+			int sid = (int)TimeDate - 86400;
 			String^ connString = "Data Source=.;Initial Catalog=ChitChatDB;Integrated Security=True";
 			SqlConnection sqlConn(connString);
 			sqlConn.Open();
+
+			String^ sqlQuery0 = "Delete FROM Stories WHERE  SID < " + sid;
+			SqlCommand command0(sqlQuery0, % sqlConn);
+			command0.ExecuteNonQuery();
+			//My Story button to update data
+			//Changing the date of the story button if the user has any story
 
 			String^ sqlQuery = "SELECT TimeDate FROM Stories WHERE CID = @CID;";
 			SqlCommand command(sqlQuery, % sqlConn);
@@ -188,9 +210,12 @@ namespace ChitChat {
 				if (!reader->IsDBNull(0))
 				{
 					MyStoryLabel2->Text = reader->GetString(0);
+					hasStory = true;
 				}
 			}
 			reader->Close();
+			//------------------------------------------------------------------------//
+
 
 			//Changing the image of the story button if the user has any story
 			String^ sqlQuery1 = "SELECT Image FROM UserProfile WHERE CID = @CID;";
@@ -208,6 +233,7 @@ namespace ChitChat {
 				}
 			}
 			reader1->Close();
+			//------------------------------------------------------------------------//
 
 			//Saving friends id in a list
 			String^ sqlQuery2 = "SELECT FID FROM HasContacts WHERE CID = @CID";
@@ -215,7 +241,7 @@ namespace ChitChat {
 			command2.Parameters->AddWithValue("@CID", LoginForm::cont->Id);
 
 			SqlDataReader^ reader2 = command2.ExecuteReader();
-			FriendID = gcnew List<int>();
+
 			while (reader2->Read())
 			{
 				if (reader2->HasRows)
@@ -224,7 +250,8 @@ namespace ChitChat {
 				}
 			}
 			reader2->Close();
-			//Saving friends id in a list
+			//----------------------------------------------------------------//
+
 			String^ sqlQuery3 = "SELECT CID FROM HasContacts WHERE FID = @FID";
 			SqlCommand command3(sqlQuery3, % sqlConn);
 			command3.Parameters->AddWithValue("@FID", LoginForm::cont->Id);
@@ -238,162 +265,238 @@ namespace ChitChat {
 				}
 			}
 			reader3->Close();
+			//---------------------------------------------------------------------//
+
+			//saving friends stories in a list
+			for (int i = 0; i < FriendID->Count; i++)
+			{
+				String^ sqlQuery4 = "SELECT * FROM Stories WHERE CID = @CID;";
+				SqlCommand command4(sqlQuery4, % sqlConn);
+				command4.Parameters->AddWithValue("@CID", FriendID[i]);
+				SqlDataReader^ reader4 = command4.ExecuteReader();
+				while (reader4->Read())
+				{
+					story = gcnew Story;
+					story->SID = reader4->GetInt32(0);
+					if (!reader4->IsDBNull(1))
+					{
+						MemoryStream^ m = gcnew MemoryStream((array<Byte>^)reader4[1]);
+						story->Img = Image::FromStream(m);
+					}
+					if (!reader4->IsDBNull(2))
+					{
+						story->Text = reader4->GetString(2);
+					}
+					else
+					{
+						story->Text = "";
+					}
+					story->TimeDate = reader4->GetString(3);
+					story->CID = reader4->GetInt32(4);
+					FriendStories->Add(story);
+				}
+				reader4->Close();
+			}
+			//------------------------------------------------------------------------//
 
 			sqlConn.Close();
 		}
 		catch (Exception^ e)
 		{
 			MessageBox::Show(e->Message, "Database Connection Error", MessageBoxButtons::OK);
-		}		
-		
-	//Showing friends story buttons
-	    System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(StoryMain::typeid));
-	    int y = 165;
-		for (int i = 0; i < FriendID->Count; i++)
+		}
+		//Showing friends story buttons
+		int y = 165;
+		bool f = false;
+		if (FriendStories->Count > 0)
 		{
-			String^ name = "________";
-			String^ TimeDate = "________";
-			MemoryStream^ m = nullptr;
-			Image^ img = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"MyStoryPictureBox.Image")));
-			try
+			for (int i = 0; i < FriendStories->Count; i++)
 			{
-				//Getting the name of the user who has story i
-				String^ connString = "Data Source=.;Initial Catalog=ChitChatDB;Integrated Security=True";
-				SqlConnection sqlConn(connString);
-				sqlConn.Open();
-
-				String^ sqlQuery = "SELECT Fname , Lname FROM Contacts WHERE CID = @CID;";
-				SqlCommand command(sqlQuery, % sqlConn);
-				command.Parameters->AddWithValue("@CID", FriendID[i]);
-
-				SqlDataReader^ reader = command.ExecuteReader();
-
-				if (reader->Read())
+				if (i == FriendStories->Count - 1 || ((FriendStories[i]->CID) != (FriendStories[i + 1]->CID)))
 				{
-					if (!reader->IsDBNull(0) || !reader->IsDBNull(1))
+					lastTime->Add(FriendStories[i]);
+				}
+			}
+			lastTime->Sort();
+			List<Story^>^ l = gcnew List<Story^>();
+			for each (Story^ var in lastTime)
+			{
+				for (int i = 0; i < FriendStories->Count; i++)
+				{
+					if (FriendStories[i]->CID == var->CID)
 					{
-						Name = reader->GetString(0);
-						Name += " ";
-						Name += reader->GetString(1);
+						l->Add(FriendStories[i]);
 					}
 				}
-				reader->Close();
+			}
+			FriendStories->Clear();
+			FriendStories = l;
+			delete [] l;
+			for (int i = 0; i < lastTime->Count; i++)
+			{
 
-				String^ sqlQuery1 = "SELECT TimeDate FROM Stories WHERE CID = @CID;";
-				SqlCommand command1(sqlQuery1, % sqlConn);
-				command1.Parameters->AddWithValue("@CID", FriendID[i]);
-
-				SqlDataReader^ reader1 = command1.ExecuteReader();
-
-				if (reader1->Read())
 				{
-					if (!reader1->IsDBNull(0))
+					String^ name = nullptr;
+					MemoryStream^ mm = gcnew MemoryStream();
+					bool flag = false;
+					try
 					{
-						TimeDate = reader1->GetString(0);
+						//Getting the name of the user who has story i
+						String^ connString = "Data Source=.;Initial Catalog=ChitChatDB;Integrated Security=True";
+						SqlConnection sqlConn(connString);
+						sqlConn.Open();
+
+						String^ sqlQuery = "SELECT Fname , Lname FROM Contacts WHERE CID = @CID;";
+						SqlCommand command(sqlQuery, % sqlConn);
+						command.Parameters->AddWithValue("@CID", lastTime[i]->CID);
+
+						SqlDataReader^ reader = command.ExecuteReader();
+
+						if (reader->Read())
+						{
+							if (!reader->IsDBNull(0) || !reader->IsDBNull(1))
+							{
+								Name = reader->GetString(0);
+								Name += " ";
+								Name += reader->GetString(1);
+							}
+						}
+						reader->Close();
+
+						//Changing the image of the user story button if the user has any story
+						String^ sqlQuery2 = "SELECT Image FROM UserProfile WHERE CID = @CID;";
+						SqlCommand command2(sqlQuery2, % sqlConn);
+						command2.Parameters->AddWithValue("@CID", lastTime[i]->CID);
+
+						SqlDataReader^ reader2 = command2.ExecuteReader();
+
+						if (reader2->Read())
+						{
+							if (!reader2->IsDBNull(0))
+							{
+								MemoryStream^ m = gcnew MemoryStream((array<Byte>^)reader2[0]);
+								mm = m;
+								flag = true;
+							}
+						}
+
+						reader2->Close();
+
+						sqlConn.Close();
 					}
-				}
-				reader1->Close();
-
-				//Changing the image of the user story button if the user has any story
-				//String^ sqlQuery2 = "SELECT Image FROM UserProfile WHERE CID = @CID;";
-				//SqlCommand command2(sqlQuery2, % sqlConn);
-				//command2.Parameters->AddWithValue("@CID", FriendID[i]);
-
-				//SqlDataReader^ reader2 = command2.ExecuteReader();
-
-				//if (reader2->Read())
-				{
-				//	if (!reader2->IsDBNull(0))
+					catch (Exception^ e)
 					{
-			//			m = gcnew MemoryStream((array<Byte>^)reader2[0]);
-				//		img = Image::FromStream(m);
+						MessageBox::Show(e->Message, "Database Connection Error", MessageBoxButtons::OK);
 					}
+
+					Button^ FriendStoryButton = gcnew Button();
+					this->FriendStoryPictureBox = (gcnew System::Windows::Forms::PictureBox());
+					this->FriendStoryLabel1 = (gcnew System::Windows::Forms::Label());
+					this->FriendStoryLabel2 = (gcnew System::Windows::Forms::Label());
+					(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->FriendStoryPictureBox))->EndInit();
+					FriendStoryButton->SuspendLayout();
+
+
+
+					//FriendStoryPictureBox
+
+
+					if (flag)
+					{
+						this->FriendStoryPictureBox->Image = Image::FromStream(mm);
+					}
+					else
+					{
+						this->FriendStoryPictureBox->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"MyStoryPictureBox.Image")));
+					}
+					this->FriendStoryPictureBox->BackColor = System::Drawing::Color::Transparent;
+					this->FriendStoryPictureBox->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+					this->FriendStoryPictureBox->Location = System::Drawing::Point(15, 10);
+					this->FriendStoryPictureBox->Name = L"FriendStoryPictureBox";
+					this->FriendStoryPictureBox->Size = System::Drawing::Size(58, 45);
+					this->FriendStoryPictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+					this->FriendStoryPictureBox->TabIndex = 4;
+					this->FriendStoryPictureBox->TabStop = false;
+
+					//FriendStoryLabel1
+					this->FriendStoryLabel1->BackColor = System::Drawing::Color::Transparent;
+					this->FriendStoryLabel1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+					this->FriendStoryLabel1->Font = (gcnew System::Drawing::Font(L"MV Boli", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+						static_cast<System::Byte>(0)));
+					this->FriendStoryLabel1->ForeColor = System::Drawing::Color::White;
+					this->FriendStoryLabel1->Location = System::Drawing::Point(90, 10);
+					this->FriendStoryLabel1->Name = L"FriendStoryLabel1";
+					this->FriendStoryLabel1->Size = System::Drawing::Size(116, 22);
+					this->FriendStoryLabel1->TabIndex = 3;
+					if (Name != nullptr)
+					{
+						this->FriendStoryLabel1->Text = Name;
+					}
+
+					//FriendStoryLabel2
+					this->FriendStoryLabel2->BackColor = System::Drawing::Color::Transparent;
+					this->FriendStoryLabel2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+					this->FriendStoryLabel2->Font = (gcnew System::Drawing::Font(L"MV Boli", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+						static_cast<System::Byte>(0)));
+					this->FriendStoryLabel2->ForeColor = System::Drawing::Color::White;
+					this->FriendStoryLabel2->Location = System::Drawing::Point(90, 32);
+					this->FriendStoryLabel2->Name = L"FriendStoryLabel2";
+					this->FriendStoryLabel2->Size = System::Drawing::Size(186, 23);
+					this->FriendStoryLabel2->TabIndex = 5;
+					this->FriendStoryLabel2->Text = lastTime[i]->TimeDate;
+
+					//FriendStoryButton
+					FriendStoryButton->BackColor = System::Drawing::Color::Transparent;
+					FriendStoryButton->FlatAppearance->BorderColor = System::Drawing::Color::White;
+					FriendStoryButton->FlatAppearance->BorderSize = 3;
+					FriendStoryButton->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Black;
+					FriendStoryButton->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Black;
+					FriendStoryButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+					FriendStoryButton->ForeColor = System::Drawing::SystemColors::ControlText;
+					FriendStoryButton->Location = System::Drawing::Point(24, y);
+					FriendStoryButton->Name = lastTime[i]->CID.ToString();
+					FriendStoryButton->Size = System::Drawing::Size(284, 65);
+					FriendStoryButton->TabIndex = 2;
+					FriendStoryButton->UseVisualStyleBackColor = false;
+					FriendStoryButton->Controls->Add(this->FriendStoryLabel1);
+					FriendStoryButton->Controls->Add(this->FriendStoryLabel2);
+					FriendStoryButton->Controls->Add(this->FriendStoryPictureBox);
+					FriendStoryButton->Click += gcnew System::EventHandler(this, &StoryMain::FriendStoryButton_Click);
+
+
+					FriendStoryButton->ResumeLayout(false);
+
+					this->Controls->Add(FriendStoryButton);
+
+					y += 70;
 				}
-				//reader2->Close();
-
-				sqlConn.Close();
-			}
-			catch (Exception^ e)
-			{
-				MessageBox::Show(e->Message, "Database Connection Error", MessageBoxButtons::OK);
 			}
 
-			Button^ FriendStoryButton = gcnew Button();
-			this->FriendStoryPictureBox = (gcnew System::Windows::Forms::PictureBox());
-			this->FriendStoryLabel1 = (gcnew System::Windows::Forms::Label());
-			this->FriendStoryLabel2 = (gcnew System::Windows::Forms::Label());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->FriendStoryPictureBox))->EndInit();
-			FriendStoryButton->SuspendLayout();
+		}
 
-				
-			// 
-			// FriendStoryPictureBox
-			//
-		
-			this->FriendStoryPictureBox->Image = img;
-			this->FriendStoryPictureBox->Location = System::Drawing::Point(15, 15);
-			this->FriendStoryPictureBox->Name = L"FriendStoryPictureBox";
-			this->FriendStoryPictureBox->Size = System::Drawing::Size(58, 45);
-			this->FriendStoryPictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->FriendStoryPictureBox->TabIndex = 4;
-			this->FriendStoryPictureBox->TabStop = false;
+	};
+	Button^ btn;
+	public: static int ButtonID;
+	private: System::Void FriendStoryButton_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		btn = (Button^)sender;
+		ButtonID = Convert::ToInt32(btn->Name);
+		FriendStory^ x = gcnew FriendStory(FriendStories , ButtonID);
+		Hide();
+		x->ShowDialog();
+		Show();
+	};
 
-			// 
-			// FriendStoryLabel1
-			// 
-			this->FriendStoryLabel1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->FriendStoryLabel1->Font = (gcnew System::Drawing::Font(L"MV Boli", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->FriendStoryLabel1->Location = System::Drawing::Point(90, 10);
-			this->FriendStoryLabel1->Name = L"FriendStoryLabel1";
-			this->FriendStoryLabel1->Size = System::Drawing::Size(88, 22);
-			this->FriendStoryLabel1->TabIndex = 3;
-			if (Name != nullptr)
-			{
-				this->FriendStoryLabel1->Text = Name;
-			}
-			// 
-			// FriendStoryLabel2
-			// 
-			this->FriendStoryLabel2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->FriendStoryLabel2->Font = (gcnew System::Drawing::Font(L"MV Boli", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->FriendStoryLabel2->Location = System::Drawing::Point(90, 32);
-			this->FriendStoryLabel2->Name = L"FriendStoryLabel2";
-			this->FriendStoryLabel2->Size = System::Drawing::Size(186, 23);
-			this->FriendStoryLabel2->TabIndex = 5;
-			if (TimeDate != nullptr)
-			{
-				this->FriendStoryLabel2->Text = TimeDate;
-			}
-
-			// 
-			// FriendStoryButton
-			// 
-			FriendStoryButton->FlatAppearance->BorderColor = System::Drawing::Color::White;
-			FriendStoryButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			FriendStoryButton->ForeColor = System::Drawing::SystemColors::ControlText;
-			FriendStoryButton->Location = System::Drawing::Point(24, y);
-			FriendStoryButton->Name = L"FriendStoryButton";
-			FriendStoryButton->Size = System::Drawing::Size(284, 65);
-			FriendStoryButton->TabIndex = 2;
-			FriendStoryButton->UseVisualStyleBackColor = true;
-			FriendStoryButton->Controls->Add(this->FriendStoryLabel1);
-			FriendStoryButton->Controls->Add(this->FriendStoryLabel2);
-			FriendStoryButton->Controls->Add(this->FriendStoryPictureBox);
-			FriendStoryButton->Click += gcnew System::EventHandler(this, &StoryMain::FriendStoryButton_Click);
-
-
-			FriendStoryButton->ResumeLayout(false);
-
-			this->Controls->Add(FriendStoryButton);
-
-			y += 70;
+	private: System::Void MyStoryButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (hasStory)
+		{
+			MyStory^ x = gcnew MyStory;
+			Hide();
+			x->ShowDialog();
+			Show();
 		}
 	}
-	private: System::Void FriendStoryButton_Click(System::Object ^ sender, System::EventArgs ^ e)
-	{
+};
 
-	}
-	};
 }
+

@@ -117,11 +117,13 @@
   <ItemGroup>
     <ClCompile Include="AddStory.cpp" />
     <ClCompile Include="DashForm.cpp" />
+    <ClCompile Include="FriendStory.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyStory.cpp" />
     <ClCompile Include="RegisterForm.cpp" />
     <ClCompile Include="StoryMain.cpp" />
+    <ClCompile Include="Testy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -138,6 +140,9 @@
     <ClInclude Include="DashForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="FriendStory.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="LoginForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -151,10 +156,16 @@
     <ClInclude Include="StoryMain.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Testy.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddStory.resx">
       <DependentUpon>AddStory.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FriendStory.resx">
+      <DependentUpon>FriendStory.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.h</DependentUpon>
@@ -167,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StoryMain.resx">
       <DependentUpon>StoryMain.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Testy.resx">
+      <DependentUpon>Testy.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

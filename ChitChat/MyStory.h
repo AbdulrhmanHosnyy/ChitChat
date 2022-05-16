@@ -15,24 +15,15 @@ namespace ChitChat {
 	using namespace	System::Collections::Generic;
 	using namespace cliext;
 
-	/// <summary>
-	/// Summary for MyStory
-	/// </summary>
 	public ref class MyStory : public System::Windows::Forms::Form
 	{
 	public:
 		MyStory(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
 		}
 
 	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
 		~MyStory()
 		{
 			if (components)
@@ -42,30 +33,21 @@ namespace ChitChat {
 		}
 	private: System::Windows::Forms::Button^ GoBackButton;
 	private: System::Windows::Forms::PictureBox^ MyPictureBox;
-
 	private: System::Windows::Forms::Label^ MyStoryLabel1;
 	private: System::Windows::Forms::Label^ MyStoryLabel2;
 	private: System::Windows::Forms::Button^ Delete;
 	private: System::Windows::Forms::PictureBox^ StoryImage;
-	private: System::Windows::Forms::Label^ StoryText;
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Button^ button2;
-
+	private: System::Windows::Forms::Button^ Next;
+	private: System::Windows::Forms::Button^ Previous;
+	private: System::Windows::Forms::Label^ MyStoryLabel3;
 
 	protected:
 
 
 	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyStory::typeid));
@@ -75,125 +57,139 @@ namespace ChitChat {
 			this->MyStoryLabel2 = (gcnew System::Windows::Forms::Label());
 			this->Delete = (gcnew System::Windows::Forms::Button());
 			this->StoryImage = (gcnew System::Windows::Forms::PictureBox());
-			this->StoryText = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->Next = (gcnew System::Windows::Forms::Button());
+			this->Previous = (gcnew System::Windows::Forms::Button());
+			this->MyStoryLabel3 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->MyPictureBox))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->StoryImage))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// GoBackButton
 			// 
+			this->GoBackButton->BackColor = System::Drawing::Color::Transparent;
 			this->GoBackButton->FlatAppearance->BorderColor = System::Drawing::Color::White;
 			this->GoBackButton->FlatAppearance->BorderSize = 0;
 			this->GoBackButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->GoBackButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"GoBackButton.Image")));
-			this->GoBackButton->Location = System::Drawing::Point(32, 12);
+			this->GoBackButton->Location = System::Drawing::Point(12, 12);
 			this->GoBackButton->Name = L"GoBackButton";
 			this->GoBackButton->Size = System::Drawing::Size(43, 33);
 			this->GoBackButton->TabIndex = 1;
-			this->GoBackButton->UseVisualStyleBackColor = true;
+			this->GoBackButton->UseVisualStyleBackColor = false;
+			this->GoBackButton->Click += gcnew System::EventHandler(this, &MyStory::GoBackButton_Click);
 			// 
 			// MyPictureBox
 			// 
+			this->MyPictureBox->BackColor = System::Drawing::Color::Transparent;
 			this->MyPictureBox->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->MyPictureBox->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"MyPictureBox.Image")));
-			this->MyPictureBox->Location = System::Drawing::Point(32, 51);
+			this->MyPictureBox->Location = System::Drawing::Point(22, 54);
 			this->MyPictureBox->Name = L"MyPictureBox";
 			this->MyPictureBox->Size = System::Drawing::Size(58, 45);
-			this->MyPictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->MyPictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->MyPictureBox->TabIndex = 5;
 			this->MyPictureBox->TabStop = false;
 			// 
 			// MyStoryLabel1
 			// 
+			this->MyStoryLabel1->BackColor = System::Drawing::Color::Transparent;
 			this->MyStoryLabel1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->MyStoryLabel1->Font = (gcnew System::Drawing::Font(L"MV Boli", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->MyStoryLabel1->Location = System::Drawing::Point(106, 54);
+			this->MyStoryLabel1->ForeColor = System::Drawing::Color::White;
+			this->MyStoryLabel1->Location = System::Drawing::Point(102, 54);
 			this->MyStoryLabel1->Name = L"MyStoryLabel1";
 			this->MyStoryLabel1->Size = System::Drawing::Size(88, 22);
 			this->MyStoryLabel1->TabIndex = 6;
-			this->MyStoryLabel1->Text = L"My Story";
 			this->MyStoryLabel1->Click += gcnew System::EventHandler(this, &MyStory::MyStoryLabel1_Click);
 			// 
 			// MyStoryLabel2
 			// 
+			this->MyStoryLabel2->BackColor = System::Drawing::Color::Transparent;
 			this->MyStoryLabel2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->MyStoryLabel2->Font = (gcnew System::Drawing::Font(L"MV Boli", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->MyStoryLabel2->Location = System::Drawing::Point(126, 76);
+			this->MyStoryLabel2->ForeColor = System::Drawing::Color::White;
+			this->MyStoryLabel2->Location = System::Drawing::Point(112, 76);
 			this->MyStoryLabel2->Name = L"MyStoryLabel2";
 			this->MyStoryLabel2->Size = System::Drawing::Size(186, 23);
 			this->MyStoryLabel2->TabIndex = 7;
-			this->MyStoryLabel2->Text = L"____________";
 			// 
 			// Delete
 			// 
+			this->Delete->BackColor = System::Drawing::Color::Transparent;
 			this->Delete->FlatAppearance->BorderColor = System::Drawing::Color::White;
 			this->Delete->FlatAppearance->BorderSize = 0;
 			this->Delete->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->Delete->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Delete.Image")));
-			this->Delete->Location = System::Drawing::Point(269, 12);
+			this->Delete->Location = System::Drawing::Point(304, 12);
 			this->Delete->Name = L"Delete";
-			this->Delete->Size = System::Drawing::Size(43, 33);
+			this->Delete->Size = System::Drawing::Size(43, 45);
 			this->Delete->TabIndex = 8;
-			this->Delete->UseVisualStyleBackColor = true;
+			this->Delete->UseVisualStyleBackColor = false;
+			this->Delete->Click += gcnew System::EventHandler(this, &MyStory::Delete_Click);
 			// 
 			// StoryImage
 			// 
+			this->StoryImage->BackColor = System::Drawing::Color::Transparent;
 			this->StoryImage->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->StoryImage->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"StoryImage.Image")));
-			this->StoryImage->Location = System::Drawing::Point(32, 112);
+			this->StoryImage->Location = System::Drawing::Point(12, 112);
 			this->StoryImage->Name = L"StoryImage";
-			this->StoryImage->Size = System::Drawing::Size(280, 201);
+			this->StoryImage->Size = System::Drawing::Size(335, 226);
 			this->StoryImage->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->StoryImage->TabIndex = 9;
 			this->StoryImage->TabStop = false;
 			// 
-			// StoryText
+			// Next
 			// 
-			this->StoryText->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->StoryText->Font = (gcnew System::Drawing::Font(L"MV Boli", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->Next->BackColor = System::Drawing::Color::Transparent;
+			this->Next->FlatAppearance->BorderColor = System::Drawing::Color::White;
+			this->Next->FlatAppearance->BorderSize = 0;
+			this->Next->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->Next->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Next.Image")));
+			this->Next->Location = System::Drawing::Point(304, 403);
+			this->Next->Name = L"Next";
+			this->Next->Size = System::Drawing::Size(43, 33);
+			this->Next->TabIndex = 11;
+			this->Next->UseVisualStyleBackColor = false;
+			this->Next->Click += gcnew System::EventHandler(this, &MyStory::Next_Click);
+			// 
+			// Previous
+			// 
+			this->Previous->BackColor = System::Drawing::Color::Transparent;
+			this->Previous->FlatAppearance->BorderColor = System::Drawing::Color::White;
+			this->Previous->FlatAppearance->BorderSize = 0;
+			this->Previous->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->Previous->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Previous.Image")));
+			this->Previous->Location = System::Drawing::Point(255, 403);
+			this->Previous->Name = L"Previous";
+			this->Previous->Size = System::Drawing::Size(43, 33);
+			this->Previous->TabIndex = 12;
+			this->Previous->UseVisualStyleBackColor = false;
+			this->Previous->Click += gcnew System::EventHandler(this, &MyStory::Previous_Click);
+			// 
+			// MyStoryLabel3
+			// 
+			this->MyStoryLabel3->BackColor = System::Drawing::Color::Transparent;
+			this->MyStoryLabel3->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->MyStoryLabel3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->MyStoryLabel3->Font = (gcnew System::Drawing::Font(L"MV Boli", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->StoryText->Location = System::Drawing::Point(29, 334);
-			this->StoryText->Name = L"StoryText";
-			this->StoryText->Size = System::Drawing::Size(283, 32);
-			this->StoryText->TabIndex = 10;
-			this->StoryText->Text = L"hello its abdulrhman";
-			// 
-			// button1
-			// 
-			this->button1->FlatAppearance->BorderColor = System::Drawing::Color::White;
-			this->button1->FlatAppearance->BorderSize = 0;
-			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.Image")));
-			this->button1->Location = System::Drawing::Point(284, 380);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(43, 33);
-			this->button1->TabIndex = 11;
-			this->button1->UseVisualStyleBackColor = true;
-			// 
-			// button2
-			// 
-			this->button2->FlatAppearance->BorderColor = System::Drawing::Color::White;
-			this->button2->FlatAppearance->BorderSize = 0;
-			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.Image")));
-			this->button2->Location = System::Drawing::Point(246, 380);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(43, 33);
-			this->button2->TabIndex = 12;
-			this->button2->UseVisualStyleBackColor = true;
+			this->MyStoryLabel3->ForeColor = System::Drawing::Color::White;
+			this->MyStoryLabel3->Location = System::Drawing::Point(12, 349);
+			this->MyStoryLabel3->Name = L"MyStoryLabel3";
+			this->MyStoryLabel3->Size = System::Drawing::Size(335, 37);
+			this->MyStoryLabel3->TabIndex = 14;
 			// 
 			// MyStory
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(339, 425);
-			this->Controls->Add(this->button2);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->StoryText);
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->ClientSize = System::Drawing::Size(359, 448);
+			this->Controls->Add(this->MyStoryLabel3);
+			this->Controls->Add(this->Previous);
+			this->Controls->Add(this->Next);
 			this->Controls->Add(this->StoryImage);
 			this->Controls->Add(this->Delete);
 			this->Controls->Add(this->MyStoryLabel2);
@@ -216,7 +212,7 @@ namespace ChitChat {
 	private:Story^ story = nullptr;
     private: Image^ img;
     private:static int i = 0;
-    private: bool flag = 0;
+    private: bool flag = false;
 private: System::Void MyStory_Load(System::Object^ sender, System::EventArgs^ e) {
 	System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyStory::typeid));
 	try {
@@ -236,7 +232,9 @@ private: System::Void MyStory_Load(System::Object^ sender, System::EventArgs^ e)
 			story->SID = reader->GetInt32(0);
 			if (!reader->IsDBNull(1))
 			{
-				story->Img = (array<Byte>^)(reader[1]);
+				flag = true;
+				MemoryStream^ m = gcnew MemoryStream((array<Byte>^)reader[1]);
+				story->Img = Image::FromStream(m);
 			}
 			if (!reader->IsDBNull(2))
 			{
@@ -244,7 +242,7 @@ private: System::Void MyStory_Load(System::Object^ sender, System::EventArgs^ e)
 			}
 			else
 			{
-				story->Text = nullptr;
+				story->Text = "";
 			}
 			story->TimeDate = reader->GetString(3);
 			story->CID = reader->GetInt32(4);
@@ -252,44 +250,101 @@ private: System::Void MyStory_Load(System::Object^ sender, System::EventArgs^ e)
 		}
 		reader->Close();
 		//getting my profile image
-		//String^ sqlQuery1 = "SELECT Image FROM UserProfile WHERE CID = @CID;";
-		//SqlCommand command1(sqlQuery1, % sqlConn);
-		//command1.Parameters->AddWithValue("@CID", LoginForm::cont->Id);
+		String^ sqlQuery1 = "SELECT Image FROM UserProfile WHERE CID = @CID;";
+		SqlCommand command1(sqlQuery1, % sqlConn);
+		command1.Parameters->AddWithValue("@CID", LoginForm::cont->Id);
 
-		//SqlDataReader^ reader1 = command1.ExecuteReader();
+		SqlDataReader^ reader1 = command1.ExecuteReader();
 
-		//if (reader1->Read())
+		if (reader1->Read())
 		{
-		//	if (!reader1->IsDBNull(0))
+			if (!reader1->IsDBNull(0))
 			{
-		//		MemoryStream^ m = gcnew MemoryStream((array<Byte>^)reader1[0]);
-		//		img = Image::FromStream(m);
+				MemoryStream^ m = gcnew MemoryStream((array<Byte>^)reader1[0]);
+				img = Image::FromStream(m);
+				this->MyPictureBox->Image = img;
 			}
 		}
-		//reader1->Close();
+		reader1->Close();
 		sqlConn.Close();
 	}
 	catch (Exception^ e)
 	{
 		MessageBox::Show(e->Message, "Database Connection Error", MessageBoxButtons::OK);
 	}
-	if (myStory->Count != 0)
-	{
-	//	if (img != nullptr)
-		//{
-		//	MyPictureBox->Image = img;
-		//}
+
 		MyStoryLabel2->Text = myStory[i]->TimeDate;
-		if (myStory[i]->Text != nullptr)
+		MyStoryLabel3->Text = myStory[i]->Text;
+		if (flag)
 		{
-			StoryText->Text = myStory[i]->Text;
+			StoryImage->Image = myStory[i]->Img;
 		}
-		if (!flag)
+
+}
+     public:bool switchToMainStory = false;
+private: System::Void Next_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (i == myStory->Count - 1)
+	{
+		//switchToMainStory = true;
+		this->Close();
+		i = 0;
+	}
+	else
+		i++;
+	MyStoryLabel2->Text = myStory[i]->TimeDate;
+	MyStoryLabel3->Text = myStory[i]->Text;
+	if (flag)
+	StoryImage->Image = myStory[i]->Img;
+}
+private: System::Void Previous_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (i == 0)
+	{
+		//switchToMainStory = true;
+		this->Close();
+		i = 0;
+	}
+	else
+		i--;
+	MyStoryLabel2->Text = myStory[i]->TimeDate;
+	MyStoryLabel3->Text = myStory[i]->Text;
+	if (flag)
+	StoryImage->Image = myStory[i]->Img;
+}
+
+private: System::Void Delete_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (MessageBox::Show("Are you sure you want to delete this story", "Confirm delete", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
+	{
+		try {
+			String^ connString = "Data Source=.;Initial Catalog=ChitChatDB;Integrated Security=True";
+			SqlConnection sqlConn(connString);
+			sqlConn.Open();
+			String^ sqlQuery = "Delete FROM Stories WHERE SID = " + myStory[i]->SID;
+			SqlCommand command(sqlQuery, % sqlConn);
+			command.ExecuteNonQuery();
+			sqlConn.Close();
+		}
+		catch (Exception^ e)
 		{
-			MemoryStream^ m = gcnew MemoryStream(myStory[i]->Img);
-			StoryImage->Image = Image::FromStream(m);
+			MessageBox::Show(e->Message, "Database Connection Error", MessageBoxButtons::OK);
+		}
+		myStory->RemoveAt(i);
+		if (i >= myStory->Count - 1)
+		{
+			i = 0;
+			this->Close();
+		}
+		else
+		{
+			MyStoryLabel2->Text = myStory[i]->TimeDate;
+			MyStoryLabel3->Text = myStory[i]->Text;
+			if (flag)
+				StoryImage->Image = myStory[i]->Img;
 		}
 	}
+}
+private: System::Void GoBackButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	i = 0;
+	this->Close();
 }
 };
 }

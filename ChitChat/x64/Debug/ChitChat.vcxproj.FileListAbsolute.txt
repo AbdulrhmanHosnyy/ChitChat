@@ -11,3 +11,5 @@ C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.StoryMain.resource
 C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.vcxproj.GenerateResource.cache
 C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.AddStory.resources
 C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.MyStory.resources
+C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.Testy.resources
+C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.FriendStory.resources

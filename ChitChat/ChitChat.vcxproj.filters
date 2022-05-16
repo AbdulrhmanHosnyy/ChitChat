@@ -36,6 +36,12 @@
     <ClCompile Include="MyStory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Testy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FriendStory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LoginForm.h">
@@ -60,6 +66,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Story.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Testy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FriendStory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
