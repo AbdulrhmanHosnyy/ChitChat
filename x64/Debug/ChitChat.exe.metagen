@@ -58,10 +58,6 @@ Class ChitChat.FriendStory: AutoLayout, AnsiClass, Class, Public, BeforeFieldIni
   :System.Windows.Forms.Form
     Void .ctor(System.Collections.Generic.List`1[Story], Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Fields:
-    System.Collections.Generic.List`1[Story] FriendStories : Public
-    Int32 ButtonID : Public
-    Int32 i : Public, Static
 Class ChitChat.RegisterForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -76,10 +72,6 @@ Class ChitChat.MyStory: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
 Class ChitChat.StoryMain: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Fields:
-    System.Collections.Generic.List`1[System.Int32] FriendID : Public, Static
-    System.Collections.Generic.List`1[Story] FriendStories : Public, Static
-    Int32 ButtonID : Public, Static
 Class ChitChat.Testy: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

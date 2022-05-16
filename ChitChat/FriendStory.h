@@ -19,8 +19,9 @@ namespace ChitChat {
 		{
 			InitializeComponent();
 		}
-		List<Story^>^ FriendStories = gcnew List<Story ^>();
-		int ButtonID;
+	private:List<Story^>^ FriendStories = gcnew List<Story ^>();
+	private:int ButtonID;
+	public:
 		FriendStory(List<Story^>^ l , int b)
 		{
 			for (int i = 0; i < l->Count; i++)
@@ -49,16 +50,10 @@ namespace ChitChat {
 	protected:
 
 	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
+		
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(FriendStory::typeid));
@@ -89,8 +84,10 @@ namespace ChitChat {
 			// GoBackButton
 			// 
 			this->GoBackButton->BackColor = System::Drawing::Color::Transparent;
-			this->GoBackButton->FlatAppearance->BorderColor = System::Drawing::Color::White;
+			this->GoBackButton->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->GoBackButton->FlatAppearance->BorderSize = 0;
+			this->GoBackButton->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Black;
+			this->GoBackButton->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Black;
 			this->GoBackButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->GoBackButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"GoBackButton.Image")));
 			this->GoBackButton->Location = System::Drawing::Point(12, 8);
@@ -151,8 +148,10 @@ namespace ChitChat {
 			// Next
 			// 
 			this->Next->BackColor = System::Drawing::Color::Transparent;
-			this->Next->FlatAppearance->BorderColor = System::Drawing::Color::White;
+			this->Next->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->Next->FlatAppearance->BorderSize = 0;
+			this->Next->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Black;
+			this->Next->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Black;
 			this->Next->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->Next->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Next.Image")));
 			this->Next->Location = System::Drawing::Point(313, 392);
@@ -165,8 +164,10 @@ namespace ChitChat {
 			// Previous
 			// 
 			this->Previous->BackColor = System::Drawing::Color::Transparent;
-			this->Previous->FlatAppearance->BorderColor = System::Drawing::Color::White;
+			this->Previous->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->Previous->FlatAppearance->BorderSize = 0;
+			this->Previous->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Black;
+			this->Previous->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Black;
 			this->Previous->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->Previous->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Previous.Image")));
 			this->Previous->Location = System::Drawing::Point(264, 392);
@@ -191,6 +192,7 @@ namespace ChitChat {
 			this->Controls->Add(this->GoBackButton);
 			this->Controls->Add(this->FriendPictureBox);
 			this->Name = L"FriendStory";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"FriendStory";
 			this->Load += gcnew System::EventHandler(this, &FriendStory::FriendStory_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->FriendPictureBox))->EndInit();
@@ -199,7 +201,7 @@ namespace ChitChat {
 
 		}
 #pragma endregion
-	public: static int i = 0;
+	private: static int i = 0;
 	private: System::Void FriendStory_Load(System::Object^ sender, System::EventArgs^ e) {
 		for (; i < FriendStories->Count; i++)
 		{
@@ -263,8 +265,8 @@ namespace ChitChat {
 private: System::Void Next_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (i == FriendStories->Count - 1)
 	{
-		this->Close();
 		i = 0;
+		this->Close();
 	}
 	else
 		i++;
@@ -323,8 +325,8 @@ private: System::Void Next_Click(System::Object^ sender, System::EventArgs^ e) {
 private: System::Void Previous_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (i == 0)
 	{
-		this->Close();
 		i = 0;
+		this->Close();
 	}
 	else
 		i--;
@@ -381,6 +383,7 @@ private: System::Void Previous_Click(System::Object^ sender, System::EventArgs^ 
 
 }
 private: System::Void GoBackButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	i = 0;
 	this->Close();
 }
 };

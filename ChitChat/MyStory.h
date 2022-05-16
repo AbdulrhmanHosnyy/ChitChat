@@ -67,8 +67,10 @@ namespace ChitChat {
 			// GoBackButton
 			// 
 			this->GoBackButton->BackColor = System::Drawing::Color::Transparent;
-			this->GoBackButton->FlatAppearance->BorderColor = System::Drawing::Color::White;
+			this->GoBackButton->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->GoBackButton->FlatAppearance->BorderSize = 0;
+			this->GoBackButton->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Black;
+			this->GoBackButton->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Black;
 			this->GoBackButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->GoBackButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"GoBackButton.Image")));
 			this->GoBackButton->Location = System::Drawing::Point(12, 12);
@@ -118,8 +120,10 @@ namespace ChitChat {
 			// Delete
 			// 
 			this->Delete->BackColor = System::Drawing::Color::Transparent;
-			this->Delete->FlatAppearance->BorderColor = System::Drawing::Color::White;
+			this->Delete->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->Delete->FlatAppearance->BorderSize = 0;
+			this->Delete->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Black;
+			this->Delete->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Black;
 			this->Delete->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->Delete->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Delete.Image")));
 			this->Delete->Location = System::Drawing::Point(304, 12);
@@ -143,8 +147,10 @@ namespace ChitChat {
 			// Next
 			// 
 			this->Next->BackColor = System::Drawing::Color::Transparent;
-			this->Next->FlatAppearance->BorderColor = System::Drawing::Color::White;
+			this->Next->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->Next->FlatAppearance->BorderSize = 0;
+			this->Next->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Black;
+			this->Next->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Black;
 			this->Next->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->Next->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Next.Image")));
 			this->Next->Location = System::Drawing::Point(304, 403);
@@ -157,8 +163,10 @@ namespace ChitChat {
 			// Previous
 			// 
 			this->Previous->BackColor = System::Drawing::Color::Transparent;
-			this->Previous->FlatAppearance->BorderColor = System::Drawing::Color::White;
+			this->Previous->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->Previous->FlatAppearance->BorderSize = 0;
+			this->Previous->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Black;
+			this->Previous->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Black;
 			this->Previous->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->Previous->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Previous.Image")));
 			this->Previous->Location = System::Drawing::Point(255, 403);
@@ -197,6 +205,7 @@ namespace ChitChat {
 			this->Controls->Add(this->MyPictureBox);
 			this->Controls->Add(this->GoBackButton);
 			this->Name = L"MyStory";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"MyStory";
 			this->Load += gcnew System::EventHandler(this, &MyStory::MyStory_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->MyPictureBox))->EndInit();

@@ -6,6 +6,7 @@
 #include <ctime>
 #include "MyStory.h"
 #include "FriendStory.h"
+#include "AddStory.h"
 namespace ChitChat {
 
 	using namespace System;
@@ -24,9 +25,6 @@ namespace ChitChat {
 		StoryMain(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
 		}
 
 	protected:
@@ -68,8 +66,10 @@ namespace ChitChat {
 			// GoBackButton
 			// 
 			this->GoBackButton->BackColor = System::Drawing::Color::Transparent;
-			this->GoBackButton->FlatAppearance->BorderColor = System::Drawing::Color::White;
+			this->GoBackButton->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->GoBackButton->FlatAppearance->BorderSize = 0;
+			this->GoBackButton->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Black;
+			this->GoBackButton->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Black;
 			this->GoBackButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->GoBackButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"GoBackButton.Image")));
 			this->GoBackButton->Location = System::Drawing::Point(12, 12);
@@ -92,6 +92,7 @@ namespace ChitChat {
 			this->AddStoryButton->Size = System::Drawing::Size(78, 66);
 			this->AddStoryButton->TabIndex = 1;
 			this->AddStoryButton->UseVisualStyleBackColor = false;
+			this->AddStoryButton->Click += gcnew System::EventHandler(this, &StoryMain::AddStoryButton_Click);
 			// 
 			// MyStoryButton
 			// 
@@ -171,9 +172,9 @@ namespace ChitChat {
 #pragma endregion
 	
 	//Creating a list to store friend ids inside
-	public: static List<int>^ FriendID;
+	private: static List<int>^ FriendID;
     //list of all user friends stories
-	public: static List<Story^>^ FriendStories;
+	private: static List<Story^>^ FriendStories;
 	private: Story^ story;
     //to get last story date for each friend
 	private:static List<Story^>^ lastTime;
@@ -186,7 +187,7 @@ namespace ChitChat {
 		lastTime = gcnew List<Story^>();
 		try
 		{
-			//Delete story if it has passsed 25 hours
+			//Delete story if it has passsed 24 hours
 			time_t TimeDate = time(0);
 			int sid = (int)TimeDate - 86400;
 			String^ connString = "Data Source=.;Initial Catalog=ChitChatDB;Integrated Security=True";
@@ -196,8 +197,10 @@ namespace ChitChat {
 			String^ sqlQuery0 = "Delete FROM Stories WHERE  SID < " + sid;
 			SqlCommand command0(sqlQuery0, % sqlConn);
 			command0.ExecuteNonQuery();
+
 			//My Story button to update data
-			//Changing the date of the story button if the user has any story
+			
+			 //Changing the date of the story button if the user has any story
 
 			String^ sqlQuery = "SELECT TimeDate FROM Stories WHERE CID = @CID;";
 			SqlCommand command(sqlQuery, % sqlConn);
@@ -475,18 +478,15 @@ namespace ChitChat {
 		}
 
 	};
-	Button^ btn;
-	public: static int ButtonID;
+	private:Button^ btn;
 	private: System::Void FriendStoryButton_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		btn = (Button^)sender;
-		ButtonID = Convert::ToInt32(btn->Name);
-		FriendStory^ x = gcnew FriendStory(FriendStories , ButtonID);
+		FriendStory^ x = gcnew FriendStory(FriendStories , Convert::ToInt32(btn->Name));
 		Hide();
 		x->ShowDialog();
 		Show();
-	};
-
+	}
 	private: System::Void MyStoryButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (hasStory)
 		{
@@ -496,7 +496,13 @@ namespace ChitChat {
 			Show();
 		}
 	}
-};
-
+private: System::Void AddStoryButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	AddStory^ addStory = gcnew AddStory;
+	Hide();
+	addStory->ShowDialog();
+	Show();
 }
+};
+}
+
 

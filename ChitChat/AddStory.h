@@ -11,9 +11,7 @@ namespace ChitChat {
 	using namespace System::Drawing;
 	using namespace System::IO;
 	using namespace System::Data::SqlClient;
-	/// <summary>
-	/// Summary for AddStory
-	/// </summary>
+	
 	public ref class AddStory : public System::Windows::Forms::Form
 	{
 	public:
@@ -30,6 +28,7 @@ namespace ChitChat {
 				delete components;
 			}
 		}
+
 	private: System::Windows::Forms::Button^ GoBackButton;
 	private: System::Windows::Forms::PictureBox^ PictureBox;
 	private: System::Windows::Forms::Label^ UploadImageLabel;
@@ -69,6 +68,7 @@ namespace ChitChat {
 			this->GoBackButton->Size = System::Drawing::Size(43, 33);
 			this->GoBackButton->TabIndex = 1;
 			this->GoBackButton->UseVisualStyleBackColor = false;
+			this->GoBackButton->Click += gcnew System::EventHandler(this, &AddStory::GoBackButton_Click);
 			// 
 			// PictureBox
 			// 
@@ -155,6 +155,7 @@ namespace ChitChat {
 			this->Controls->Add(this->GoBackButton);
 			this->ForeColor = System::Drawing::Color::Transparent;
 			this->Name = L"AddStory";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"AddStory";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PictureBox))->EndInit();
 			this->ResumeLayout(false);
@@ -162,9 +163,9 @@ namespace ChitChat {
 
 		}
 #pragma endregion
-		//Image variables
-		Image^ Img;
-		MemoryStream^ m = gcnew MemoryStream();
+	//Image variables
+	private:Image^ Img;
+	private:MemoryStream^ m = gcnew MemoryStream();
 	private:bool flag = false;
 	private: System::Void Label1_Click(System::Object^ sender, System::EventArgs^ e) {
 		//taking image from file
@@ -235,5 +236,8 @@ namespace ChitChat {
 		}
 	}
 
+private: System::Void GoBackButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
 };
 }
