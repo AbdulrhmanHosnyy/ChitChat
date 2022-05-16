@@ -52,13 +52,10 @@ void main(array<String^>^ args) {
 		//MessageBox::Show("Login || Sign in Successfull......");
 		//this is will call a form of profile
 
-<<<<<<< HEAD
 		ChitChat::UserProfileForm story;
-=======
-		ChitChat::MyForm story;
->>>>>>> 16eb74b87615dd37fd72d95a7a2eb852ba834f9c
+	
 		story.ShowDialog();
-		
+	
 	}
 	else {
 		MessageBox::Show("Login Canceled");
