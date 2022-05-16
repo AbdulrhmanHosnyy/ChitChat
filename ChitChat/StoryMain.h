@@ -286,6 +286,8 @@ namespace ChitChat {
 						MemoryStream^ m = gcnew MemoryStream((array<Byte>^)reader4[1]);
 						story->Img = Image::FromStream(m);
 					}
+
+
 					if (!reader4->IsDBNull(2))
 					{
 						story->Text = reader4->GetString(2);

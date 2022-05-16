@@ -59,8 +59,10 @@ namespace ChitChat {
 			// GoBackButton
 			// 
 			this->GoBackButton->BackColor = System::Drawing::Color::Transparent;
-			this->GoBackButton->FlatAppearance->BorderColor = System::Drawing::Color::White;
+			this->GoBackButton->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->GoBackButton->FlatAppearance->BorderSize = 0;
+			this->GoBackButton->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Black;
+			this->GoBackButton->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Black;
 			this->GoBackButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->GoBackButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"GoBackButton.Image")));
 			this->GoBackButton->Location = System::Drawing::Point(12, 12);

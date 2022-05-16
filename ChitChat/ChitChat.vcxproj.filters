@@ -42,6 +42,9 @@
     <ClCompile Include="FriendStory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UserProfileForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LoginForm.h">
@@ -72,6 +75,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FriendStory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserProfileForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

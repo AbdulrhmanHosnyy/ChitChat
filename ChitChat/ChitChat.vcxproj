@@ -124,6 +124,7 @@
     <ClCompile Include="RegisterForm.cpp" />
     <ClCompile Include="StoryMain.cpp" />
     <ClCompile Include="Testy.cpp" />
+    <ClCompile Include="UserProfileForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -159,6 +160,9 @@
     <ClInclude Include="Testy.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="UserProfileForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddStory.resx">
@@ -181,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Testy.resx">
       <DependentUpon>Testy.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserProfileForm.resx">
+      <DependentUpon>UserProfileForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
