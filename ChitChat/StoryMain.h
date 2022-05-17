@@ -77,6 +77,7 @@ namespace ChitChat {
 			this->GoBackButton->Size = System::Drawing::Size(43, 33);
 			this->GoBackButton->TabIndex = 0;
 			this->GoBackButton->UseVisualStyleBackColor = false;
+			this->GoBackButton->Click += gcnew System::EventHandler(this, &StoryMain::GoBackButton_Click);
 			// 
 			// AddStoryButton
 			// 
@@ -503,6 +504,9 @@ private: System::Void AddStoryButton_Click(System::Object^ sender, System::Event
 	Hide();
 	addStory->ShowDialog();
 	Show();
+}
+private: System::Void GoBackButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
 }
 };
 }

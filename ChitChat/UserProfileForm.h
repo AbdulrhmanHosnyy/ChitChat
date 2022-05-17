@@ -32,22 +32,16 @@ namespace ChitChat {
 
 
 	private: System::Windows::Forms::PictureBox^ MyPhoto;
-
 	private: System::Windows::Forms::TextBox^ BioTextBox;
 	private: System::Windows::Forms::Label^ modifiyBio;
 	private: System::Windows::Forms::Label^ modifiyPhoto;
 	private: System::Windows::Forms::Label^ MainLabel;
 	private: System::Windows::Forms::Button^ GoBackButton;
 	private: System::Windows::Forms::TextBox^ FNameTextBox;
-
-
 	private: System::Windows::Forms::Label^ FNameLabel;
 	private: System::Windows::Forms::TextBox^ LNameTextBox;
-
 	private: System::Windows::Forms::Label^ LNameLabel;
 	private: System::Windows::Forms::Button^ UploadButton;
-
-
 	private: System::Windows::Forms::Button^ Visability;
 	private: System::Windows::Forms::OpenFileDialog^ openFileDialog1;
 
@@ -153,6 +147,7 @@ namespace ChitChat {
 			this->GoBackButton->Size = System::Drawing::Size(38, 33);
 			this->GoBackButton->TabIndex = 45;
 			this->GoBackButton->UseVisualStyleBackColor = false;
+			this->GoBackButton->Click += gcnew System::EventHandler(this, &UserProfileForm::GoBackButton_Click);
 			// 
 			// FNameTextBox
 			// 
@@ -391,5 +386,8 @@ namespace ChitChat {
 		else
 			this->Visability->Text = "Visable";
 	}
+    private: System::Void GoBackButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
 };
 }

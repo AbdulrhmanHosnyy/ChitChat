@@ -1,6 +1,6 @@
 #pragma once
 #include "Contacts.h"
-
+#include <ctime>
 namespace ChitChat {
 
 	using namespace System;
@@ -10,26 +10,16 @@ namespace ChitChat {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::Data::SqlClient;
-
-	/// <summary>
-	/// Summary for RegisterForm
-	/// </summary>
 	public ref class RegisterForm : public System::Windows::Forms::Form
 	{
 	public:
 		RegisterForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
 			this->CenterToScreen();
 		}
 
 	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
 		~RegisterForm()
 		{
 			if (components)
@@ -39,26 +29,19 @@ namespace ChitChat {
 		}
 
 	private: System::Windows::Forms::TextBox^ tbFname;
-
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::TextBox^ tbLname;
-
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::TextBox^ tbPnumber;
-
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::TextBox^ tbPassword;
-
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::TextBox^ tbConfirmpassword;
-
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Button^ btnSubmit;
-
 	private: System::Windows::Forms::LinkLabel^ llLogin;
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Panel^ panel2;
-
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
@@ -79,18 +62,10 @@ namespace ChitChat {
 
 
 	protected:
-
-	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
+	private:	
 		System::ComponentModel::Container^ components;
-
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
+		
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(RegisterForm::typeid));
@@ -564,6 +539,9 @@ namespace ChitChat {
 		String^ Pnumber = tbPnumber->Text;
 		String^ Password = tbPassword->Text;
 		String^ ConfirmPassword = tbConfirmpassword->Text;
+		time_t TimeDate = time(0);
+		char* c = ctime(&TimeDate);
+		String^ LastSeen = gcnew String(c);
 
 		if (Fname->Length == 0 || Lname->Length == 0 ||
 			Pnumber->Length == 0 || Password->Length == 0) {
@@ -581,12 +559,13 @@ namespace ChitChat {
 			SqlConnection sqlConn(connString);
 			sqlConn.Open();
 
-			String^ sqlQuery1 = "INSERT INTO Contacts (Fname , Lname , Pnumber , Password) VALUES (@Fname , @Lname , @Pnumber , @Password);";
+			String^ sqlQuery1 = "INSERT INTO Contacts (Fname , Lname , Pnumber , Password , LastSeen) VALUES (@Fname , @Lname , @Pnumber , @Password , @LastSeen);";
 			SqlCommand command1(sqlQuery1, % sqlConn);
 			command1.Parameters->AddWithValue("@Fname", Fname);
 			command1.Parameters->AddWithValue("@Lname", Lname);
 			command1.Parameters->AddWithValue("@Pnumber", Pnumber);
 			command1.Parameters->AddWithValue("@Password", Password);
+			command1.Parameters->AddWithValue("@LastSeen", LastSeen);
 			command1.ExecuteNonQuery();
 
 			cont = gcnew Contacts;
@@ -594,6 +573,7 @@ namespace ChitChat {
 			cont->Lname = Lname;
 			cont->Pnumber = Pnumber;
 			cont->Password = Password;
+			cont->LastSeen = LastSeen;
 
 
 			String^ sqlQuery2 = "SELECT CID FROM Contacts WHERE Pnumber ='" + Pnumber + "';";
@@ -612,6 +592,7 @@ namespace ChitChat {
 			command3.Parameters->AddWithValue("Visability", 1);
 			command3.ExecuteNonQuery();
 
+			this->switchToLogin = true;
 			this->Close();
 		}
 		catch (Exception^ ex) {

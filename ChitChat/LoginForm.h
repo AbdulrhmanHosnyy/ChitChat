@@ -11,24 +11,15 @@ namespace ChitChat {
 	using namespace System::Drawing;
 	using namespace System::Data::SqlClient;
 
-	/// <summary>
-	/// Summary for LoginForm
-	/// </summary>
 	public ref class LoginForm : public System::Windows::Forms::Form
 	{
 	public:
 		LoginForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
 		}
 
 	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
 		~LoginForm()
 		{
 			if (components)
@@ -41,10 +32,8 @@ namespace ChitChat {
 
 
 	private: System::Windows::Forms::TextBox^ tbPnumber;
-
 	private: System::Windows::Forms::TextBox^ tbPassword;
 	private: System::Windows::Forms::Button^ btnSubmit;
-
 	private: System::Windows::Forms::LinkLabel^ llRegister;
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Label^ label5;
@@ -59,23 +48,16 @@ namespace ChitChat {
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::Label^ label6;
-
 	private: System::Windows::Forms::PictureBox^ pictureBox3;
 	private: System::Windows::Forms::PictureBox^ pictureBox4;
 
 
 
 	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
 		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
+		
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(LoginForm::typeid));
@@ -414,6 +396,7 @@ namespace ChitChat {
 				cont->Lname = reader->GetString(2);
 				cont->Pnumber = reader->GetString(3);
 				cont->Password = reader->GetString(4);
+				cont->LastSeen = reader->GetString(5);
 
 				sqlConn.Close();
 				this->Close();

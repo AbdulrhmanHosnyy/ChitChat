@@ -11,24 +11,15 @@ namespace ChitChat {
 	using namespace System::Drawing;
 	using namespace System::Data::SqlClient;
 
-	/// <summary>
-	/// Summary for AddForm
-	/// </summary>
 	public ref class AddForm : public System::Windows::Forms::Form
 	{
 	public:
 		AddForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
 		}
 
 	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
 		~AddForm()
 		{
 			if (components)
@@ -40,7 +31,6 @@ namespace ChitChat {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Panel^ panel3;
 	private: System::Windows::Forms::TextBox^ tbFnumber;
-
 	private: System::Windows::Forms::Button^ btnAdd;
 	private: System::Windows::Forms::Button^ btnCancel;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
@@ -50,17 +40,10 @@ namespace ChitChat {
 
 	protected:
 
-	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
+	private:	
 		System::ComponentModel::Container^ components;
-
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
+		
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(AddForm::typeid));
@@ -205,7 +188,7 @@ namespace ChitChat {
 
 			String^ sqlQuery1 = "SELECT CID FROM Contacts WHERE Pnumber=@Pnumber;";
 
-			int id;
+			int id = 0;
 			SqlCommand command1(sqlQuery1, % sqlConn);
 			command1.Parameters->AddWithValue("@Pnumber", Pnumber);
 			SqlDataReader^ reader = command1.ExecuteReader();
@@ -213,24 +196,104 @@ namespace ChitChat {
 			{
 				id = reader->GetInt32(0);
 			}
+			reader->Close();
+			if (id == 0 || id == LoginForm::cont->Id)
+			{
+				MessageBox::Show("This user has no account !!");
+				this->Close();
+			}
+			else
+			{
+				bool flag = false;
+				String^ sqlQuery3 = "SELECT CID FROM HasContacts WHERE CID = @CID AND FID = @FID;";
 
+				SqlCommand command3(sqlQuery3, % sqlConn);
+				command3.Parameters->AddWithValue("@CID", LoginForm::cont->Id);
+				command3.Parameters->AddWithValue("@FID", id);
+				SqlDataReader^ reader3 = command3.ExecuteReader();
+				if (reader3->Read())
+				{
+					if (!reader3->IsDBNull(0))
+					{
+						flag = true;
+					}
+				}
+				reader3->Close();
+
+				String^ sqlQuery4 = "SELECT CID FROM HasContacts WHERE CID = @CID AND FID = @FID;";
+
+				SqlCommand command4(sqlQuery4, % sqlConn);
+				command4.Parameters->AddWithValue("@CID", id);
+				command4.Parameters->AddWithValue("@FID", LoginForm::cont->Id);
+				SqlDataReader^ reader4 = command4.ExecuteReader();
+				if (reader4->Read())
+				{
+					if (!reader4->IsDBNull(0))
+					{
+						flag = true;
+					}
+				}
+				reader4->Close();
+
+				if (!flag)
+				{
+					String^ sqlQuery2 = "INSERT INTO HasContacts (CID , FID) VALUES (@CID , @FID);";
+
+					SqlCommand command2(sqlQuery2, % sqlConn);
+					command2.Parameters->AddWithValue("@CID ", LoginForm::cont->Id);
+					command2.Parameters->AddWithValue("@FID ", id);
+
+					command2.ExecuteNonQuery();
+
+					String^ sqlQuery9 = "INSERT INTO ChatRooms (Type)  VALUES (@Type);";
+
+					SqlCommand command9(sqlQuery9, % sqlConn);
+					command9.Parameters->AddWithValue("@Type ", 0);
+					command9.ExecuteNonQuery();
+
+					int chid;
+					String^ sqlQuery5 = "SELECT CHID FROM Chatrooms;";
+					SqlCommand command5(sqlQuery5, % sqlConn);
+					SqlDataReader^ reader5 = command5.ExecuteReader();
+					while (reader5->Read())
+					{
+						if (!reader5->IsDBNull(0))
+						{
+							chid = reader5->GetInt32(0);
+						}
+					}
+					reader5->Close();
+
+					String^ sqlQuery7 = "INSERT INTO HasChatRoom (CHID , CID) VALUES (@CHID , @CID);";
+
+					SqlCommand command7(sqlQuery7, % sqlConn);
+					command7.Parameters->AddWithValue("@CID", LoginForm::cont->Id);
+					command7.Parameters->AddWithValue("@CHID", chid);
+					command7.ExecuteNonQuery();
+
+
+					String^ sqlQuery6 = "INSERT INTO HasChatRoom (CHID , CID) VALUES (@CHID , @CID);";
+
+					SqlCommand command6(sqlQuery6, % sqlConn);
+					command6.Parameters->AddWithValue("@CID", id);
+					command6.Parameters->AddWithValue("@CHID", chid);
+					command6.ExecuteNonQuery();
+
+					MessageBox::Show("Adding Successfully");
+
+				}
+				else
+				{
+					MessageBox::Show("You are already friends!");
+					this->Close();
+				}
+
+			}
 			sqlConn.Close();
-			sqlConn.Open();
-
-			String^ sqlQuery2 = "INSERT INTO HasContacts (CID , FID) VALUES (@CID , @FID);";
-
-			SqlCommand command2(sqlQuery2, % sqlConn);
-			command2.Parameters->AddWithValue("@CID ", LoginForm::cont->Id);
-			command2.Parameters->AddWithValue("@FID ", id);
-
-			command2.ExecuteNonQuery();
-
-			sqlConn.Close();
-			MessageBox::Show("Adding Successfully");
 			this->Close();
 		}
 		catch (Exception^ ex) {
-			MessageBox::Show("Failed to Add this Freind");
+			MessageBox::Show(ex->Message);
 		}
 	}
 	};

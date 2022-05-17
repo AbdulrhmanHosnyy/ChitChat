@@ -9,5 +9,6 @@ public:
 	String^ Lname;
 	String^ Pnumber;
 	String^ Password;
+	String^ LastSeen;
 };
 #pragma once
