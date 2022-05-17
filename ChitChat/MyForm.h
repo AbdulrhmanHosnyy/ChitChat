@@ -25,9 +25,16 @@ namespace ChitChat {
 	{
 	public:
 		int z = 1;
+		bool group;
 		cliext::queue<message^>^ q;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Label^ name_txt;
+
+
 	public:
+
+
+
 	private: System::Windows::Forms::FlowLayoutPanel^ container_pnl;
 
 
@@ -39,7 +46,17 @@ namespace ChitChat {
 			//TODO: Add the constructor code here
 			//
 		}
-
+	private:
+		int chatID;
+	public:
+		MyForm(int b)
+		{
+			chatID = b;
+			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			//
+		}
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -67,7 +84,7 @@ namespace ChitChat {
 
 
 	private: System::Windows::Forms::Label^ msg_text;
-	
+
 	private: System::Windows::Forms::CheckBox^ seen_box;
 
 
@@ -95,6 +112,7 @@ namespace ChitChat {
 			this->send_bt = (gcnew System::Windows::Forms::Button());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->msg_pnl = (gcnew System::Windows::Forms::Panel());
+			this->name_txt = (gcnew System::Windows::Forms::Label());
 			this->seen_box = (gcnew System::Windows::Forms::CheckBox());
 			this->msg_time = (gcnew System::Windows::Forms::Label());
 			this->msg_text = (gcnew System::Windows::Forms::Label());
@@ -103,6 +121,7 @@ namespace ChitChat {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->send_pnl->SuspendLayout();
 			this->msg_pnl->SuspendLayout();
+			this->container_pnl->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// top_panal
@@ -194,6 +213,7 @@ namespace ChitChat {
 			// msg_pnl
 			// 
 			this->msg_pnl->BackColor = System::Drawing::Color::Beige;
+			this->msg_pnl->Controls->Add(this->name_txt);
 			this->msg_pnl->Controls->Add(this->seen_box);
 			this->msg_pnl->Controls->Add(this->msg_time);
 			this->msg_pnl->Controls->Add(this->msg_text);
@@ -202,6 +222,19 @@ namespace ChitChat {
 			this->msg_pnl->Padding = System::Windows::Forms::Padding(10);
 			this->msg_pnl->Size = System::Drawing::Size(575, 63);
 			this->msg_pnl->TabIndex = 0;
+			// 
+			// name_txt
+			// 
+			this->name_txt->AutoSize = true;
+			this->name_txt->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->name_txt->Font = (gcnew System::Drawing::Font(L"MV Boli", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->name_txt->Location = System::Drawing::Point(31, 0);
+			this->name_txt->Name = L"name_txt";
+			this->name_txt->Size = System::Drawing::Size(38, 17);
+			this->name_txt->TabIndex = 3;
+			this->name_txt->Text = L"label1";
 			// 
 			// seen_box
 			// 
@@ -241,6 +274,7 @@ namespace ChitChat {
 			this->container_pnl->AutoScroll = true;
 			this->container_pnl->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"container_pnl.BackgroundImage")));
 			this->container_pnl->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			//this->container_pnl->Controls->Add(this->msg_pnl);
 			this->container_pnl->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->container_pnl->Location = System::Drawing::Point(0, 83);
 			this->container_pnl->Name = L"container_pnl";
@@ -265,6 +299,7 @@ namespace ChitChat {
 			this->send_pnl->PerformLayout();
 			this->msg_pnl->ResumeLayout(false);
 			this->msg_pnl->PerformLayout();
+			this->container_pnl->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}
@@ -286,18 +321,18 @@ namespace ChitChat {
 				String^ sqlQuery = "INSERT INTO Messages (Text , CID , CHID ,Type ,Date ,Time) VALUES (@text , @cid , @chid ,@type ,@date , @time);";
 
 				SqlCommand cmd(sqlQuery, connection);
-				
+
 				time_t TimeDate = time(0);
 				char* c = ctime(&TimeDate);
 
 				int Time = int(c);
-				
-				String  ^ STimeDate = gcnew String(c);
-				STimeDate = STimeDate->Substring(11 , 5);
-				
+
+				String^ STimeDate = gcnew String(c);
+				STimeDate = STimeDate->Substring(11, 5);
+
 				cmd.Parameters->AddWithValue("@text", this->textBox1->Text);
 				cmd.Parameters->AddWithValue("@cid", LoginForm::cont->Id);
-				cmd.Parameters->AddWithValue("@chid", 1);
+				cmd.Parameters->AddWithValue("@chid", 2);
 				cmd.Parameters->AddWithValue("@type", false);
 				cmd.Parameters->AddWithValue("@date", STimeDate);
 				cmd.Parameters->AddWithValue("@time", Time);
@@ -333,9 +368,10 @@ namespace ChitChat {
 					connection->Open();
 				}
 
-				String^ sqlQuery = "SELECT MID,Text , Time , CID , Type ,Date FROM Messages WHERE CHID = '1' ;";
+				String^ sqlQuery = "SELECT MID,Text , Time , CID , Type ,Date FROM Messages WHERE CHID = '3' ;";
 
 				SqlCommand cmd(sqlQuery, connection);
+				cmd.Parameters->AddWithValue("@CID", chatID);
 				SqlDataReader^ reader = cmd.ExecuteReader();
 
 				int chid = 1;
@@ -343,7 +379,7 @@ namespace ChitChat {
 				while (reader->Read())
 				{
 
-					message^ m = gcnew message((int)reader[0], (int)chid, (String^)reader[1]->ToString(), (bool)reader[4], (String^)reader[2]->ToString(), (int)reader[3],reader[5]->ToString());
+					message^ m = gcnew message((int)reader[0], (int)chid, (String^)reader[1]->ToString(), (bool)reader[4], (String^)reader[2]->ToString(), (int)reader[3], reader[5]->ToString());
 
 
 					q->push(m);
@@ -353,125 +389,312 @@ namespace ChitChat {
 
 				}
 				reader->Close();
+
+
+
+
 			}
 			catch (Exception^ e)
 			{
 				MessageBox::Show(e->Message);
 			}
 
-			
 
-			for (int j = 0; j < i; j++)
+			try
 			{
-				if (z == 1) {
+				if (connection->State != ConnectionState::Open) {
+					connection->Open();
+				}
 
-					this->msg_pnl = (gcnew System::Windows::Forms::Panel());
-					this->msg_time = (gcnew System::Windows::Forms::Label());
-					this->msg_text = (gcnew System::Windows::Forms::Label());
-					this->seen_box = (gcnew System::Windows::Forms::CheckBox());
+				String^ sqlQuery = "SELECT Type FROM Chatrooms WHERE CHID = '3' ;";
+				SqlCommand cmd(sqlQuery, connection);
+				SqlDataReader^ reader = cmd.ExecuteReader();
+				reader->Read();
+				group = (bool)reader[0];
+				reader->Close();
 
-					message^ n = gcnew message();
-					n = q->front();
-					q->pop();
-
-
-					//String^ STimeDate = gcnew String(n->get_time());
-					//STimeDate = STimeDate->Substring(11, 5);
-
-					this->msg_text->Text = n->get_msg();
-					this->msg_time->Text = n->get_date();
-
-
-					// 
-					// msg_pnl
-					// 
+			}
+			catch (Exception^ e)
+			{
+				MessageBox::Show(e->Message);
+			}
 
 
 
-					
-					this->msg_pnl->Controls->Add(this->msg_time);
-					this->msg_pnl->Controls->Add(this->msg_text);
-					
-					this->msg_pnl->Location = System::Drawing::Point(6, 0);
-					this->msg_pnl->Name = L"msg_pnl";
-					this->msg_pnl->Size = System::Drawing::Size(300, 63);
-					this->msg_pnl->TabIndex = 0;
-					// 
-					// msg_time
-					// 
-					this->msg_time->AutoSize = true;
 
-					this->msg_time->Name = L"msg_time";
-					this->msg_time->Size = System::Drawing::Size(44, 16);
-					this->msg_time->TabIndex = 1;
-					//this->msg_time->Text = L"label1";
-					// 
-					// msg_text
-					// 
-					this->msg_text->AutoSize = true;
-					if (n->get_usereid() == LoginForm::cont->Id) {
-						this->msg_pnl->Margin = System::Windows::Forms::Padding(0, 10, 200, 10);
-						this->msg_pnl->BackColor = System::Drawing::Color::Beige;
-						this->msg_text->Location = System::Drawing::Point(30, 21);
-						this->msg_time->Location = System::Drawing::Point(240, 47);
-						this->seen_box->Location = System::Drawing::Point(200, 45);
-						this->msg_pnl->Controls->Add(this->seen_box);
-					}
-					else 
-					{
-						
-						this->msg_pnl->Margin = System::Windows::Forms::Padding(200, 10, 0, 10);
-						this->msg_pnl->BackColor = System::Drawing::Color::DarkGoldenrod;
-						this->msg_text->Location = System::Drawing::Point(30, 21);
-						this->msg_time->Location = System::Drawing::Point(250, 47);
-						
-					}
+			if (group == false) {
+
+				for (int j = 0; j < i; j++)
+				{
+					if (z == 1) {
+
+						this->msg_pnl = (gcnew System::Windows::Forms::Panel());
+						this->msg_time = (gcnew System::Windows::Forms::Label());
+						this->msg_text = (gcnew System::Windows::Forms::Label());
+						this->seen_box = (gcnew System::Windows::Forms::CheckBox());
+
+						message^ n = gcnew message();
+						n = q->front();
+						q->pop();
 
 
-					
-					this->msg_text->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-						static_cast<System::Byte>(0)));
+						//String^ STimeDate = gcnew String(n->get_time());
+						//STimeDate = STimeDate->Substring(11, 5);
 
-					this->msg_text->Name = L"msg_text";
-					this->msg_text->Size = System::Drawing::Size(50, 15);
-					this->msg_text->TabIndex = 0;
-					//this->msg_text->Text = L"label1";
+						this->msg_text->Text = n->get_msg();
+						this->msg_time->Text = n->get_date();
 
-					// seen_box
+
 						// 
-					 
+						// msg_pnl
+						// 
 
-					if (n->getType() == 0) {
-						this->seen_box->Checked = false;
+
+
+						this->msg_pnl->Controls->Add(this->msg_time);
+						this->msg_pnl->Controls->Add(this->msg_text);
+
+						this->msg_pnl->Location = System::Drawing::Point(6, 0);
+						this->msg_pnl->Name = L"msg_pnl";
+						this->msg_pnl->Size = System::Drawing::Size(300, 63);
+						this->msg_pnl->TabIndex = 0;
+						// 
+						// msg_time
+						// 
+						this->msg_time->AutoSize = true;
+
+						this->msg_time->Name = L"msg_time";
+						this->msg_time->Size = System::Drawing::Size(44, 16);
+						this->msg_time->TabIndex = 1;
+						//this->msg_time->Text = L"label1";
+						// 
+						// msg_text
+						// 
+						this->msg_text->AutoSize = true;
+						if (n->get_usereid() == LoginForm::cont->Id) {
+							this->msg_pnl->Margin = System::Windows::Forms::Padding(0, 10, 200, 10);
+							this->msg_pnl->BackColor = System::Drawing::Color::Beige;
+							this->msg_text->Location = System::Drawing::Point(30, 21);
+							this->msg_time->Location = System::Drawing::Point(240, 47);
+							this->seen_box->Location = System::Drawing::Point(200, 45);
+							this->msg_pnl->Controls->Add(this->seen_box);
+						}
+						else
+						{
+
+							this->msg_pnl->Margin = System::Windows::Forms::Padding(200, 10, 0, 10);
+							this->msg_pnl->BackColor = System::Drawing::Color::DarkGoldenrod;
+							this->msg_text->Location = System::Drawing::Point(30, 21);
+							this->msg_time->Location = System::Drawing::Point(250, 47);
+							
+
+						}
+
+
+
+						this->msg_text->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+							static_cast<System::Byte>(0)));
+
+						this->msg_text->Name = L"msg_text";
+						this->msg_text->Size = System::Drawing::Size(50, 15);
+						this->msg_text->TabIndex = 0;
+						//this->msg_text->Text = L"label1";
+
+						// seen_box
+							// 
+
+
+						if (n->getType() == 0) {
+							this->seen_box->Checked = false;
+						}
+						else {
+							this->seen_box->Checked = true;
+
+						}
+
+
+						this->seen_box->AutoSize = true;
+						this->seen_box->Enabled = false;
+						this->seen_box->Name = L"seen_box";
+						this->seen_box->Size = System::Drawing::Size(59, 20);
+						this->seen_box->TabIndex = 2;
+						this->seen_box->Text = L"seen";
+						this->seen_box->UseVisualStyleBackColor = true;
+						// 
+
+						
+
+
+
+
+
+
+
+						this->container_pnl->Controls->Add(this->msg_pnl);
+
+						//	y += 70;
+
+
+
 					}
-					else {
-						this->seen_box->Checked = true;
-
-					}
-
-
-					this->seen_box->AutoSize = true;
-					this->seen_box->Enabled = false;
-					this->seen_box->Name = L"seen_box";
-					this->seen_box->Size = System::Drawing::Size(59, 20);
-					this->seen_box->TabIndex = 2;
-					this->seen_box->Text = L"seen";
-					this->seen_box->UseVisualStyleBackColor = true;
-					// 
-
-
-
-					this->container_pnl->Controls->Add(this->msg_pnl);
-
-					//	y += 70;
-
 
 
 				}
+				z = 0;
+
+
 
 			}
-			z = 0;
 
+			else {
+
+				for (int j = 0; j < i; j++)
+				{
+					
+					
+
+					if (z == 1) {
+
+						this->msg_pnl = (gcnew System::Windows::Forms::Panel());
+						this->msg_time = (gcnew System::Windows::Forms::Label());
+						this->msg_text = (gcnew System::Windows::Forms::Label());
+						this->seen_box = (gcnew System::Windows::Forms::CheckBox());
+						this->name_txt = (gcnew System::Windows::Forms::Label());
+						message^ n = gcnew message();
+						n = q->front();
+						q->pop();
+
+
+						//String^ STimeDate = gcnew String(n->get_time());
+						//STimeDate = STimeDate->Substring(11, 5);
+
+						this->msg_text->Text = n->get_msg();
+						this->msg_time->Text = n->get_date();
+
+
+						// 
+						// msg_pnl
+						//
+						this->msg_pnl->Controls->Add(this->msg_time);
+						this->msg_pnl->Controls->Add(this->msg_text);
+
+						this->msg_pnl->Location = System::Drawing::Point(6, 0);
+						this->msg_pnl->Name = L"msg_pnl";
+						this->msg_pnl->Size = System::Drawing::Size(300, 63);
+						this->msg_pnl->TabIndex = 0;
+						// 
+						// msg_time
+						// 
+						this->msg_time->AutoSize = true;
+						this->msg_time->Name = L"msg_time";
+						this->msg_time->Size = System::Drawing::Size(44, 16);
+						this->msg_time->TabIndex = 1;
+						                       															
+						
+						if (n->get_usereid() == LoginForm::cont->Id) {
+							this->msg_pnl->Margin = System::Windows::Forms::Padding(0, 10, 200, 10);
+							this->msg_pnl->BackColor = System::Drawing::Color::Beige;
+							this->msg_text->Location = System::Drawing::Point(30, 21);
+							this->msg_time->Location = System::Drawing::Point(240, 47);
+							this->seen_box->Location = System::Drawing::Point(200, 45);
+							this->msg_pnl->Controls->Add(this->seen_box);
+						}
+						else
+						{
+
+							
+							this->msg_pnl->Controls->Add(this->name_txt);
+							this->msg_pnl->Margin = System::Windows::Forms::Padding(200, 10, 0, 10);
+							this->msg_pnl->BackColor = System::Drawing::Color::DarkGoldenrod;
+							this->msg_text->Location = System::Drawing::Point(30, 21);
+							this->msg_time->Location = System::Drawing::Point(250, 47);
+						}
+
+						// 
+						// name_txt
+						// 
+						this->name_txt->AutoSize = true;
+						this->name_txt->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+							static_cast<System::Int32>(static_cast<System::Byte>(192)));
+						this->name_txt->Font = (gcnew System::Drawing::Font(L"MV Boli", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+							static_cast<System::Byte>(0)));
+						this->name_txt->Location = System::Drawing::Point(31, 0);
+						this->name_txt->Name = L"name_txt";
+						this->name_txt->Size = System::Drawing::Size(38, 17);
+						this->name_txt->TabIndex = 3;
+
+						try
+						{
+							if (connection->State != ConnectionState::Open) {
+								connection->Open();
+							}
+
+							String^ sqlQuery = "SELECT Fname , Lname FROM Contacts WHERE CID = @cid ;";
+							SqlCommand cmd(sqlQuery, connection);
+							cmd.Parameters->AddWithValue("@cid", n->get_usereid());
+							SqlDataReader^ reader = cmd.ExecuteReader();
+							reader->Read();
+							this->name_txt->Text = reader[0]->ToString() + reader[1]->ToString();
+							reader->Close();
+
+						}
+						catch (Exception^ e)
+						{
+							MessageBox::Show(e->Message);
+						}
+
+
+						
+						//
+						//msg_text
+						//
+						this->msg_text->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+							static_cast<System::Byte>(0)));
+						this->msg_text->Name = L"msg_text";
+						this->msg_text->Size = System::Drawing::Size(50, 15);
+						this->msg_text->TabIndex = 0;
+						this->msg_text->AutoSize = true;
+						
+						//
+						// seen_box
+						// 
+						if (n->getType() == 0) {
+							this->seen_box->Checked = false;
+						}
+						else {
+							this->seen_box->Checked = true;
+						}
+						this->seen_box->AutoSize = true;
+						this->seen_box->Enabled = false;
+						this->seen_box->Name = L"seen_box";
+						this->seen_box->Size = System::Drawing::Size(59, 20);
+						this->seen_box->TabIndex = 2;
+						this->seen_box->Text = L"seen";
+						this->seen_box->UseVisualStyleBackColor = true;
+									
+									
+
+						this->container_pnl->Controls->Add(this->msg_pnl);
+
+						//	y += 70;
+
+
+
+					}
+
+
+				}
+				z = 0;
+
+			}
+
+
+
+		
+		
+	
+		
+			
 
 		}
 
@@ -563,24 +786,35 @@ namespace ChitChat {
 			if (connection->State != ConnectionState::Open) {
 				connection->Open();
 			}
+			if (group == false) {
+				String^ sqlQuery = "SELECT Fname FROM Contacts WHERE CID = '4' ;";
 
-			String^ sqlQuery = "SELECT Fname FROM Contacts WHERE CID = '4' ;";
+				SqlCommand cmd(sqlQuery, connection);
+				SqlDataReader^ reader = cmd.ExecuteReader();
 
-			SqlCommand cmd(sqlQuery, connection);
-			SqlDataReader^ reader = cmd.ExecuteReader();
+				reader->Read();
+				this->user_name->Text = reader[0]->ToString();
+				reader->Close();
+			}
+			else {
+				String^ sqlQuery = "SELECT G_Name FROM GroupChat WHERE ChID = '3' ;";
+				SqlCommand cmd(sqlQuery, connection);
+				SqlDataReader^ reader = cmd.ExecuteReader();
 
-			reader->Read();
-			this->user_name->Text = reader[0]->ToString();
-			reader->Close();
+				reader->Read();
+				this->user_name->Text = reader[0]->ToString();
+				reader->Close();
+
+			}
+			
+		}
+			catch (Exception^ e)
+			{
+				MessageBox::Show(e->Message);
+			}
 
 		}
-		catch (Exception^ e)
-		{
-			MessageBox::Show(e->Message);
-		}
-
-	}
-
+	
 
 
 	private: System::Void container_pnl_Paint_1(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
