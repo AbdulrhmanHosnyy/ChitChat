@@ -99,6 +99,7 @@ namespace ChitChat {
 			this->BioTextBox->Name = L"BioTextBox";
 			this->BioTextBox->Size = System::Drawing::Size(344, 44);
 			this->BioTextBox->TabIndex = 41;
+			this->BioTextBox->Text = L"Hey,Iam using ChitChat";
 			// 
 			// modifiyBio
 			// 
@@ -286,7 +287,7 @@ namespace ChitChat {
 			{
 				if (!reader->IsDBNull(0))
 				{
-					this->BioTextBox->Text = (String^)reader[0];
+					this->BioTextBox->Text = reader->GetString(0);
 				}
 				if (!reader->IsDBNull(2))
 				{
@@ -329,9 +330,11 @@ namespace ChitChat {
 	}
 	private: Image^ img;
 	private: MemoryStream^ m = gcnew MemoryStream();
+	private:bool flag = false;
 	private: System::Void modifiyPhoto_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 		{
+			flag = true;
 			MyPhoto->Image = Image::FromFile(openFileDialog1->FileName);
 			img = MyPhoto->Image;
 			img->Save(m, Imaging::ImageFormat::Jpeg);
@@ -342,18 +345,33 @@ namespace ChitChat {
 			String^ connString = "Data Source=.;Initial Catalog=ChitChatDB;Integrated Security=True";
 			SqlConnection sqlConn(connString);
 			sqlConn.Open();
-			String^ sqlQuery = "UPDATE UserProfile SET Bio = @Bio ,Image = @Image ,Visability = @Visability WHERE CID = @CID;";
-			SqlCommand command(sqlQuery, % sqlConn);
+			if (flag)
+			{
+				String^ sqlQuery = "UPDATE UserProfile SET Bio = @Bio ,Image = @Image ,Visability = @Visability WHERE CID = @CID;";
+				SqlCommand command(sqlQuery, % sqlConn);
 
-			command.Parameters->AddWithValue("@CID", LoginForm::cont->Id);
-			command.Parameters->AddWithValue("@Bio", this->BioTextBox->Text->ToString());
-			command.Parameters->AddWithValue("@Image", m->ToArray());
-			if (Visability->Text == "Visable")
-				command.Parameters->AddWithValue("@Visability", 1);
+				command.Parameters->AddWithValue("@CID", LoginForm::cont->Id);
+				command.Parameters->AddWithValue("@Bio", this->BioTextBox->Text->ToString());
+				command.Parameters->AddWithValue("@Image", m->ToArray());
+				if (Visability->Text == "Visable")
+					command.Parameters->AddWithValue("@Visability", 1);
+				else
+					command.Parameters->AddWithValue("@Visability", 0);
+				command.ExecuteNonQuery();
+			}
 			else
-				command.Parameters->AddWithValue("@Visability", 0);
-			command.ExecuteNonQuery();
+			{
+				String^ sqlQuery = "UPDATE UserProfile SET Bio = @Bio ,Visability = @Visability WHERE CID = @CID;";
+				SqlCommand command(sqlQuery, % sqlConn);
 
+				command.Parameters->AddWithValue("@CID", LoginForm::cont->Id);
+				command.Parameters->AddWithValue("@Bio", this->BioTextBox->Text->ToString());
+				if (Visability->Text == "Visable")
+					command.Parameters->AddWithValue("@Visability", 1);
+				else
+					command.Parameters->AddWithValue("@Visability", 0);
+				command.ExecuteNonQuery();
+			}
 			String^ sqlQuery1 = "UPDATE Contacts SET Fname = @Fname ,Lanme = @Lname WHERE CID = @CID;";
 			SqlCommand command1(sqlQuery1, % sqlConn);
 			command1.Parameters->AddWithValue("@CID", LoginForm::cont->Id);

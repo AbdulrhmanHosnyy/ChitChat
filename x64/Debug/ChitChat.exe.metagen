@@ -7,6 +7,7 @@
   ChitChat.StoryMain.resources - Embedded, ContainedInManifestFile, 
   ChitChat.Testy.resources - Embedded, ContainedInManifestFile, 
   ChitChat.UserProfileForm.resources - Embedded, ContainedInManifestFile, 
+  ChitChat.ViewUserProfile.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly ChitChat, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
 	hash=SHA1, flags=PublicKey
@@ -84,5 +85,8 @@ Class ChitChat.Testy: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class ChitChat.UserProfileForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class ChitChat.ViewUserProfile: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

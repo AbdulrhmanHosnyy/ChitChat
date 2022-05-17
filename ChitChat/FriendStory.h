@@ -10,6 +10,8 @@ namespace ChitChat {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace	System::Collections::Generic;
+	using namespace System::IO;
+	using namespace System::Data::SqlClient;
 
 
 	public ref class FriendStory : public System::Windows::Forms::Form
@@ -289,11 +291,15 @@ private: System::Void Next_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		if (reader->Read())
 		{
-			if (!reader->IsDBNull(0) || !reader->IsDBNull(1))
+			this->FriendStoryLabel1->Text = " ";
+			if (!reader->IsDBNull(0))
 			{
-				this->FriendStoryLabel1->Text = " ";
 				this->FriendStoryLabel1->Text += reader->GetString(0);
 				this->FriendStoryLabel1->Text += " ";
+				this->FriendStoryLabel1->Text += reader->GetString(1);
+			}
+			if(!reader->IsDBNull(1))
+			{
 				this->FriendStoryLabel1->Text += reader->GetString(1);
 			}
 		}

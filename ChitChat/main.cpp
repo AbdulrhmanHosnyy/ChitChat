@@ -8,6 +8,8 @@
 #include "Testy.h"
 #include "FriendStory.h"
 #include "UserProfileForm.h"
+#include "message.h"
+#include "ViewUserProfile.h"
 using namespace System;
 using namespace System::Windows::Forms;
 [STAThreadAttribute]
@@ -52,7 +54,7 @@ void main(array<String^>^ args) {
 		//MessageBox::Show("Login || Sign in Successfull......");
 		//this is will call a form of profile
 
-		ChitChat::UserProfileForm story;
+		ChitChat::ViewUserProfile story;
 	
 		story.ShowDialog();
 	
@@ -63,5 +65,4 @@ void main(array<String^>^ args) {
 	                  //////////////////////////
                      //THE LOGIN AND REGISTER//
                     //////////////////////////
-
 }
