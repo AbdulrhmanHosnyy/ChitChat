@@ -39,7 +39,16 @@ namespace ChitChat {
 			//TODO: Add the constructor code here
 			//
 		}
-
+	public:int CHID, CID;
+		MyForm(int chid , int cid)
+		{
+			CHID = chid;
+			CID = cid;
+			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			//
+		}
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.

@@ -8,6 +8,7 @@
 #include "StoryMain.h"
 #include "AddForm.h"
 #include "Groups.h"
+#include "MyForm.h"
 namespace ChitChat {
 
 	using namespace System;
@@ -565,7 +566,7 @@ namespace ChitChat {
 				static_cast<System::Byte>(0)));
 			b->ForeColor = System::Drawing::Color::DarkSlateBlue;
 			b->Location = System::Drawing::Point(109, 3);
-			b->Name = L"b_btn";
+			b->Name = chatData[i]->CHID.ToString();
 			b->Size = System::Drawing::Size(448, 94);
 			b->TabIndex = 0;
 			b->UseVisualStyleBackColor = false;
@@ -582,13 +583,15 @@ namespace ChitChat {
 	private:Button^ btn; //***
 	private: System::Void b_Click(System::Object^ sender, System::EventArgs^ e) {
 		//FIRST CHACNGING THE STATUS OF ALL THE PREVIOUSE MESSAGES IN THE CHATROOM TO SEEN
+		btn = (Button^)sender;    //**
 		try
 		{
 			if (connection->State != ConnectionState::Open) {
 				connection->Open();
 			}
-			String^ sqlQuery = "UPDATE Messages SET Type = '1' WHERE CHID='" + 1 + "'; ";
+			String^ sqlQuery = "UPDATE Messages SET Type = '1' WHERE CHID= @CHID; ";
 			SqlCommand cmd(sqlQuery, connection);
+			cmd.Parameters->AddWithValue("@CHID", Convert::ToInt32(btn->Name));
 			cmd.ExecuteNonQuery();
 
 
@@ -598,11 +601,11 @@ namespace ChitChat {
 			MessageBox::Show(e->Message);
 		}
 
-		btn = (Button^)sender;    //**
 		//THIS ACTION SOULD TRANSFERE THE USER TO THE CHAT ROOM
-		Convert::ToInt32(btn->Text);
-
-
+		MyForm ^myForm = gcnew MyForm(Convert::ToInt32(btn->Text), Convert::ToInt32(btn->Name));
+			this->Hide();
+			myForm->ShowDialog();
+			Show();
 
 	}
 	private: System::Void logOutToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
