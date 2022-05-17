@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -115,9 +115,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AddForm.cpp" />
     <ClCompile Include="AddStory.cpp" />
+    <ClCompile Include="CreateGroup.cpp" />
     <ClCompile Include="DashForm.cpp" />
     <ClCompile Include="FriendStory.cpp" />
+    <ClCompile Include="Groups.cpp" />
+    <ClCompile Include="home.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="message.cpp" />
@@ -126,6 +130,8 @@
     <ClCompile Include="RegisterForm.cpp" />
     <ClCompile Include="StoryMain.cpp" />
     <ClCompile Include="Testy.cpp" />
+    <ClCompile Include="UserProfileForm.cpp" />
+    <ClCompile Include="ViewUserProfile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -135,14 +141,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="AddStory.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Contacts.h" />
+    <ClInclude Include="CreateGroup.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="DashForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="FriendStory.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Groups.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="home.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="LoginForm.h">
@@ -158,6 +176,7 @@
     <ClInclude Include="RegisterForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="showChats.h" />
     <ClInclude Include="Story.h" />
     <ClInclude Include="StoryMain.h">
       <FileType>CppForm</FileType>
@@ -165,13 +184,31 @@
     <ClInclude Include="Testy.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="UserProfileForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ViewUserProfile.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddForm.resx">
+      <DependentUpon>AddForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddStory.resx">
       <DependentUpon>AddStory.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CreateGroup.resx">
+      <DependentUpon>CreateGroup.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FriendStory.resx">
       <DependentUpon>FriendStory.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Groups.resx">
+      <DependentUpon>Groups.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="home.resx">
+      <DependentUpon>home.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.h</DependentUpon>
@@ -190,6 +227,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Testy.resx">
       <DependentUpon>Testy.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserProfileForm.resx">
+      <DependentUpon>UserProfileForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewUserProfile.resx">
+      <DependentUpon>ViewUserProfile.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

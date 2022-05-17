@@ -46,12 +46,20 @@ namespace ChitChat {
 			//TODO: Add the constructor code here
 			//
 		}
+<<<<<<< HEAD
 	private:
 		int chatID;
 	public:
 		MyForm(int b)
 		{
 			chatID = b;
+=======
+	public:int CHID, CID;
+		MyForm(int chid , int cid)
+		{
+			CHID = chid;
+			CID = cid;
+>>>>>>> a38afc1b82da07bfa8e43604028ffe3f1e259bdb
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here

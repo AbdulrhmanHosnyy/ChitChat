@@ -1,11 +1,17 @@
+  ChitChat.AddForm.resources - Embedded, ContainedInManifestFile, 
   ChitChat.AddStory.resources - Embedded, ContainedInManifestFile, 
+  ChitChat.CreateGroup.resources - Embedded, ContainedInManifestFile, 
   ChitChat.FriendStory.resources - Embedded, ContainedInManifestFile, 
+  ChitChat.Groups.resources - Embedded, ContainedInManifestFile, 
+  ChitChat.home.resources - Embedded, ContainedInManifestFile, 
   ChitChat.LoginForm.resources - Embedded, ContainedInManifestFile, 
   ChitChat.MyForm.resources - Embedded, ContainedInManifestFile, 
   ChitChat.MyStory.resources - Embedded, ContainedInManifestFile, 
   ChitChat.RegisterForm.resources - Embedded, ContainedInManifestFile, 
   ChitChat.StoryMain.resources - Embedded, ContainedInManifestFile, 
   ChitChat.Testy.resources - Embedded, ContainedInManifestFile, 
+  ChitChat.UserProfileForm.resources - Embedded, ContainedInManifestFile, 
+  ChitChat.ViewUserProfile.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly ChitChat, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
 	hash=SHA1, flags=PublicKey
@@ -31,13 +37,20 @@ Class Contacts: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     System.String Lname : Public
     System.String Pnumber : Public
     System.String Password : Public
+    System.String LastSeen : Public
 Class ChitChat.LoginForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     Boolean switchToRegister : Public
     Contacts cont : Public, Static
+Class ChitChat.AddForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class ChitChat.AddStory: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class ChitChat.CreateGroup: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class ChitChat.DashForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
@@ -59,12 +72,22 @@ Class ChitChat.FriendStory: AutoLayout, AnsiClass, Class, Public, BeforeFieldIni
   :System.Windows.Forms.Form
     Void .ctor(System.Collections.Generic.List`1[Story], Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class ChitChat.RegisterForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+Class showChats: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IComparable`1[showChats]
+  Fields:
+    System.String fullName : Public
+    System.Drawing.Image img : Public
+    Int32 timeDate : Public
+    System.String text : Public
+    Int32 CHID : Public
+    Int32 CID : Public
+  Methods:
+    CompareTo(showChats): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class ChitChat.UserProfileForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Fields:
-    Boolean switchToLogin : Public
-    Contacts cont : Public
 Class ChitChat.MyStory: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -73,14 +96,35 @@ Class ChitChat.MyStory: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
 Class ChitChat.StoryMain: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class ChitChat.Groups: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class ChitChat.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
+<<<<<<< HEAD
     Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+=======
+    Void .ctor(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+>>>>>>> a38afc1b82da07bfa8e43604028ffe3f1e259bdb
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     Int32 z : Public
     Boolean group : Public
     cliext.queue<message ^\,cliext::deque<message ^> ^> q : Public
+    Int32 CHID : Public
+    Int32 CID : Public
+Class ChitChat.home: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class ChitChat.RegisterForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Boolean switchToLogin : Public
+    Contacts cont : Public
 Class ChitChat.Testy: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class ChitChat.ViewUserProfile: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

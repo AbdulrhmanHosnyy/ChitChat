@@ -103,6 +103,7 @@ namespace ChitChat {
 			this->MyStoryLabel1->Name = L"MyStoryLabel1";
 			this->MyStoryLabel1->Size = System::Drawing::Size(88, 22);
 			this->MyStoryLabel1->TabIndex = 6;
+			this->MyStoryLabel1->Text = L"My Story";
 			this->MyStoryLabel1->Click += gcnew System::EventHandler(this, &MyStory::MyStoryLabel1_Click);
 			// 
 			// MyStoryLabel2

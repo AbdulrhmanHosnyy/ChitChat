@@ -10,6 +10,8 @@ namespace ChitChat {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace	System::Collections::Generic;
+	using namespace System::IO;
+	using namespace System::Data::SqlClient;
 
 
 	public ref class FriendStory : public System::Windows::Forms::Form
@@ -99,6 +101,7 @@ namespace ChitChat {
 			// 
 			// FriendStoryLabel1
 			// 
+			this->FriendStoryLabel1->AutoSize = true;
 			this->FriendStoryLabel1->BackColor = System::Drawing::Color::Transparent;
 			this->FriendStoryLabel1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->FriendStoryLabel1->Font = (gcnew System::Drawing::Font(L"MV Boli", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
@@ -106,7 +109,7 @@ namespace ChitChat {
 			this->FriendStoryLabel1->ForeColor = System::Drawing::Color::White;
 			this->FriendStoryLabel1->Location = System::Drawing::Point(102, 39);
 			this->FriendStoryLabel1->Name = L"FriendStoryLabel1";
-			this->FriendStoryLabel1->Size = System::Drawing::Size(151, 22);
+			this->FriendStoryLabel1->Size = System::Drawing::Size(0, 17);
 			this->FriendStoryLabel1->TabIndex = 8;
 			// 
 			// FriendStoryLabel2
@@ -198,6 +201,7 @@ namespace ChitChat {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->FriendPictureBox))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->StoryImage))->EndInit();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -289,11 +293,14 @@ private: System::Void Next_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		if (reader->Read())
 		{
-			if (!reader->IsDBNull(0) || !reader->IsDBNull(1))
+			this->FriendStoryLabel1->Text = " ";
+			if (!reader->IsDBNull(0))
 			{
-				this->FriendStoryLabel1->Text = " ";
 				this->FriendStoryLabel1->Text += reader->GetString(0);
 				this->FriendStoryLabel1->Text += " ";
+			}
+			if(!reader->IsDBNull(1))
+			{
 				this->FriendStoryLabel1->Text += reader->GetString(1);
 			}
 		}
@@ -346,14 +353,16 @@ private: System::Void Previous_Click(System::Object^ sender, System::EventArgs^ 
 		command.Parameters->AddWithValue("@CID", FriendStories[i]->CID);
 
 		SqlDataReader^ reader = command.ExecuteReader();
-
 		if (reader->Read())
 		{
-			if (!reader->IsDBNull(0) || !reader->IsDBNull(1))
+			this->FriendStoryLabel1->Text = " ";
+			if (!reader->IsDBNull(0))
 			{
-				this->FriendStoryLabel1->Text = " ";
 				this->FriendStoryLabel1->Text += reader->GetString(0);
 				this->FriendStoryLabel1->Text += " ";
+			}
+			if (!reader->IsDBNull(1))
+			{
 				this->FriendStoryLabel1->Text += reader->GetString(1);
 			}
 		}

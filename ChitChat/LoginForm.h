@@ -11,24 +11,15 @@ namespace ChitChat {
 	using namespace System::Drawing;
 	using namespace System::Data::SqlClient;
 
-	/// <summary>
-	/// Summary for LoginForm
-	/// </summary>
 	public ref class LoginForm : public System::Windows::Forms::Form
 	{
 	public:
 		LoginForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
 		}
 
 	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
 		~LoginForm()
 		{
 			if (components)
@@ -41,10 +32,8 @@ namespace ChitChat {
 
 
 	private: System::Windows::Forms::TextBox^ tbPnumber;
-
 	private: System::Windows::Forms::TextBox^ tbPassword;
 	private: System::Windows::Forms::Button^ btnSubmit;
-
 	private: System::Windows::Forms::LinkLabel^ llRegister;
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Label^ label5;
@@ -59,20 +48,16 @@ namespace ChitChat {
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::PictureBox^ pictureBox3;
+	private: System::Windows::Forms::PictureBox^ pictureBox4;
 
 
 
 	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
 		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
+		
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(LoginForm::typeid));
@@ -85,7 +70,9 @@ namespace ChitChat {
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
@@ -96,7 +83,9 @@ namespace ChitChat {
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->panel4->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			this->panel3->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			this->panel2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
@@ -104,28 +93,27 @@ namespace ChitChat {
 			// tbPnumber
 			// 
 			this->tbPnumber->BackColor = System::Drawing::Color::SlateGray;
-			this->tbPnumber->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->tbPnumber->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->tbPnumber->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->tbPnumber->ForeColor = System::Drawing::Color::White;
-			this->tbPnumber->Location = System::Drawing::Point(16, 19);
+			this->tbPnumber->Location = System::Drawing::Point(16, 12);
 			this->tbPnumber->Name = L"tbPnumber";
-			this->tbPnumber->Size = System::Drawing::Size(306, 27);
+			this->tbPnumber->Size = System::Drawing::Size(306, 34);
 			this->tbPnumber->TabIndex = 3;
-			this->tbPnumber->Text = L"Phone number";
+			this->tbPnumber->Text = L"+01";
 			// 
 			// tbPassword
 			// 
 			this->tbPassword->BackColor = System::Drawing::Color::SlateGray;
-			this->tbPassword->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->tbPassword->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->tbPassword->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->tbPassword->ForeColor = System::Drawing::Color::White;
 			this->tbPassword->Location = System::Drawing::Point(16, 14);
 			this->tbPassword->Name = L"tbPassword";
-			this->tbPassword->Size = System::Drawing::Size(306, 27);
+			this->tbPassword->Size = System::Drawing::Size(306, 34);
 			this->tbPassword->TabIndex = 4;
-			this->tbPassword->Text = L"Password";
 			this->tbPassword->UseSystemPasswordChar = true;
 			// 
 			// btnSubmit
@@ -216,20 +204,42 @@ namespace ChitChat {
 			// panel4
 			// 
 			this->panel4->BackColor = System::Drawing::Color::SlateGray;
+			this->panel4->Controls->Add(this->pictureBox4);
 			this->panel4->Controls->Add(this->tbPassword);
 			this->panel4->Location = System::Drawing::Point(98, 298);
 			this->panel4->Name = L"panel4";
 			this->panel4->Size = System::Drawing::Size(376, 57);
 			this->panel4->TabIndex = 25;
 			// 
+			// pictureBox4
+			// 
+			this->pictureBox4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.Image")));
+			this->pictureBox4->Location = System::Drawing::Point(326, 3);
+			this->pictureBox4->Name = L"pictureBox4";
+			this->pictureBox4->Size = System::Drawing::Size(47, 51);
+			this->pictureBox4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox4->TabIndex = 27;
+			this->pictureBox4->TabStop = false;
+			// 
 			// panel3
 			// 
 			this->panel3->BackColor = System::Drawing::Color::SlateGray;
+			this->panel3->Controls->Add(this->pictureBox3);
 			this->panel3->Controls->Add(this->tbPnumber);
 			this->panel3->Location = System::Drawing::Point(98, 235);
 			this->panel3->Name = L"panel3";
 			this->panel3->Size = System::Drawing::Size(376, 57);
 			this->panel3->TabIndex = 24;
+			// 
+			// pictureBox3
+			// 
+			this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
+			this->pictureBox3->Location = System::Drawing::Point(326, 3);
+			this->pictureBox3->Name = L"pictureBox3";
+			this->pictureBox3->Size = System::Drawing::Size(47, 51);
+			this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox3->TabIndex = 26;
+			this->pictureBox3->TabStop = false;
 			// 
 			// label5
 			// 
@@ -342,8 +352,10 @@ namespace ChitChat {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->panel4->ResumeLayout(false);
 			this->panel4->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
 			this->panel3->ResumeLayout(false);
 			this->panel3->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			this->panel2->ResumeLayout(false);
 			this->panel2->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
@@ -355,11 +367,12 @@ namespace ChitChat {
 		this->Close();
 	}
 
-	public:static Contacts^ cont = nullptr;
+	public: static Contacts^ cont = nullptr;
 
 	private: System::Void btnSubmit_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ Pnumber = this->tbPnumber->Text;
 		String^ Password = this->tbPassword->Text;
+
 		if (Pnumber->Length == 0 || Password->Length == 0) {
 			MessageBox::Show("Please enter phone number and password");
 			return;
@@ -383,7 +396,9 @@ namespace ChitChat {
 				cont->Lname = reader->GetString(2);
 				cont->Pnumber = reader->GetString(3);
 				cont->Password = reader->GetString(4);
+				cont->LastSeen = reader->GetString(5);
 
+				sqlConn.Close();
 				this->Close();
 			}
 			else {
@@ -391,7 +406,7 @@ namespace ChitChat {
 			}
 
 		}
-		catch (Exception^ e) {
+		catch (Exception^ ex) {
 			MessageBox::Show("Failed to Connect to database");
 		}
 	}

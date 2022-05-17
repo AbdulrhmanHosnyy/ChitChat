@@ -7,20 +7,17 @@
 #include "MyStory.h"
 #include "Testy.h"
 #include "FriendStory.h"
+#include "UserProfileForm.h"
+#include "message.h"
+#include "ViewUserProfile.h"
+#include "home.h"
 using namespace System;
 using namespace System::Windows::Forms;
 [STAThreadAttribute]
 void main(array<String^>^ args) {
-
-
-
-	                      //////////////////////////
-	                     //THE LOGIN AND REGISTER//
-	                    //////////////////////////
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-	//ChitChat::AddStory addStory;
-	//addStory.ShowDialog();
+	
 	Contacts^ cont = nullptr;
 	while (true)
 	{
@@ -46,20 +43,11 @@ void main(array<String^>^ args) {
 	}
 
 	if (cont != nullptr) {
-		//Loginpage::MainForm mainForm(cont);
-		//Application::Run(% mainForm);
-		//MessageBox::Show("Login || Sign in Successfull......");
-		//this is will call a form of profile
-
-		ChitChat::MyForm story;
+		ChitChat::home story;
 		story.ShowDialog();
-		
 	}
 	else {
 		MessageBox::Show("Login Canceled");
 	}
-	                  //////////////////////////
-                     //THE LOGIN AND REGISTER//
-                    //////////////////////////
-
+	               
 }
