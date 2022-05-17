@@ -1,3 +1,4 @@
+  ChitChat.AddForm.resources - Embedded, ContainedInManifestFile, 
   ChitChat.AddStory.resources - Embedded, ContainedInManifestFile, 
   ChitChat.FriendStory.resources - Embedded, ContainedInManifestFile, 
   ChitChat.LoginForm.resources - Embedded, ContainedInManifestFile, 
@@ -39,6 +40,9 @@ Class ChitChat.LoginForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   Fields:
     Boolean switchToRegister : Public
     Contacts cont : Public, Static
+Class ChitChat.AddForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class ChitChat.AddStory: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

@@ -14,6 +14,7 @@
     <ClCompile Include="Testy.cpp" />
     <ClCompile Include="UserProfileForm.cpp" />
     <ClCompile Include="ViewUserProfile.cpp" />
+    <ClCompile Include="AddForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddStory.h" />
@@ -30,5 +31,6 @@
     <ClInclude Include="Testy.h" />
     <ClInclude Include="UserProfileForm.h" />
     <ClInclude Include="ViewUserProfile.h" />
+    <ClInclude Include="AddForm.h" />
   </ItemGroup>
 </Project>

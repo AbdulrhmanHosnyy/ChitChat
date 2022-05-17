@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AddForm.cpp" />
     <ClCompile Include="AddStory.cpp" />
     <ClCompile Include="DashForm.cpp" />
     <ClCompile Include="FriendStory.cpp" />
@@ -137,6 +138,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="AddStory.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -175,6 +179,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddForm.resx">
+      <DependentUpon>AddForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddStory.resx">
       <DependentUpon>AddStory.h</DependentUpon>
     </EmbeddedResource>
