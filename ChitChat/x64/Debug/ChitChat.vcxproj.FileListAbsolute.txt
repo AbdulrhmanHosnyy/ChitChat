@@ -40,3 +40,9 @@ C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.AddForm.resources
 C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.home.resources
 C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.Groups.resources
 C:\Users\HP\source\repos\ChitChat\ChitChat\x64\Debug\ChitChat.CreateGroup.resources
+C:\Users\LENOVO\Downloads\ChitChat\ChitChat\x64\Debug\ChitChat.AddForm.resources
+C:\Users\LENOVO\Downloads\ChitChat\ChitChat\x64\Debug\ChitChat.CreateGroup.resources
+C:\Users\LENOVO\Downloads\ChitChat\ChitChat\x64\Debug\ChitChat.Groups.resources
+C:\Users\LENOVO\Downloads\ChitChat\ChitChat\x64\Debug\ChitChat.home.resources
+C:\Users\LENOVO\Downloads\ChitChat\ChitChat\x64\Debug\ChitChat.UserProfileForm.resources
+C:\Users\LENOVO\Downloads\ChitChat\ChitChat\x64\Debug\ChitChat.ViewUserProfile.resources

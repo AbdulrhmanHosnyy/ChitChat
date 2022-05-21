@@ -586,14 +586,14 @@ namespace ChitChat {
 		btn = (Button^)sender;    //**
 		try
 		{
-			if (connection->State != ConnectionState::Open) {
+			/*if (connection->State != ConnectionState::Open) {
 				connection->Open();
 			}
 			String^ sqlQuery = "UPDATE Messages SET Type = '1' WHERE CHID= @CHID; ";
 			SqlCommand cmd(sqlQuery, connection);
 			cmd.Parameters->AddWithValue("@CHID", Convert::ToInt32(btn->Name));
 			cmd.ExecuteNonQuery();
-
+*/
 
 		}
 		catch (Exception^ e)

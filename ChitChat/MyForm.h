@@ -25,7 +25,7 @@ namespace ChitChat {
 	{
 	public:
 		int z = 1;
-		bool group;
+		bool group =false;
 		cliext::queue<message^>^ q;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Label^ name_txt;
@@ -46,20 +46,12 @@ namespace ChitChat {
 			//TODO: Add the constructor code here
 			//
 		}
-<<<<<<< HEAD
-	private:
-		int chatID;
-	public:
-		MyForm(int b)
-		{
-			chatID = b;
-=======
+
 	public:int CHID, CID;
 		MyForm(int chid , int cid)
 		{
 			CHID = chid;
 			CID = cid;
->>>>>>> a38afc1b82da07bfa8e43604028ffe3f1e259bdb
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -340,7 +332,7 @@ namespace ChitChat {
 
 				cmd.Parameters->AddWithValue("@text", this->textBox1->Text);
 				cmd.Parameters->AddWithValue("@cid", LoginForm::cont->Id);
-				cmd.Parameters->AddWithValue("@chid", 2);
+				cmd.Parameters->AddWithValue("@chid", CHID);
 				cmd.Parameters->AddWithValue("@type", false);
 				cmd.Parameters->AddWithValue("@date", STimeDate);
 				cmd.Parameters->AddWithValue("@time", Time);
@@ -370,24 +362,24 @@ namespace ChitChat {
 			q = gcnew cliext::queue<message^>();
 
 			int i = 0;
+
 			try
 			{
 				if (connection->State != ConnectionState::Open) {
 					connection->Open();
 				}
 
-				String^ sqlQuery = "SELECT MID,Text , Time , CID , Type ,Date FROM Messages WHERE CHID = '3' ;";
+				String^ sqlQuery = "SELECT MID ,Text , Time , CID , Type ,Date FROM Messages WHERE CHID = @CHID  ;";
 
 				SqlCommand cmd(sqlQuery, connection);
-				cmd.Parameters->AddWithValue("@CID", chatID);
+				cmd.Parameters->AddWithValue("@CHID", CHID);
 				SqlDataReader^ reader = cmd.ExecuteReader();
 
-				int chid = 1;
-
+				
 				while (reader->Read())
 				{
 
-					message^ m = gcnew message((int)reader[0], (int)chid, (String^)reader[1]->ToString(), (bool)reader[4], (String^)reader[2]->ToString(), (int)reader[3], reader[5]->ToString());
+					message^ m = gcnew message((int)reader[0], (int)CHID, (String^)reader[1]->ToString(), (bool)reader[4], (String^)reader[2]->ToString(), (int)reader[3], reader[5]->ToString());
 
 
 					q->push(m);
@@ -396,6 +388,7 @@ namespace ChitChat {
 
 
 				}
+				
 				reader->Close();
 
 
@@ -406,7 +399,6 @@ namespace ChitChat {
 			{
 				MessageBox::Show(e->Message);
 			}
-
 
 			try
 			{
@@ -414,20 +406,21 @@ namespace ChitChat {
 					connection->Open();
 				}
 
-				String^ sqlQuery = "SELECT Type FROM Chatrooms WHERE CHID = '3' ;";
+				String^ sqlQuery = "SELECT Type FROM Chatrooms WHERE CHID = @CHID ;";
 				SqlCommand cmd(sqlQuery, connection);
+				cmd.Parameters->AddWithValue("@CHID", CHID);
 				SqlDataReader^ reader = cmd.ExecuteReader();
 				reader->Read();
 				group = (bool)reader[0];
 				reader->Close();
-
+				//  ^^^^^^^this is the reader which makes eror ^^^^^^^^^
 			}
 			catch (Exception^ e)
 			{
 				MessageBox::Show(e->Message);
 			}
 
-
+			
 
 
 			if (group == false) {
@@ -512,7 +505,7 @@ namespace ChitChat {
 							// 
 
 
-						if (n->getType() == 0) {
+						if (n->getType() == false) {
 							this->seen_box->Checked = false;
 						}
 						else {
@@ -795,9 +788,10 @@ namespace ChitChat {
 				connection->Open();
 			}
 			if (group == false) {
-				String^ sqlQuery = "SELECT Fname FROM Contacts WHERE CID = '4' ;";
+				String^ sqlQuery = "SELECT Fname FROM Contacts WHERE @CID  ;";
 
 				SqlCommand cmd(sqlQuery, connection);
+				cmd.Parameters->AddWithValue("@CID", CID);
 				SqlDataReader^ reader = cmd.ExecuteReader();
 
 				reader->Read();
@@ -805,8 +799,9 @@ namespace ChitChat {
 				reader->Close();
 			}
 			else {
-				String^ sqlQuery = "SELECT G_Name FROM GroupChat WHERE ChID = '3' ;";
+				String^ sqlQuery = "SELECT G_Name FROM GroupChat WHERE CHID ;";
 				SqlCommand cmd(sqlQuery, connection);
+				cmd.Parameters->AddWithValue("@ChID", CHID);
 				SqlDataReader^ reader = cmd.ExecuteReader();
 
 				reader->Read();
