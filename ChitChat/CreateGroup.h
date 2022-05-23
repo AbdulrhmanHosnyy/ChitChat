@@ -265,7 +265,6 @@ namespace ChitChat {
 			this->btn_finish->TabIndex = 5;
 			this->btn_finish->Text = L"Finish";
 			this->btn_finish->UseVisualStyleBackColor = false;
-			this->btn_finish->Hide();
 			this->btn_finish->Click += gcnew System::EventHandler(this, &CreateGroup::btn_finish_Click);
 			// 
 			// btn_browse
@@ -296,6 +295,7 @@ namespace ChitChat {
 			this->groupIMG->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->groupIMG->TabIndex = 3;
 			this->groupIMG->TabStop = false;
+			this->groupIMG->Click += gcnew System::EventHandler(this, &CreateGroup::groupIMG_Click);
 			// 
 			// btn_create
 			// 
@@ -756,5 +756,7 @@ namespace ChitChat {
 
 
 	
+private: System::Void groupIMG_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

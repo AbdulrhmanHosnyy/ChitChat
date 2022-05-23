@@ -6,6 +6,7 @@
 #include <cliext/queue>
 #include <ctime>
 #include <string.h>
+#include "ViewUserProfile.h"
 #include "LoginForm.h"
 namespace ChitChat {
 
@@ -17,6 +18,7 @@ namespace ChitChat {
 	using namespace System::Drawing;
 	using namespace System::Data::SqlClient;
 	using namespace System::Collections::Generic;
+	using namespace System::IO;
 
 	/// <summary>
 	/// Summary for MyForm
@@ -47,18 +49,12 @@ namespace ChitChat {
 			//
 		}
 
-<<<<<<< HEAD
-	public:int CHID = 16, CID = 440 , c , h;
-		MyForm(int chid , int cid)
-=======
+
 	public:int CHID, CID;
-		  int c = 9;
-		  int ch = 4;
 		MyForm(int cid, int chid)
->>>>>>> 8abb3f5c0e30dbb86bf4e9f74c3b999a9108d542
 		{
-			c = chid;
-			h = cid;
+			CHID = chid;
+			CID = cid;
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -139,9 +135,9 @@ namespace ChitChat {
 			this->top_panal->Dock = System::Windows::Forms::DockStyle::Top;
 			this->top_panal->ForeColor = System::Drawing::Color::White;
 			this->top_panal->Location = System::Drawing::Point(0, 0);
-			this->top_panal->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->top_panal->Margin = System::Windows::Forms::Padding(2);
 			this->top_panal->Name = L"top_panal";
-			this->top_panal->Size = System::Drawing::Size(511, 67);
+			this->top_panal->Size = System::Drawing::Size(550, 89);
 			this->top_panal->TabIndex = 0;
 			this->top_panal->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::top_panal_Paint);
 			// 
@@ -153,47 +149,47 @@ namespace ChitChat {
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button1->Font = (gcnew System::Drawing::Font(L"MV Boli", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(432, 10);
-			this->button1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.Image")));
+			this->button1->Location = System::Drawing::Point(483, 11);
+			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(56, 30);
+			this->button1->Size = System::Drawing::Size(56, 46);
 			this->button1->TabIndex = 2;
-						
-			
 			this->button1->UseVisualStyleBackColor = false;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// user_name
 			// 
 			this->user_name->AutoSize = true;
-			this->user_name->Font = (gcnew System::Drawing::Font(L"MV Boli", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->user_name->Font = (gcnew System::Drawing::Font(L"MV Boli", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->user_name->Location = System::Drawing::Point(91, 7);
+			this->user_name->Location = System::Drawing::Point(123, 11);
 			this->user_name->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->user_name->Name = L"user_name";
-			this->user_name->Size = System::Drawing::Size(166, 25);
+			this->user_name->Size = System::Drawing::Size(0, 28);
 			this->user_name->TabIndex = 1;
-			this->user_name->Text = L"hossam mostafa";
 			// 
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(2, 2);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox1->Location = System::Drawing::Point(11, 2);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(74, 55);
+			this->pictureBox1->Size = System::Drawing::Size(91, 83);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &MyForm::pictureBox1_Click);
 			// 
 			// send_pnl
 			// 
 			this->send_pnl->Controls->Add(this->send_bt);
 			this->send_pnl->Controls->Add(this->textBox1);
 			this->send_pnl->Dock = System::Windows::Forms::DockStyle::Bottom;
-			this->send_pnl->Location = System::Drawing::Point(0, 472);
-			this->send_pnl->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->send_pnl->Location = System::Drawing::Point(0, 647);
+			this->send_pnl->Margin = System::Windows::Forms::Padding(2);
 			this->send_pnl->Name = L"send_pnl";
-			this->send_pnl->Size = System::Drawing::Size(511, 63);
+			this->send_pnl->Size = System::Drawing::Size(550, 63);
 			this->send_pnl->TabIndex = 1;
 			// 
 			// send_bt
@@ -205,7 +201,7 @@ namespace ChitChat {
 			this->send_bt->Location = System::Drawing::Point(407, 0);
 			this->send_bt->Margin = System::Windows::Forms::Padding(15, 16, 15, 16);
 			this->send_bt->Name = L"send_bt";
-			this->send_bt->Padding = System::Windows::Forms::Padding(8, 8, 8, 8);
+			this->send_bt->Padding = System::Windows::Forms::Padding(8);
 			this->send_bt->Size = System::Drawing::Size(101, 60);
 			this->send_bt->TabIndex = 1;
 			this->send_bt->Text = L"send";
@@ -217,7 +213,7 @@ namespace ChitChat {
 			this->textBox1->BackColor = System::Drawing::Color::DarkGray;
 			this->textBox1->ForeColor = System::Drawing::Color::Black;
 			this->textBox1->Location = System::Drawing::Point(3, 2);
-			this->textBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox1->Margin = System::Windows::Forms::Padding(2);
 			this->textBox1->Multiline = true;
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(407, 60);
@@ -285,13 +281,13 @@ namespace ChitChat {
 			// container_pnl
 			// 
 			this->container_pnl->AutoScroll = true;
-			this->container_pnl->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"container_pnl.BackgroundImage")));
+			this->container_pnl->BackColor = System::Drawing::Color::Transparent;
 			this->container_pnl->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->container_pnl->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->container_pnl->Location = System::Drawing::Point(0, 67);
-			this->container_pnl->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->container_pnl->Location = System::Drawing::Point(0, 89);
+			this->container_pnl->Margin = System::Windows::Forms::Padding(2);
 			this->container_pnl->Name = L"container_pnl";
-			this->container_pnl->Size = System::Drawing::Size(511, 405);
+			this->container_pnl->Size = System::Drawing::Size(550, 558);
 			this->container_pnl->TabIndex = 2;
 			this->container_pnl->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::container_pnl_Paint_1);
 			// 
@@ -300,11 +296,11 @@ namespace ChitChat {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
-			this->ClientSize = System::Drawing::Size(511, 535);
+			this->ClientSize = System::Drawing::Size(550, 710);
 			this->Controls->Add(this->container_pnl);
 			this->Controls->Add(this->send_pnl);
 			this->Controls->Add(this->top_panal);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"MyForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->top_panal->ResumeLayout(false);
@@ -320,8 +316,6 @@ namespace ChitChat {
 #pragma endregion
 
 		SqlConnection^ connection = gcnew SqlConnection("Data Source=.\;Initial Catalog=ChitChatDB;Integrated Security=True");
-
-
 		void insert_message() {
 
 
@@ -791,6 +785,7 @@ namespace ChitChat {
 	}
 
 
+ private: Image^ img;
 
 	private: System::Void top_panal_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 
@@ -837,10 +832,6 @@ namespace ChitChat {
 			{
 				MessageBox::Show(e->Message);
 			}
-		
-
-
-
 
 		}
 		else {
@@ -854,10 +845,32 @@ namespace ChitChat {
 				SqlCommand cmd(sqlQuery, connection);
 				cmd.Parameters->AddWithValue("@cid", CID);
 				SqlDataReader^ reader = cmd.ExecuteReader();
-				reader->Read();
-				this->user_name->Text = reader[0]->ToString() + reader[1]->ToString();
+				if (reader->Read())
+				{
+					if (!reader->IsDBNull(0))
+					{
+						this->user_name->Text = reader->GetString(0) + " " + reader->GetString(1);
+					}
+				}
 				reader->Close();
 
+				String^ sqlQuery1 = "SELECT Image FROM UserProfile WHERE CID = @CID;";
+				SqlCommand command1(sqlQuery1, connection);
+				command1.Parameters->AddWithValue("@CID", CID);
+
+				SqlDataReader^ reader1 = command1.ExecuteReader();
+
+				if (reader1->Read())
+				{
+					if (!reader1->IsDBNull(0))
+					{
+						MemoryStream^ m = gcnew MemoryStream((array<Byte>^)reader1[0]);
+						img = Image::FromStream(m);
+						this->pictureBox1->Image = img;
+					}
+				}
+				reader1->Close();
+				connection->Close();
 			}
 			catch (Exception^ e)
 			{
@@ -866,6 +879,7 @@ namespace ChitChat {
 		}
 		
 		this->top_panal->Controls->Add(this->user_name);
+		this->top_panal->Controls->Add(this->pictureBox1);
 			
 
 		}
@@ -878,5 +892,43 @@ namespace ChitChat {
 	}
 
 
+private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+	int val;
+	try
+	{
+		if (connection->State != ConnectionState::Open) {
+			connection->Open();
+		}
+		String^ sqlQuery = "SELECT Visability FROM UserProfile WHERE CID = @CID ;";
+		SqlCommand cmd(sqlQuery, connection);
+		cmd.Parameters->AddWithValue("@CID", CID);
+		SqlDataReader^ reader = cmd.ExecuteReader();
+		if(reader->Read())
+		{
+			if (!reader->IsDBNull(0))
+			{
+				val = reader->GetInt32(0);
+			}
+		}
+		reader->Close();
+		connection->Close();
+	
+	}
+	catch (Exception^ e)
+	{
+		MessageBox::Show(e->Message);
+	}
+	if (val == 1)
+	{
+		ViewUserProfile^ viewUserProfile = gcnew ViewUserProfile(CID);
+		this->Hide();
+		viewUserProfile->ShowDialog();
+		Show();
+	}
+	
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
 };
 }

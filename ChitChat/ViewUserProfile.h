@@ -25,7 +25,15 @@ namespace ChitChat {
 			//TODO: Add the constructor code here
 			//
 		}
-
+	public: int CID;
+		ViewUserProfile(int cid)
+		{
+			CID = cid;
+			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			//
+		}
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -231,9 +239,9 @@ namespace ChitChat {
 			SqlConnection sqlConn(connString);
 			sqlConn.Open();
 
-			String^ sqlQuery = "SELECT Fname , Lname , Pnumber , LastSeen FROM Contacts WHERE CID = '7';";
+			String^ sqlQuery = "SELECT Fname , Lname , Pnumber , LastSeen FROM Contacts WHERE CID = @CID;";
 			SqlCommand command(sqlQuery, % sqlConn);
-			//command.Parameters->AddWithValue("@CID", );
+			command.Parameters->AddWithValue("@CID", CID);
 
 			SqlDataReader^ reader = command.ExecuteReader();
 
@@ -254,9 +262,9 @@ namespace ChitChat {
 			}
 			reader->Close();
 
-			String^ sqlQuery1 = "SELECT Bio , Image FROM UserProfile WHERE CID = '7';";
+			String^ sqlQuery1 = "SELECT Bio , Image FROM UserProfile WHERE CID = @CID;";
 			SqlCommand command1(sqlQuery1, % sqlConn);
-			//command1.Parameters->AddWithValue("@CID", );
+			command1.Parameters->AddWithValue("@CID", CID);
 
 			SqlDataReader^ reader1 = command1.ExecuteReader();
 

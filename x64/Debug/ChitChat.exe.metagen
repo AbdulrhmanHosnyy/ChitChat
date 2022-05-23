@@ -99,6 +99,12 @@ Class ChitChat.StoryMain: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
 Class ChitChat.Groups: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class ChitChat.ViewUserProfile: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 CID : Public
 Class ChitChat.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -109,12 +115,6 @@ Class ChitChat.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     cliext.queue<message ^\,cliext::deque<message ^> ^> q : Public
     Int32 CHID : Public
     Int32 CID : Public
-    Int32 c : Public
-<<<<<<< HEAD
-    Int32 h : Public
-=======
-    Int32 ch : Public
->>>>>>> 8abb3f5c0e30dbb86bf4e9f74c3b999a9108d542
 Class ChitChat.home: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -125,8 +125,5 @@ Class ChitChat.RegisterForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldIn
     Boolean switchToLogin : Public
     Contacts cont : Public
 Class ChitChat.Testy: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-  :System.Windows.Forms.Form
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class ChitChat.ViewUserProfile: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
