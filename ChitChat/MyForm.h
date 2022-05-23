@@ -47,11 +47,11 @@ namespace ChitChat {
 			//
 		}
 
-	public:int CHID, CID;
+	public:int CHID = 16, CID = 440 , c , h;
 		MyForm(int chid , int cid)
 		{
-			CHID = chid;
-			CID = cid;
+			c = chid;
+			h = cid;
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -121,7 +121,6 @@ namespace ChitChat {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->send_pnl->SuspendLayout();
 			this->msg_pnl->SuspendLayout();
-			this->container_pnl->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// top_panal
@@ -133,8 +132,9 @@ namespace ChitChat {
 			this->top_panal->Dock = System::Windows::Forms::DockStyle::Top;
 			this->top_panal->ForeColor = System::Drawing::Color::White;
 			this->top_panal->Location = System::Drawing::Point(0, 0);
+			this->top_panal->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->top_panal->Name = L"top_panal";
-			this->top_panal->Size = System::Drawing::Size(681, 83);
+			this->top_panal->Size = System::Drawing::Size(511, 67);
 			this->top_panal->TabIndex = 0;
 			this->top_panal->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::top_panal_Paint);
 			// 
@@ -146,9 +146,10 @@ namespace ChitChat {
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button1->Font = (gcnew System::Drawing::Font(L"MV Boli", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(576, 12);
+			this->button1->Location = System::Drawing::Point(432, 10);
+			this->button1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 37);
+			this->button1->Size = System::Drawing::Size(56, 30);
 			this->button1->TabIndex = 2;
 			this->button1->Text = L"Undo";
 			this->button1->UseVisualStyleBackColor = false;
@@ -158,18 +159,20 @@ namespace ChitChat {
 			this->user_name->AutoSize = true;
 			this->user_name->Font = (gcnew System::Drawing::Font(L"MV Boli", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->user_name->Location = System::Drawing::Point(121, 9);
+			this->user_name->Location = System::Drawing::Point(91, 7);
+			this->user_name->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->user_name->Name = L"user_name";
-			this->user_name->Size = System::Drawing::Size(199, 29);
+			this->user_name->Size = System::Drawing::Size(166, 25);
 			this->user_name->TabIndex = 1;
 			this->user_name->Text = L"hossam mostafa";
 			// 
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(3, 3);
+			this->pictureBox1->Location = System::Drawing::Point(2, 2);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(99, 68);
+			this->pictureBox1->Size = System::Drawing::Size(74, 55);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
@@ -179,9 +182,10 @@ namespace ChitChat {
 			this->send_pnl->Controls->Add(this->send_bt);
 			this->send_pnl->Controls->Add(this->textBox1);
 			this->send_pnl->Dock = System::Windows::Forms::DockStyle::Bottom;
-			this->send_pnl->Location = System::Drawing::Point(0, 582);
+			this->send_pnl->Location = System::Drawing::Point(0, 472);
+			this->send_pnl->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->send_pnl->Name = L"send_pnl";
-			this->send_pnl->Size = System::Drawing::Size(681, 77);
+			this->send_pnl->Size = System::Drawing::Size(511, 63);
 			this->send_pnl->TabIndex = 1;
 			// 
 			// send_bt
@@ -190,11 +194,11 @@ namespace ChitChat {
 			this->send_bt->Font = (gcnew System::Drawing::Font(L"MV Boli", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->send_bt->ForeColor = System::Drawing::Color::White;
-			this->send_bt->Location = System::Drawing::Point(543, 0);
-			this->send_bt->Margin = System::Windows::Forms::Padding(20);
+			this->send_bt->Location = System::Drawing::Point(407, 0);
+			this->send_bt->Margin = System::Windows::Forms::Padding(15, 16, 15, 16);
 			this->send_bt->Name = L"send_bt";
-			this->send_bt->Padding = System::Windows::Forms::Padding(10);
-			this->send_bt->Size = System::Drawing::Size(135, 74);
+			this->send_bt->Padding = System::Windows::Forms::Padding(8, 8, 8, 8);
+			this->send_bt->Size = System::Drawing::Size(101, 60);
 			this->send_bt->TabIndex = 1;
 			this->send_bt->Text = L"send";
 			this->send_bt->UseVisualStyleBackColor = true;
@@ -204,10 +208,11 @@ namespace ChitChat {
 			// 
 			this->textBox1->BackColor = System::Drawing::Color::DarkGray;
 			this->textBox1->ForeColor = System::Drawing::Color::Black;
-			this->textBox1->Location = System::Drawing::Point(4, 3);
+			this->textBox1->Location = System::Drawing::Point(3, 2);
+			this->textBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->textBox1->Multiline = true;
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(541, 73);
+			this->textBox1->Size = System::Drawing::Size(407, 60);
 			this->textBox1->TabIndex = 0;
 			// 
 			// msg_pnl
@@ -232,7 +237,7 @@ namespace ChitChat {
 				static_cast<System::Byte>(0)));
 			this->name_txt->Location = System::Drawing::Point(31, 0);
 			this->name_txt->Name = L"name_txt";
-			this->name_txt->Size = System::Drawing::Size(38, 17);
+			this->name_txt->Size = System::Drawing::Size(33, 16);
 			this->name_txt->TabIndex = 3;
 			this->name_txt->Text = L"label1";
 			// 
@@ -244,7 +249,7 @@ namespace ChitChat {
 			this->seen_box->Enabled = false;
 			this->seen_box->Location = System::Drawing::Point(474, 31);
 			this->seen_box->Name = L"seen_box";
-			this->seen_box->Size = System::Drawing::Size(59, 20);
+			this->seen_box->Size = System::Drawing::Size(49, 17);
 			this->seen_box->TabIndex = 2;
 			this->seen_box->Text = L"seen";
 			this->seen_box->UseVisualStyleBackColor = true;
@@ -254,7 +259,7 @@ namespace ChitChat {
 			this->msg_time->AutoSize = true;
 			this->msg_time->Location = System::Drawing::Point(407, 57);
 			this->msg_time->Name = L"msg_time";
-			this->msg_time->Size = System::Drawing::Size(44, 16);
+			this->msg_time->Size = System::Drawing::Size(35, 13);
 			this->msg_time->TabIndex = 1;
 			this->msg_time->Text = L"label1";
 			// 
@@ -265,7 +270,7 @@ namespace ChitChat {
 				static_cast<System::Byte>(0)));
 			this->msg_text->Location = System::Drawing::Point(61, 31);
 			this->msg_text->Name = L"msg_text";
-			this->msg_text->Size = System::Drawing::Size(79, 29);
+			this->msg_text->Size = System::Drawing::Size(60, 24);
 			this->msg_text->TabIndex = 0;
 			this->msg_text->Text = L"label1";
 			// 
@@ -274,24 +279,26 @@ namespace ChitChat {
 			this->container_pnl->AutoScroll = true;
 			this->container_pnl->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"container_pnl.BackgroundImage")));
 			this->container_pnl->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			//this->container_pnl->Controls->Add(this->msg_pnl);
 			this->container_pnl->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->container_pnl->Location = System::Drawing::Point(0, 83);
+			this->container_pnl->Location = System::Drawing::Point(0, 67);
+			this->container_pnl->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->container_pnl->Name = L"container_pnl";
-			this->container_pnl->Size = System::Drawing::Size(681, 499);
+			this->container_pnl->Size = System::Drawing::Size(511, 405);
 			this->container_pnl->TabIndex = 2;
 			this->container_pnl->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::container_pnl_Paint_1);
 			// 
 			// MyForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
-			this->ClientSize = System::Drawing::Size(681, 659);
+			this->ClientSize = System::Drawing::Size(511, 535);
 			this->Controls->Add(this->container_pnl);
 			this->Controls->Add(this->send_pnl);
 			this->Controls->Add(this->top_panal);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"MyForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->top_panal->ResumeLayout(false);
 			this->top_panal->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
@@ -299,7 +306,6 @@ namespace ChitChat {
 			this->send_pnl->PerformLayout();
 			this->msg_pnl->ResumeLayout(false);
 			this->msg_pnl->PerformLayout();
-			this->container_pnl->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}

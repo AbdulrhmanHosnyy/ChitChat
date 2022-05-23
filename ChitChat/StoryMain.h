@@ -74,7 +74,7 @@ namespace ChitChat {
 			this->GoBackButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"GoBackButton.Image")));
 			this->GoBackButton->Location = System::Drawing::Point(12, 12);
 			this->GoBackButton->Name = L"GoBackButton";
-			this->GoBackButton->Size = System::Drawing::Size(43, 33);
+			this->GoBackButton->Size = System::Drawing::Size(47, 46);
 			this->GoBackButton->TabIndex = 0;
 			this->GoBackButton->UseVisualStyleBackColor = false;
 			this->GoBackButton->Click += gcnew System::EventHandler(this, &StoryMain::GoBackButton_Click);
@@ -88,9 +88,9 @@ namespace ChitChat {
 			this->AddStoryButton->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Black;
 			this->AddStoryButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->AddStoryButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"AddStoryButton.Image")));
-			this->AddStoryButton->Location = System::Drawing::Point(243, 2);
+			this->AddStoryButton->Location = System::Drawing::Point(465, 7);
 			this->AddStoryButton->Name = L"AddStoryButton";
-			this->AddStoryButton->Size = System::Drawing::Size(78, 66);
+			this->AddStoryButton->Size = System::Drawing::Size(73, 62);
 			this->AddStoryButton->TabIndex = 1;
 			this->AddStoryButton->UseVisualStyleBackColor = false;
 			this->AddStoryButton->Click += gcnew System::EventHandler(this, &StoryMain::AddStoryButton_Click);
@@ -104,9 +104,9 @@ namespace ChitChat {
 			this->MyStoryButton->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Black;
 			this->MyStoryButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->MyStoryButton->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->MyStoryButton->Location = System::Drawing::Point(24, 94);
+			this->MyStoryButton->Location = System::Drawing::Point(64, 87);
 			this->MyStoryButton->Name = L"MyStoryButton";
-			this->MyStoryButton->Size = System::Drawing::Size(284, 65);
+			this->MyStoryButton->Size = System::Drawing::Size(439, 104);
 			this->MyStoryButton->TabIndex = 2;
 			this->MyStoryButton->UseVisualStyleBackColor = false;
 			this->MyStoryButton->Click += gcnew System::EventHandler(this, &StoryMain::MyStoryButton_Click);
@@ -115,12 +115,12 @@ namespace ChitChat {
 			// 
 			this->MyStoryLabel2->BackColor = System::Drawing::Color::Transparent;
 			this->MyStoryLabel2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->MyStoryLabel2->Font = (gcnew System::Drawing::Font(L"MV Boli", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->MyStoryLabel2->Font = (gcnew System::Drawing::Font(L"MV Boli", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->MyStoryLabel2->ForeColor = System::Drawing::Color::Transparent;
-			this->MyStoryLabel2->Location = System::Drawing::Point(115, 126);
+			this->MyStoryLabel2->Location = System::Drawing::Point(200, 147);
 			this->MyStoryLabel2->Name = L"MyStoryLabel2";
-			this->MyStoryLabel2->Size = System::Drawing::Size(186, 23);
+			this->MyStoryLabel2->Size = System::Drawing::Size(293, 30);
 			this->MyStoryLabel2->TabIndex = 5;
 			this->MyStoryLabel2->Text = L"There Is No Story To Show";
 			// 
@@ -129,10 +129,10 @@ namespace ChitChat {
 			this->MyStoryPictureBox->BackColor = System::Drawing::Color::Transparent;
 			this->MyStoryPictureBox->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->MyStoryPictureBox->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"MyStoryPictureBox.Image")));
-			this->MyStoryPictureBox->Location = System::Drawing::Point(37, 104);
+			this->MyStoryPictureBox->Location = System::Drawing::Point(88, 104);
 			this->MyStoryPictureBox->Name = L"MyStoryPictureBox";
-			this->MyStoryPictureBox->Size = System::Drawing::Size(58, 45);
-			this->MyStoryPictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->MyStoryPictureBox->Size = System::Drawing::Size(91, 73);
+			this->MyStoryPictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->MyStoryPictureBox->TabIndex = 4;
 			this->MyStoryPictureBox->TabStop = false;
 			// 
@@ -140,12 +140,12 @@ namespace ChitChat {
 			// 
 			this->MyStoryLabel1->BackColor = System::Drawing::Color::Transparent;
 			this->MyStoryLabel1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->MyStoryLabel1->Font = (gcnew System::Drawing::Font(L"MV Boli", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->MyStoryLabel1->Font = (gcnew System::Drawing::Font(L"MV Boli", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->MyStoryLabel1->ForeColor = System::Drawing::Color::White;
-			this->MyStoryLabel1->Location = System::Drawing::Point(115, 104);
+			this->MyStoryLabel1->Location = System::Drawing::Point(195, 104);
 			this->MyStoryLabel1->Name = L"MyStoryLabel1";
-			this->MyStoryLabel1->Size = System::Drawing::Size(116, 22);
+			this->MyStoryLabel1->Size = System::Drawing::Size(154, 33);
 			this->MyStoryLabel1->TabIndex = 3;
 			this->MyStoryLabel1->Text = L"My Story";
 			// 
@@ -155,7 +155,7 @@ namespace ChitChat {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoScroll = true;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
-			this->ClientSize = System::Drawing::Size(336, 440);
+			this->ClientSize = System::Drawing::Size(550, 710);
 			this->Controls->Add(this->MyStoryLabel2);
 			this->Controls->Add(this->MyStoryPictureBox);
 			this->Controls->Add(this->MyStoryLabel1);
@@ -312,7 +312,7 @@ namespace ChitChat {
 			MessageBox::Show(e->Message, "Database Connection Error", MessageBoxButtons::OK);
 		}
 		//Showing friends story buttons
-		int y = 165;
+		int y = 220;
 		bool f = false;
 		if (FriendStories->Count > 0)
 		{
@@ -417,22 +417,22 @@ namespace ChitChat {
 					}
 					this->FriendStoryPictureBox->BackColor = System::Drawing::Color::Transparent;
 					this->FriendStoryPictureBox->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-					this->FriendStoryPictureBox->Location = System::Drawing::Point(15, 10);
+					this->FriendStoryPictureBox->Location = System::Drawing::Point(26, 17);
 					this->FriendStoryPictureBox->Name = L"FriendStoryPictureBox";
-					this->FriendStoryPictureBox->Size = System::Drawing::Size(58, 45);
-					this->FriendStoryPictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+					this->FriendStoryPictureBox->Size = System::Drawing::Size(91, 73);
+					this->FriendStoryPictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 					this->FriendStoryPictureBox->TabIndex = 4;
 					this->FriendStoryPictureBox->TabStop = false;
 
 					//FriendStoryLabel1
 					this->FriendStoryLabel1->BackColor = System::Drawing::Color::Transparent;
 					this->FriendStoryLabel1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-					this->FriendStoryLabel1->Font = (gcnew System::Drawing::Font(L"MV Boli", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+					this->FriendStoryLabel1->Font = (gcnew System::Drawing::Font(L"MV Boli", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 						static_cast<System::Byte>(0)));
 					this->FriendStoryLabel1->ForeColor = System::Drawing::Color::White;
-					this->FriendStoryLabel1->Location = System::Drawing::Point(90, 10);
+					this->FriendStoryLabel1->Location = System::Drawing::Point(135, 17);
 					this->FriendStoryLabel1->Name = L"FriendStoryLabel1";
-					this->FriendStoryLabel1->Size = System::Drawing::Size(116, 22);
+					this->FriendStoryLabel1->Size = System::Drawing::Size(154, 33);
 					this->FriendStoryLabel1->TabIndex = 3;
 					if (Name != nullptr)
 					{
@@ -442,12 +442,12 @@ namespace ChitChat {
 					//FriendStoryLabel2
 					this->FriendStoryLabel2->BackColor = System::Drawing::Color::Transparent;
 					this->FriendStoryLabel2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-					this->FriendStoryLabel2->Font = (gcnew System::Drawing::Font(L"MV Boli", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+					this->FriendStoryLabel2->Font = (gcnew System::Drawing::Font(L"MV Boli", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 						static_cast<System::Byte>(0)));
 					this->FriendStoryLabel2->ForeColor = System::Drawing::Color::White;
-					this->FriendStoryLabel2->Location = System::Drawing::Point(90, 32);
+					this->FriendStoryLabel2->Location = System::Drawing::Point(140, 60);
 					this->FriendStoryLabel2->Name = L"FriendStoryLabel2";
-					this->FriendStoryLabel2->Size = System::Drawing::Size(186, 23);
+					this->FriendStoryLabel2->Size = System::Drawing::Size(293, 30);
 					this->FriendStoryLabel2->TabIndex = 5;
 					this->FriendStoryLabel2->Text = lastTime[i]->TimeDate;
 
@@ -459,9 +459,9 @@ namespace ChitChat {
 					FriendStoryButton->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Black;
 					FriendStoryButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 					FriendStoryButton->ForeColor = System::Drawing::SystemColors::ControlText;
-					FriendStoryButton->Location = System::Drawing::Point(24, y);
+					FriendStoryButton->Location = System::Drawing::Point(64, y);
 					FriendStoryButton->Name = lastTime[i]->CID.ToString();
-					FriendStoryButton->Size = System::Drawing::Size(284, 65);
+					FriendStoryButton->Size = System::Drawing::Size(439, 104);
 					FriendStoryButton->TabIndex = 2;
 					FriendStoryButton->UseVisualStyleBackColor = false;
 					FriendStoryButton->Controls->Add(this->FriendStoryLabel1);
@@ -474,7 +474,7 @@ namespace ChitChat {
 
 					this->Controls->Add(FriendStoryButton);
 
-					y += 70;
+					y += 130;
 				}
 			}
 
@@ -499,15 +499,15 @@ namespace ChitChat {
 			Show();
 		}
 	}
-private: System::Void AddStoryButton_Click(System::Object^ sender, System::EventArgs^ e) {
+    private: System::Void AddStoryButton_Click(System::Object^ sender, System::EventArgs^ e) {
 	AddStory^ addStory = gcnew AddStory;
 	Hide();
 	addStory->ShowDialog();
 	Show();
-}
-private: System::Void GoBackButton_Click(System::Object^ sender, System::EventArgs^ e) {
+    }
+    private: System::Void GoBackButton_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
-}
+    }
 };
 }
 

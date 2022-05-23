@@ -187,7 +187,7 @@ namespace ChitChat {
 			   this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->menuToolStripMenuItem });
 			   this->menuStrip1->Location = System::Drawing::Point(486, 0);
 			   this->menuStrip1->Name = L"menuStrip1";
-			   this->menuStrip1->Size = System::Drawing::Size(183, 24);
+			   this->menuStrip1->Size = System::Drawing::Size(63, 24);
 			   this->menuStrip1->TabIndex = 6;
 			   this->menuStrip1->Text = L"menuStrip1";
 			   // 
@@ -208,7 +208,7 @@ namespace ChitChat {
 			   this->myProfileToolStripMenuItem->BackColor = System::Drawing::SystemColors::ControlDark;
 			   this->myProfileToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"myProfileToolStripMenuItem.Image")));
 			   this->myProfileToolStripMenuItem->Name = L"myProfileToolStripMenuItem";
-			   this->myProfileToolStripMenuItem->Size = System::Drawing::Size(184, 26);
+			   this->myProfileToolStripMenuItem->Size = System::Drawing::Size(170, 22);
 			   this->myProfileToolStripMenuItem->Text = L"My Profile";
 			   this->myProfileToolStripMenuItem->Click += gcnew System::EventHandler(this, &home::myProfileToolStripMenuItem_Click);
 			   // 
@@ -217,7 +217,7 @@ namespace ChitChat {
 			   this->addContactToolStripMenuItem->BackColor = System::Drawing::SystemColors::ControlDark;
 			   this->addContactToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"addContactToolStripMenuItem.Image")));
 			   this->addContactToolStripMenuItem->Name = L"addContactToolStripMenuItem";
-			   this->addContactToolStripMenuItem->Size = System::Drawing::Size(184, 26);
+			   this->addContactToolStripMenuItem->Size = System::Drawing::Size(170, 22);
 			   this->addContactToolStripMenuItem->Text = L"Add Contact";
 			   this->addContactToolStripMenuItem->Click += gcnew System::EventHandler(this, &home::addContactToolStripMenuItem_Click);
 			   // 
@@ -226,7 +226,7 @@ namespace ChitChat {
 			   this->createGoupToolStripMenuItem->BackColor = System::Drawing::SystemColors::ControlDark;
 			   this->createGoupToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"createGoupToolStripMenuItem.Image")));
 			   this->createGoupToolStripMenuItem->Name = L"createGoupToolStripMenuItem";
-			   this->createGoupToolStripMenuItem->Size = System::Drawing::Size(184, 26);
+			   this->createGoupToolStripMenuItem->Size = System::Drawing::Size(170, 22);
 			   this->createGoupToolStripMenuItem->Text = L"Creat Group";
 			   this->createGoupToolStripMenuItem->Click += gcnew System::EventHandler(this, &home::createGoupToolStripMenuItem_Click);
 			   // 
@@ -235,7 +235,7 @@ namespace ChitChat {
 			   this->switchAcountToolStripMenuItem->BackColor = System::Drawing::SystemColors::ControlDark;
 			   this->switchAcountToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"switchAcountToolStripMenuItem.Image")));
 			   this->switchAcountToolStripMenuItem->Name = L"switchAcountToolStripMenuItem";
-			   this->switchAcountToolStripMenuItem->Size = System::Drawing::Size(184, 26);
+			   this->switchAcountToolStripMenuItem->Size = System::Drawing::Size(170, 22);
 			   this->switchAcountToolStripMenuItem->Text = L"Switch Account";
 			   this->switchAcountToolStripMenuItem->Click += gcnew System::EventHandler(this, &home::logOutToolStripMenuItem_Click);
 			   // 

@@ -61,12 +61,13 @@ namespace ChitChat {
 			// label9
 			// 
 			this->label9->BackColor = System::Drawing::Color::Transparent;
-			this->label9->Font = (gcnew System::Drawing::Font(L"Sitka Small", 30, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label9->Font = (gcnew System::Drawing::Font(L"Sitka Small", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label9->ForeColor = System::Drawing::Color::White;
-			this->label9->Location = System::Drawing::Point(31, 9);
+			this->label9->Location = System::Drawing::Point(111, 51);
+			this->label9->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(405, 85);
+			this->label9->Size = System::Drawing::Size(343, 69);
 			this->label9->TabIndex = 28;
 			this->label9->Text = L"Add Friend";
 			this->label9->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -74,12 +75,13 @@ namespace ChitChat {
 			// label3
 			// 
 			this->label3->BackColor = System::Drawing::Color::Transparent;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label3->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label3->ForeColor = System::Drawing::Color::White;
-			this->label3->Location = System::Drawing::Point(84, 125);
+			this->label3->Location = System::Drawing::Point(182, 138);
+			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(274, 57);
+			this->label3->Size = System::Drawing::Size(206, 46);
 			this->label3->TabIndex = 29;
 			this->label3->Text = L"Friend Number";
 			this->label3->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -88,21 +90,24 @@ namespace ChitChat {
 			// 
 			this->panel3->BackColor = System::Drawing::Color::SlateGray;
 			this->panel3->Controls->Add(this->tbFnumber);
-			this->panel3->Location = System::Drawing::Point(44, 218);
+			this->panel3->Location = System::Drawing::Point(96, 218);
+			this->panel3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(413, 57);
+			this->panel3->Size = System::Drawing::Size(378, 63);
 			this->panel3->TabIndex = 30;
 			// 
 			// tbFnumber
 			// 
 			this->tbFnumber->BackColor = System::Drawing::Color::SlateGray;
 			this->tbFnumber->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->tbFnumber->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->tbFnumber->Font = (gcnew System::Drawing::Font(L"Arial", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->tbFnumber->ForeColor = System::Drawing::Color::White;
-			this->tbFnumber->Location = System::Drawing::Point(9, 14);
+			this->tbFnumber->Location = System::Drawing::Point(19, 19);
+			this->tbFnumber->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->tbFnumber->Multiline = true;
 			this->tbFnumber->Name = L"tbFnumber";
-			this->tbFnumber->Size = System::Drawing::Size(371, 27);
+			this->tbFnumber->Size = System::Drawing::Size(339, 31);
 			this->tbFnumber->TabIndex = 6;
 			this->tbFnumber->Text = L"Friend Number";
 			// 
@@ -110,11 +115,12 @@ namespace ChitChat {
 			// 
 			this->btnAdd->AutoSize = true;
 			this->btnAdd->BackColor = System::Drawing::Color::Orange;
-			this->btnAdd->Font = (gcnew System::Drawing::Font(L"Arial", 13.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btnAdd->Font = (gcnew System::Drawing::Font(L"Arial", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnAdd->Location = System::Drawing::Point(53, 299);
+			this->btnAdd->Location = System::Drawing::Point(115, 334);
+			this->btnAdd->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnAdd->Name = L"btnAdd";
-			this->btnAdd->Size = System::Drawing::Size(376, 45);
+			this->btnAdd->Size = System::Drawing::Size(325, 74);
 			this->btnAdd->TabIndex = 16;
 			this->btnAdd->Text = L"Add";
 			this->btnAdd->UseVisualStyleBackColor = false;
@@ -124,11 +130,12 @@ namespace ChitChat {
 			// 
 			this->btnCancel->AutoSize = true;
 			this->btnCancel->BackColor = System::Drawing::Color::Orange;
-			this->btnCancel->Font = (gcnew System::Drawing::Font(L"Arial", 13.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btnCancel->Font = (gcnew System::Drawing::Font(L"Arial", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnCancel->Location = System::Drawing::Point(53, 350);
+			this->btnCancel->Location = System::Drawing::Point(115, 470);
+			this->btnCancel->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnCancel->Name = L"btnCancel";
-			this->btnCancel->Size = System::Drawing::Size(376, 45);
+			this->btnCancel->Size = System::Drawing::Size(325, 74);
 			this->btnCancel->TabIndex = 31;
 			this->btnCancel->Text = L"Cancel";
 			this->btnCancel->UseVisualStyleBackColor = false;
@@ -139,29 +146,32 @@ namespace ChitChat {
 			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(12, 467);
+			this->pictureBox1->Location = System::Drawing::Point(27, 575);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(133, 117);
+			this->pictureBox1->Size = System::Drawing::Size(100, 95);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 32;
 			this->pictureBox1->TabStop = false;
 			// 
 			// AddForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(472, 615);
+			this->ClientSize = System::Drawing::Size(550, 710);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->btnCancel);
 			this->Controls->Add(this->btnAdd);
 			this->Controls->Add(this->panel3);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label9);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"AddForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Add Contacts";
 			this->panel3->ResumeLayout(false);
 			this->panel3->PerformLayout();

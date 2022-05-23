@@ -109,6 +109,8 @@ Class ChitChat.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     cliext.queue<message ^\,cliext::deque<message ^> ^> q : Public
     Int32 CHID : Public
     Int32 CID : Public
+    Int32 c : Public
+    Int32 h : Public
 Class ChitChat.home: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

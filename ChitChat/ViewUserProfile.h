@@ -49,6 +49,7 @@ namespace ChitChat {
 	private: System::Windows::Forms::Label^ FNameLabel;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ LastSeenLabel;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 	protected:
 
@@ -74,7 +75,9 @@ namespace ChitChat {
 			this->FNameLabel = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->LastSeenLabel = (gcnew System::Windows::Forms::Label());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->UserPhoto))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// GoBackButton
@@ -88,7 +91,7 @@ namespace ChitChat {
 			this->GoBackButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"GoBackButton.Image")));
 			this->GoBackButton->Location = System::Drawing::Point(12, 12);
 			this->GoBackButton->Name = L"GoBackButton";
-			this->GoBackButton->Size = System::Drawing::Size(38, 33);
+			this->GoBackButton->Size = System::Drawing::Size(51, 47);
 			this->GoBackButton->TabIndex = 46;
 			this->GoBackButton->UseVisualStyleBackColor = false;
 			this->GoBackButton->Click += gcnew System::EventHandler(this, &ViewUserProfile::GoBackButton_Click);
@@ -97,12 +100,12 @@ namespace ChitChat {
 			// 
 			this->FullNameLabel->AutoSize = true;
 			this->FullNameLabel->BackColor = System::Drawing::Color::Transparent;
-			this->FullNameLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->FullNameLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->FullNameLabel->ForeColor = System::Drawing::Color::White;
-			this->FullNameLabel->Location = System::Drawing::Point(129, 12);
+			this->FullNameLabel->Location = System::Drawing::Point(97, 17);
 			this->FullNameLabel->Name = L"FullNameLabel";
-			this->FullNameLabel->Size = System::Drawing::Size(129, 28);
+			this->FullNameLabel->Size = System::Drawing::Size(162, 34);
 			this->FullNameLabel->TabIndex = 47;
 			this->FullNameLabel->Text = L"User Name";
 			// 
@@ -110,10 +113,10 @@ namespace ChitChat {
 			// 
 			this->UserPhoto->BackColor = System::Drawing::Color::Transparent;
 			this->UserPhoto->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->UserPhoto->Location = System::Drawing::Point(39, 92);
+			this->UserPhoto->Location = System::Drawing::Point(71, 110);
 			this->UserPhoto->Margin = System::Windows::Forms::Padding(2);
 			this->UserPhoto->Name = L"UserPhoto";
-			this->UserPhoto->Size = System::Drawing::Size(312, 194);
+			this->UserPhoto->Size = System::Drawing::Size(364, 214);
 			this->UserPhoto->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->UserPhoto->TabIndex = 48;
 			this->UserPhoto->TabStop = false;
@@ -122,12 +125,12 @@ namespace ChitChat {
 			// 
 			this->PhoneNumberLabel->AutoSize = true;
 			this->PhoneNumberLabel->BackColor = System::Drawing::Color::Transparent;
-			this->PhoneNumberLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->PhoneNumberLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->PhoneNumberLabel->ForeColor = System::Drawing::Color::White;
-			this->PhoneNumberLabel->Location = System::Drawing::Point(97, 336);
+			this->PhoneNumberLabel->Location = System::Drawing::Point(65, 452);
 			this->PhoneNumberLabel->Name = L"PhoneNumberLabel";
-			this->PhoneNumberLabel->Size = System::Drawing::Size(173, 28);
+			this->PhoneNumberLabel->Size = System::Drawing::Size(219, 34);
 			this->PhoneNumberLabel->TabIndex = 49;
 			this->PhoneNumberLabel->Text = L"01068638992";
 			// 
@@ -135,38 +138,38 @@ namespace ChitChat {
 			// 
 			this->BioLabel->AutoSize = true;
 			this->BioLabel->BackColor = System::Drawing::Color::Transparent;
-			this->BioLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->BioLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BioLabel->ForeColor = System::Drawing::Color::White;
-			this->BioLabel->Location = System::Drawing::Point(97, 407);
+			this->BioLabel->Location = System::Drawing::Point(65, 370);
 			this->BioLabel->Name = L"BioLabel";
-			this->BioLabel->Size = System::Drawing::Size(243, 25);
+			this->BioLabel->Size = System::Drawing::Size(302, 31);
 			this->BioLabel->TabIndex = 50;
 			this->BioLabel->Text = L"Hey,Iam using ChitChat";
 			// 
 			// FNameLabel
 			// 
 			this->FNameLabel->BackColor = System::Drawing::Color::Transparent;
-			this->FNameLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->FNameLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->FNameLabel->ForeColor = System::Drawing::Color::Transparent;
-			this->FNameLabel->Location = System::Drawing::Point(20, 302);
+			this->FNameLabel->Location = System::Drawing::Point(30, 416);
 			this->FNameLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->FNameLabel->Name = L"FNameLabel";
-			this->FNameLabel->Size = System::Drawing::Size(103, 24);
+			this->FNameLabel->Size = System::Drawing::Size(131, 24);
 			this->FNameLabel->TabIndex = 51;
 			this->FNameLabel->Text = L"PhoneNumber";
 			// 
 			// label3
 			// 
 			this->label3->BackColor = System::Drawing::Color::Transparent;
-			this->label3->Font = (gcnew System::Drawing::Font(L"MV Boli", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label3->Font = (gcnew System::Drawing::Font(L"MV Boli", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label3->ForeColor = System::Drawing::Color::Transparent;
-			this->label3->Location = System::Drawing::Point(20, 383);
+			this->label3->Location = System::Drawing::Point(29, 337);
 			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(72, 24);
+			this->label3->Size = System::Drawing::Size(64, 33);
 			this->label3->TabIndex = 52;
 			this->label3->Text = L"Bio";
 			// 
@@ -174,21 +177,35 @@ namespace ChitChat {
 			// 
 			this->LastSeenLabel->AutoSize = true;
 			this->LastSeenLabel->BackColor = System::Drawing::Color::Transparent;
-			this->LastSeenLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->LastSeenLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->LastSeenLabel->ForeColor = System::Drawing::Color::White;
-			this->LastSeenLabel->Location = System::Drawing::Point(184, 62);
+			this->LastSeenLabel->Location = System::Drawing::Point(153, 62);
 			this->LastSeenLabel->Name = L"LastSeenLabel";
-			this->LastSeenLabel->Size = System::Drawing::Size(115, 17);
+			this->LastSeenLabel->Size = System::Drawing::Size(180, 28);
 			this->LastSeenLabel->TabIndex = 53;
 			this->LastSeenLabel->Text = L"Last Seen Date";
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Location = System::Drawing::Point(382, 430);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(2);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(102, 94);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox1->TabIndex = 56;
+			this->pictureBox1->TabStop = false;
 			// 
 			// ViewUserProfile
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
-			this->ClientSize = System::Drawing::Size(405, 487);
+			this->ClientSize = System::Drawing::Size(511, 535);
+			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->LastSeenLabel);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->FNameLabel);
@@ -198,9 +215,11 @@ namespace ChitChat {
 			this->Controls->Add(this->FullNameLabel);
 			this->Controls->Add(this->GoBackButton);
 			this->Name = L"ViewUserProfile";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"ViewUserProfile";
 			this->Load += gcnew System::EventHandler(this, &ViewUserProfile::ViewUserProfile_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->UserPhoto))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

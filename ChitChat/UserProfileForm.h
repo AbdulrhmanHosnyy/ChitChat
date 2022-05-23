@@ -44,6 +44,7 @@ namespace ChitChat {
 	private: System::Windows::Forms::Button^ UploadButton;
 	private: System::Windows::Forms::Button^ Visability;
 	private: System::Windows::Forms::OpenFileDialog^ openFileDialog1;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 
 
@@ -68,17 +69,19 @@ namespace ChitChat {
 			this->UploadButton = (gcnew System::Windows::Forms::Button());
 			this->Visability = (gcnew System::Windows::Forms::Button());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->MyPhoto))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// MyPhoto
 			// 
 			this->MyPhoto->BackColor = System::Drawing::Color::Transparent;
 			this->MyPhoto->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->MyPhoto->Location = System::Drawing::Point(65, 62);
+			this->MyPhoto->Location = System::Drawing::Point(79, 62);
 			this->MyPhoto->Margin = System::Windows::Forms::Padding(2);
 			this->MyPhoto->Name = L"MyPhoto";
-			this->MyPhoto->Size = System::Drawing::Size(246, 161);
+			this->MyPhoto->Size = System::Drawing::Size(336, 184);
 			this->MyPhoto->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->MyPhoto->TabIndex = 36;
 			this->MyPhoto->TabStop = false;
@@ -86,38 +89,40 @@ namespace ChitChat {
 			// BioTextBox
 			// 
 			this->BioTextBox->BackColor = System::Drawing::SystemColors::ScrollBar;
+			this->BioTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->BioTextBox->ForeColor = System::Drawing::Color::Black;
-			this->BioTextBox->Location = System::Drawing::Point(14, 318);
+			this->BioTextBox->Location = System::Drawing::Point(34, 371);
 			this->BioTextBox->Margin = System::Windows::Forms::Padding(2);
 			this->BioTextBox->Multiline = true;
 			this->BioTextBox->Name = L"BioTextBox";
-			this->BioTextBox->Size = System::Drawing::Size(344, 44);
+			this->BioTextBox->Size = System::Drawing::Size(424, 56);
 			this->BioTextBox->TabIndex = 41;
 			this->BioTextBox->Text = L"Hey,Iam using ChitChat";
 			// 
 			// modifiyBio
 			// 
 			this->modifiyBio->BackColor = System::Drawing::Color::Transparent;
-			this->modifiyBio->Font = (gcnew System::Drawing::Font(L"MV Boli", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->modifiyBio->Font = (gcnew System::Drawing::Font(L"MV Boli", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->modifiyBio->ForeColor = System::Drawing::Color::Transparent;
-			this->modifiyBio->Location = System::Drawing::Point(11, 292);
+			this->modifiyBio->Location = System::Drawing::Point(31, 345);
 			this->modifiyBio->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->modifiyBio->Name = L"modifiyBio";
-			this->modifiyBio->Size = System::Drawing::Size(93, 24);
+			this->modifiyBio->Size = System::Drawing::Size(128, 24);
 			this->modifiyBio->TabIndex = 42;
 			this->modifiyBio->Text = L"Modifiy Bio";
 			// 
 			// modifiyPhoto
 			// 
 			this->modifiyPhoto->BackColor = System::Drawing::Color::Transparent;
-			this->modifiyPhoto->Font = (gcnew System::Drawing::Font(L"MV Boli", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->modifiyPhoto->Font = (gcnew System::Drawing::Font(L"MV Boli", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->modifiyPhoto->ForeColor = System::Drawing::Color::Transparent;
-			this->modifiyPhoto->Location = System::Drawing::Point(269, 37);
+			this->modifiyPhoto->Location = System::Drawing::Point(346, 31);
 			this->modifiyPhoto->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->modifiyPhoto->Name = L"modifiyPhoto";
-			this->modifiyPhoto->Size = System::Drawing::Size(74, 23);
+			this->modifiyPhoto->Size = System::Drawing::Size(86, 29);
 			this->modifiyPhoto->TabIndex = 40;
 			this->modifiyPhoto->Text = L"modifiy image";
 			this->modifiyPhoto->Click += gcnew System::EventHandler(this, &UserProfileForm::modifiyPhoto_Click);
@@ -125,11 +130,11 @@ namespace ChitChat {
 			// MainLabel
 			// 
 			this->MainLabel->BackColor = System::Drawing::Color::Transparent;
-			this->MainLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->MainLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->MainLabel->Location = System::Drawing::Point(130, 9);
+			this->MainLabel->Location = System::Drawing::Point(198, 7);
 			this->MainLabel->Name = L"MainLabel";
-			this->MainLabel->Size = System::Drawing::Size(93, 32);
+			this->MainLabel->Size = System::Drawing::Size(107, 32);
 			this->MainLabel->TabIndex = 43;
 			this->MainLabel->Text = L"Profile";
 			// 
@@ -144,7 +149,7 @@ namespace ChitChat {
 			this->GoBackButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"GoBackButton.Image")));
 			this->GoBackButton->Location = System::Drawing::Point(14, 8);
 			this->GoBackButton->Name = L"GoBackButton";
-			this->GoBackButton->Size = System::Drawing::Size(38, 33);
+			this->GoBackButton->Size = System::Drawing::Size(52, 42);
 			this->GoBackButton->TabIndex = 45;
 			this->GoBackButton->UseVisualStyleBackColor = false;
 			this->GoBackButton->Click += gcnew System::EventHandler(this, &UserProfileForm::GoBackButton_Click);
@@ -152,48 +157,52 @@ namespace ChitChat {
 			// FNameTextBox
 			// 
 			this->FNameTextBox->BackColor = System::Drawing::SystemColors::ScrollBar;
+			this->FNameTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->FNameTextBox->ForeColor = System::Drawing::Color::Black;
-			this->FNameTextBox->Location = System::Drawing::Point(14, 260);
+			this->FNameTextBox->Location = System::Drawing::Point(35, 293);
 			this->FNameTextBox->Margin = System::Windows::Forms::Padding(2);
 			this->FNameTextBox->Multiline = true;
 			this->FNameTextBox->Name = L"FNameTextBox";
-			this->FNameTextBox->Size = System::Drawing::Size(145, 30);
+			this->FNameTextBox->Size = System::Drawing::Size(177, 41);
 			this->FNameTextBox->TabIndex = 46;
 			// 
 			// FNameLabel
 			// 
 			this->FNameLabel->BackColor = System::Drawing::Color::Transparent;
-			this->FNameLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->FNameLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->FNameLabel->ForeColor = System::Drawing::Color::Transparent;
-			this->FNameLabel->Location = System::Drawing::Point(11, 234);
+			this->FNameLabel->Location = System::Drawing::Point(30, 267);
 			this->FNameLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->FNameLabel->Name = L"FNameLabel";
-			this->FNameLabel->Size = System::Drawing::Size(93, 24);
+			this->FNameLabel->Size = System::Drawing::Size(113, 24);
 			this->FNameLabel->TabIndex = 49;
 			this->FNameLabel->Text = L"FirstName";
 			// 
 			// LNameTextBox
 			// 
 			this->LNameTextBox->BackColor = System::Drawing::SystemColors::ScrollBar;
+			this->LNameTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->LNameTextBox->ForeColor = System::Drawing::Color::Black;
-			this->LNameTextBox->Location = System::Drawing::Point(194, 260);
+			this->LNameTextBox->Location = System::Drawing::Point(281, 293);
 			this->LNameTextBox->Margin = System::Windows::Forms::Padding(2);
 			this->LNameTextBox->Multiline = true;
 			this->LNameTextBox->Name = L"LNameTextBox";
-			this->LNameTextBox->Size = System::Drawing::Size(149, 30);
+			this->LNameTextBox->Size = System::Drawing::Size(177, 41);
 			this->LNameTextBox->TabIndex = 50;
 			// 
 			// LNameLabel
 			// 
 			this->LNameLabel->BackColor = System::Drawing::Color::Transparent;
-			this->LNameLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->LNameLabel->Font = (gcnew System::Drawing::Font(L"MV Boli", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->LNameLabel->ForeColor = System::Drawing::Color::Transparent;
-			this->LNameLabel->Location = System::Drawing::Point(191, 234);
+			this->LNameLabel->Location = System::Drawing::Point(277, 267);
 			this->LNameLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->LNameLabel->Name = L"LNameLabel";
-			this->LNameLabel->Size = System::Drawing::Size(93, 24);
+			this->LNameLabel->Size = System::Drawing::Size(104, 24);
 			this->LNameLabel->TabIndex = 51;
 			this->LNameLabel->Text = L"LastName";
 			// 
@@ -206,9 +215,9 @@ namespace ChitChat {
 			this->UploadButton->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Black;
 			this->UploadButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->UploadButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"UploadButton.Image")));
-			this->UploadButton->Location = System::Drawing::Point(294, 381);
+			this->UploadButton->Location = System::Drawing::Point(398, 437);
 			this->UploadButton->Name = L"UploadButton";
-			this->UploadButton->Size = System::Drawing::Size(64, 58);
+			this->UploadButton->Size = System::Drawing::Size(84, 71);
 			this->UploadButton->TabIndex = 53;
 			this->UploadButton->UseVisualStyleBackColor = false;
 			this->UploadButton->Click += gcnew System::EventHandler(this, &UserProfileForm::UploadButton_Click);
@@ -221,11 +230,11 @@ namespace ChitChat {
 			this->Visability->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Black;
 			this->Visability->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Black;
 			this->Visability->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->Visability->Font = (gcnew System::Drawing::Font(L"MV Boli", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->Visability->Font = (gcnew System::Drawing::Font(L"MV Boli", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Visability->Location = System::Drawing::Point(14, 393);
+			this->Visability->Location = System::Drawing::Point(34, 446);
 			this->Visability->Name = L"Visability";
-			this->Visability->Size = System::Drawing::Size(104, 30);
+			this->Visability->Size = System::Drawing::Size(137, 39);
 			this->Visability->TabIndex = 54;
 			this->Visability->Text = L"Visable";
 			this->Visability->UseVisualStyleBackColor = false;
@@ -235,6 +244,19 @@ namespace ChitChat {
 			// 
 			this->openFileDialog1->FileName = L"openFileDialog1";
 			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Location = System::Drawing::Point(158, 478);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(2);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(65, 46);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox1->TabIndex = 55;
+			this->pictureBox1->TabStop = false;
+			// 
 			// UserProfileForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -242,7 +264,8 @@ namespace ChitChat {
 			this->AutoScroll = true;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(379, 451);
+			this->ClientSize = System::Drawing::Size(511, 535);
+			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->Visability);
 			this->Controls->Add(this->UploadButton);
 			this->Controls->Add(this->LNameLabel);
@@ -258,9 +281,11 @@ namespace ChitChat {
 			this->ForeColor = System::Drawing::Color::White;
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"UserProfileForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"6";
 			this->Load += gcnew System::EventHandler(this, &UserProfileForm::UserProfileForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->MyPhoto))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
