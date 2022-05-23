@@ -48,7 +48,9 @@ namespace ChitChat {
 		}
 
 	public:int CHID, CID;
-		MyForm(int chid , int cid)
+		  int c = 9;
+		  int ch = 4;
+		MyForm(int cid, int chid)
 		{
 			CHID = chid;
 			CID = cid;
@@ -150,7 +152,8 @@ namespace ChitChat {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 37);
 			this->button1->TabIndex = 2;
-			this->button1->Text = L"Undo";
+						
+			
 			this->button1->UseVisualStyleBackColor = false;
 			// 
 			// user_name
@@ -780,41 +783,79 @@ namespace ChitChat {
 
 	private: System::Void top_panal_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 
-
 		try
 		{
-			String^ fname;
 			if (connection->State != ConnectionState::Open) {
 				connection->Open();
 			}
-			if (group == false) {
-				String^ sqlQuery = "SELECT Fname FROM Contacts WHERE @CID  ;";
 
-				SqlCommand cmd(sqlQuery, connection);
-				cmd.Parameters->AddWithValue("@CID", CID);
-				SqlDataReader^ reader = cmd.ExecuteReader();
-
-				reader->Read();
-				this->user_name->Text = reader[0]->ToString();
-				reader->Close();
-			}
-			else {
-				String^ sqlQuery = "SELECT G_Name FROM GroupChat WHERE CHID ;";
-				SqlCommand cmd(sqlQuery, connection);
-				cmd.Parameters->AddWithValue("@ChID", CHID);
-				SqlDataReader^ reader = cmd.ExecuteReader();
-
-				reader->Read();
-				this->user_name->Text = reader[0]->ToString();
-				reader->Close();
-
-			}
-			
+			String^ sqlQuery = "SELECT Type FROM Chatrooms WHERE CHID = @CHID ;";
+			SqlCommand cmd(sqlQuery, connection);
+			cmd.Parameters->AddWithValue("@CHID", CHID);
+			SqlDataReader^ reader = cmd.ExecuteReader();
+			reader->Read();
+			group = (bool)reader[0];
+			reader->Close();
+			//  ^^^^^^^this is the reader which makes eror ^^^^^^^^^
 		}
+		catch (Exception^ e)
+		{
+			MessageBox::Show(e->Message);
+		}
+
+
+		if (group) {
+
+
+			try
+			{
+				if (connection->State != ConnectionState::Open) {
+					connection->Open();
+				}
+
+				String^ sqlQuery = "SELECT G_Name FROM GroupChat WHERE CHID = @cHid ;";
+				SqlCommand cmd(sqlQuery, connection);
+				cmd.Parameters->AddWithValue("@chid", CHID );
+				SqlDataReader^ reader = cmd.ExecuteReader();
+				reader->Read();
+				this->user_name->Text = reader[0]->ToString();
+				reader->Close();
+
+			}
 			catch (Exception^ e)
 			{
 				MessageBox::Show(e->Message);
 			}
+		
+
+
+
+
+		}
+		else {
+			try
+			{
+				if (connection->State != ConnectionState::Open) {
+					connection->Open();
+				}
+
+				String^ sqlQuery = "SELECT Fname , Lname FROM Contacts WHERE CID = @cid ;";
+				SqlCommand cmd(sqlQuery, connection);
+				cmd.Parameters->AddWithValue("@cid", CID);
+				SqlDataReader^ reader = cmd.ExecuteReader();
+				reader->Read();
+				this->user_name->Text = reader[0]->ToString() + reader[1]->ToString();
+				reader->Close();
+
+			}
+			catch (Exception^ e)
+			{
+				MessageBox::Show(e->Message);
+			}
+		}
+		
+		this->top_panal->Controls->Add(this->user_name);
+			
 
 		}
 	
