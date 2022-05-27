@@ -90,9 +90,11 @@ Class ChitChat.UserProfileForm: AutoLayout, AnsiClass, Class, Public, BeforeFiel
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class ChitChat.MyStory: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
+    Void .ctor(Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     Boolean switchToMainStory : Public
+    Boolean hasStatus : Public, Static
 Class ChitChat.StoryMain: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

@@ -22,6 +22,12 @@ namespace ChitChat {
 		{
 			InitializeComponent();
 		}
+		static bool hasStatus = false;
+		MyStory(bool has)
+		{
+			hasStatus = has;
+			InitializeComponent();
+		}
 
 	protected:
 		~MyStory()
@@ -241,133 +247,163 @@ namespace ChitChat {
     private: Image^ img;
     private:static int i = 0;
     private: bool flag = false;
-private: System::Void MyStory_Load(System::Object^ sender, System::EventArgs^ e) {
-	System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyStory::typeid));
-	try {
-		String^ connString = "Data Source=.;Initial Catalog=ChitChatDB;Integrated Security=True";
-		SqlConnection sqlConn(connString);
-		sqlConn.Open();
-
-		String^ sqlQuery = "SELECT * FROM Stories WHERE CID = @CID";
-		SqlCommand command(sqlQuery, % sqlConn);
-		command.Parameters->AddWithValue("@CID", LoginForm::cont->Id);
-
-		SqlDataReader^ reader = command.ExecuteReader();
-		myStory = gcnew List<Story^>();
-		while (reader->Read())
-		{
-			story = gcnew Story;
-			story->SID = reader->GetInt32(0);
-			if (!reader->IsDBNull(1))
-			{
-				flag = true;
-				MemoryStream^ m = gcnew MemoryStream((array<Byte>^)reader[1]);
-				story->Img = Image::FromStream(m);
-			}
-			if (!reader->IsDBNull(2))
-			{
-				story->Text = reader->GetString(2);
-			}
-			else
-			{
-				story->Text = "";
-			}
-			story->TimeDate = reader->GetString(3);
-			story->CID = reader->GetInt32(4);
-			myStory->Add(story);
-		}
-		reader->Close();
-		//getting my profile image
-		String^ sqlQuery1 = "SELECT Image FROM UserProfile WHERE CID = @CID;";
-		SqlCommand command1(sqlQuery1, % sqlConn);
-		command1.Parameters->AddWithValue("@CID", LoginForm::cont->Id);
-
-		SqlDataReader^ reader1 = command1.ExecuteReader();
-
-		if (reader1->Read())
-		{
-			if (!reader1->IsDBNull(0))
-			{
-				MemoryStream^ m = gcnew MemoryStream((array<Byte>^)reader1[0]);
-				img = Image::FromStream(m);
-				this->MyPictureBox->Image = img;
-			}
-		}
-		reader1->Close();
-		sqlConn.Close();
-	}
-	catch (Exception^ e)
+	private:void showMyStory()
 	{
-		MessageBox::Show(e->Message, "Database Connection Error", MessageBoxButtons::OK);
-	}
+		if (hasStatus) {
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyStory::typeid));
+			try {
+				String^ connString = "Data Source=.;Initial Catalog=ChitChatDB;Integrated Security=True";
+				SqlConnection sqlConn(connString);
+				sqlConn.Open();
 
-		MyStoryLabel2->Text = myStory[i]->TimeDate;
-		MyStoryLabel3->Text = myStory[i]->Text;
-		if (flag)
-		{
-			StoryImage->Image = myStory[i]->Img;
+				String^ sqlQuery = "SELECT * FROM Stories WHERE CID = @CID";
+				SqlCommand command(sqlQuery, % sqlConn);
+				command.Parameters->AddWithValue("@CID", LoginForm::cont->Id);
+
+				SqlDataReader^ reader = command.ExecuteReader();
+				myStory = gcnew List<Story^>();
+				while (reader->Read())
+				{
+					story = gcnew Story;
+					story->SID = reader->GetInt32(0);
+					if (!reader->IsDBNull(1))
+					{
+						flag = true;
+						MemoryStream^ m = gcnew MemoryStream((array<Byte>^)reader[1]);
+						story->Img = Image::FromStream(m);
+					}
+					if (!reader->IsDBNull(2))
+					{
+						story->Text = reader->GetString(2);
+					}
+					else
+					{
+						story->Text = "";
+					}
+					story->TimeDate = reader->GetString(3);
+					story->CID = reader->GetInt32(4);
+					myStory->Add(story);
+				}
+				reader->Close();
+				//getting my profile image
+				String^ sqlQuery1 = "SELECT Image FROM UserProfile WHERE CID = @CID;";
+				SqlCommand command1(sqlQuery1, % sqlConn);
+				command1.Parameters->AddWithValue("@CID", LoginForm::cont->Id);
+
+				SqlDataReader^ reader1 = command1.ExecuteReader();
+
+				if (reader1->Read())
+				{
+					if (!reader1->IsDBNull(0))
+					{
+						MemoryStream^ m = gcnew MemoryStream((array<Byte>^)reader1[0]);
+						img = Image::FromStream(m);
+						this->MyPictureBox->Image = img;
+					}
+				}
+				reader1->Close();
+				sqlConn.Close();
+			}
+			catch (Exception^ e)
+			{
+				MessageBox::Show(e->Message, "Database Connection Error", MessageBoxButtons::OK);
+			}
+
+
+			if (flag)
+			{
+				MyStoryLabel2->Text = myStory[i]->TimeDate;
+				MyStoryLabel3->Text = myStory[i]->Text;
+				StoryImage->Image = myStory[i]->Img;
+			}
+
 		}
-
+	}
+private: System::Void MyStory_Load(System::Object^ sender, System::EventArgs^ e) {
+	showMyStory();
 }
      public:bool switchToMainStory = false;
 private: System::Void Next_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (i == myStory->Count - 1)
+	if (myStory->Count != 0)
 	{
-		//switchToMainStory = true;
-		this->Close();
-		i = 0;
+		if (i == myStory->Count - 1)
+		{
+			//switchToMainStory = true;
+			this->Close();
+			i = 0;
+		}
+		else
+			i++;
+		MyStoryLabel2->Text = myStory[i]->TimeDate;
+		MyStoryLabel3->Text = myStory[i]->Text;
+		if (flag)
+			StoryImage->Image = myStory[i]->Img;
 	}
 	else
-		i++;
-	MyStoryLabel2->Text = myStory[i]->TimeDate;
-	MyStoryLabel3->Text = myStory[i]->Text;
-	if (flag)
-	StoryImage->Image = myStory[i]->Img;
+	{
+		this->Close();
+	}
 }
 private: System::Void Previous_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (i == 0)
+	if (myStory->Count != 0)
 	{
-		//switchToMainStory = true;
-		this->Close();
-		i = 0;
+		if (i == 0)
+		{
+			//switchToMainStory = true;
+			this->Close();
+			i = 0;
+		}
+		else
+			i--;
+		MyStoryLabel2->Text = myStory[i]->TimeDate;
+		MyStoryLabel3->Text = myStory[i]->Text;
+		if (flag)
+			StoryImage->Image = myStory[i]->Img;
 	}
 	else
-		i--;
-	MyStoryLabel2->Text = myStory[i]->TimeDate;
-	MyStoryLabel3->Text = myStory[i]->Text;
-	if (flag)
-	StoryImage->Image = myStory[i]->Img;
+	{
+		this->Close();
+	}
 }
 
 private: System::Void Delete_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (MessageBox::Show("Are you sure you want to delete this story", "Confirm delete", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
-	{
-		try {
-			String^ connString = "Data Source=.;Initial Catalog=ChitChatDB;Integrated Security=True";
-			SqlConnection sqlConn(connString);
-			sqlConn.Open();
-			String^ sqlQuery = "Delete FROM Stories WHERE SID = " + myStory[i]->SID;
-			SqlCommand command(sqlQuery, % sqlConn);
-			command.ExecuteNonQuery();
-			sqlConn.Close();
-		}
-		catch (Exception^ e)
+	if (myStory->Count != 0)
+	{ 
+		if (MessageBox::Show("Are you sure you want to delete this story", "Confirm delete", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
 		{
-			MessageBox::Show(e->Message, "Database Connection Error", MessageBoxButtons::OK);
-		}
-		myStory->RemoveAt(i);
-		if (i >= myStory->Count - 1)
-		{
-			i = 0;
+			try {
+				String^ connString = "Data Source=.;Initial Catalog=ChitChatDB;Integrated Security=True";
+				SqlConnection sqlConn(connString);
+				sqlConn.Open();
+				String^ sqlQuery = "Delete FROM Stories WHERE SID = " + myStory[i]->SID;
+				SqlCommand command(sqlQuery, % sqlConn);
+				command.ExecuteNonQuery();
+				sqlConn.Close();
+			}
+			catch (Exception^ e)
+			{
+				MessageBox::Show(e->Message, "Database Connection Error", MessageBoxButtons::OK);
+			}
+			myStory->RemoveAt(i);
+			if (myStory->Count == 0)
+			{
+				hasStatus = false;
+
+			}
 			this->Close();
+			i = 0;
+			//showMyStory();
+			/*else
+			{
+				MyStoryLabel2->Text = myStory[i]->TimeDate;
+				MyStoryLabel3->Text = myStory[i]->Text;
+				if (flag)
+					StoryImage->Image = myStory[i]->Img;
+			}*/
 		}
-		else
-		{
-			MyStoryLabel2->Text = myStory[i]->TimeDate;
-			MyStoryLabel3->Text = myStory[i]->Text;
-			if (flag)
-				StoryImage->Image = myStory[i]->Img;
-		}
+	}
+	else {
+		this->Close();
 	}
 }
 private: System::Void GoBackButton_Click(System::Object^ sender, System::EventArgs^ e) {

@@ -181,7 +181,8 @@ namespace ChitChat {
 	private:static List<Story^>^ lastTime;
 	//bool to check if i have a story
 	private: bool hasStory = false;
-	private: System::Void StoryMain_Load(System::Object^ sender, System::EventArgs^) {
+	private: void showStory()
+	{
 		System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(StoryMain::typeid));
 		FriendID = gcnew List<int>();
 		FriendStories = gcnew List<Story^>();
@@ -200,7 +201,7 @@ namespace ChitChat {
 			command0.ExecuteNonQuery();
 
 			//My Story button to update data
-			
+
 			 //Changing the date of the story button if the user has any story
 
 			String^ sqlQuery = "SELECT TimeDate FROM Stories WHERE CID = @CID;";
@@ -216,6 +217,10 @@ namespace ChitChat {
 					MyStoryLabel2->Text = reader->GetString(0);
 					hasStory = true;
 				}
+			}
+			else
+			{
+				MyStoryLabel2->Text = nullptr;
 			}
 			reader->Close();
 			//------------------------------------------------------------------------//
@@ -325,7 +330,7 @@ namespace ChitChat {
 			}
 			lastTime->Sort();
 			List<Story^>^ l = gcnew List<Story^>();
-			for each (Story^ var in lastTime)
+			for each (Story ^ var in lastTime)
 			{
 				for (int i = 0; i < FriendStories->Count; i++)
 				{
@@ -337,7 +342,7 @@ namespace ChitChat {
 			}
 			FriendStories->Clear();
 			FriendStories = l;
-			delete [] l;
+			delete[] l;
 			for (int i = 0; i < lastTime->Count; i++)
 			{
 
@@ -479,7 +484,9 @@ namespace ChitChat {
 			}
 
 		}
-
+	}
+	private: System::Void StoryMain_Load(System::Object^ sender, System::EventArgs^) {
+		showStory();
 	};
 	private:Button^ btn;
 	private: System::Void FriendStoryButton_Click(System::Object^ sender, System::EventArgs^ e)
@@ -489,14 +496,17 @@ namespace ChitChat {
 		Hide();
 		x->ShowDialog();
 		Show();
+		showStory();
 	}
+		
 	private: System::Void MyStoryButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (hasStory)
 		{
-			MyStory^ x = gcnew MyStory;
+			MyStory^ x = gcnew MyStory(hasStory);
 			Hide();
 			x->ShowDialog();
 			Show();
+			showStory();
 		}
 	}
     private: System::Void AddStoryButton_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -504,6 +514,8 @@ namespace ChitChat {
 	Hide();
 	addStory->ShowDialog();
 	Show();
+	showStory();
+
     }
     private: System::Void GoBackButton_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();

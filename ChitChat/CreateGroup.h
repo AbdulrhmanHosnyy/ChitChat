@@ -21,9 +21,6 @@ namespace ChitChat {
 			InitializeComponent();
 		}
 
-
-
-
 	protected:
 		
 		~CreateGroup()
@@ -519,7 +516,7 @@ namespace ChitChat {
 
 
 				//FOURTH:INSERTING AN INITIAL PARTICIPANT OF THIS GROUP THAT IS ME
-				String^ sqlQuery3 = "INSERT INTO Participants (CHID,CID) VALUES (" + CHID + "," + 1 + ");"; //YOU SHOULD PUT THE CID OF THE USER LOGGEN IN 
+				String^ sqlQuery3 = "INSERT INTO Participants (CHID,CID) VALUES (" + CHID + "," + 27 + ");"; //YOU SHOULD PUT THE CID OF THE USER LOGGEN IN 
 				SqlCommand cmd3(sqlQuery3, connection);
 				cmd3.ExecuteNonQuery();
 
@@ -528,7 +525,7 @@ namespace ChitChat {
 
 				//FIFTH :SHOWING THE CONTACTS TO THE USER TO CHOOSE THE PARTICIPANTS OF HIS GROUP
 				// GETTING THE NUMBER OF CONTACTS FROM DATABASE
-				String^ sqlQuery4 = "SELECT COUNT( FID )  FROM HasContacts WHERE CID = '1';";
+				String^ sqlQuery4 = "SELECT COUNT( FID )  FROM HasContacts WHERE CID = '27';";
 				SqlCommand cmd4(sqlQuery4, connection);
 				SqlDataReader^ reader4 = cmd4.ExecuteReader();
 				reader4->Read();      //ANY READER MUST BE CLOSED                                 
@@ -551,7 +548,7 @@ namespace ChitChat {
 					connection->Open();
 				}
 
-				String^ sqlQuery = "SELECT FID  FROM HasContacts WHERE CID = '1';";
+				String^ sqlQuery = "SELECT FID  FROM HasContacts WHERE CID = '27';";
 
 				SqlCommand cmd(sqlQuery, connection);
 				SqlDataReader^ reader = cmd.ExecuteReader();
@@ -696,7 +693,7 @@ namespace ChitChat {
 			}
 
 		}
-		this->Close();
+		//this->Close();
 	}
 
 
@@ -715,7 +712,8 @@ namespace ChitChat {
 				connection->Open();
 			}
 
-			String^ sqlQuery3 = "INSERT INTO Participants (CHID,CID) VALUES (" + CHID + "," + btn->Text + ");"; //YOU SHOULD PUT THE CID OF THE USER LOGGEN IN 
+			int b = Convert::ToInt32(btn->Text);
+			String^ sqlQuery3 = "INSERT INTO Participants (CHID,CID) VALUES (" + CHID + "," + b + ");"; //YOU SHOULD PUT THE CID OF THE USER LOGGEN IN 
 			SqlCommand cmd3(sqlQuery3, connection);
 			cmd3.ExecuteNonQuery();
 
@@ -735,7 +733,7 @@ namespace ChitChat {
 
 	private: System::Void btn_browse_Click(System::Object^ sender, System::EventArgs^ e) {
 		OpenFileDialog^ dialog = gcnew OpenFileDialog();
-		dialog->Filter = " png files (.png)|.png|jpg files(.jpg|.jpg|All files(.)|.  ";
+		dialog->Filter = " png files (*.png)|*.png|jpg files(*.jpg|*.jpg|All files(*.*)|*.*  ";
 
 		if (dialog->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 			imageLocation = dialog->FileName->ToString();
