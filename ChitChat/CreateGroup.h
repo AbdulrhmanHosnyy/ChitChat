@@ -22,7 +22,7 @@ namespace ChitChat {
 		}
 
 	protected:
-		
+
 		~CreateGroup()
 		{
 			if (components)
@@ -63,7 +63,7 @@ namespace ChitChat {
 	private:
 		System::ComponentModel::Container^ components;
 #pragma region Windows Form Designer generated code
-		
+
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(CreateGroup::typeid));
@@ -516,7 +516,7 @@ namespace ChitChat {
 
 
 				//FOURTH:INSERTING AN INITIAL PARTICIPANT OF THIS GROUP THAT IS ME
-				String^ sqlQuery3 = "INSERT INTO Participants (CHID,CID) VALUES (" + CHID + "," + 27 + ");"; //YOU SHOULD PUT THE CID OF THE USER LOGGEN IN 
+				String^ sqlQuery3 = "INSERT INTO Participants (CHID,CID) VALUES (" + CHID + "," + LoginForm::cont->Id + ");"; //YOU SHOULD PUT THE CID OF THE USER LOGGEN IN 
 				SqlCommand cmd3(sqlQuery3, connection);
 				cmd3.ExecuteNonQuery();
 
@@ -525,7 +525,7 @@ namespace ChitChat {
 
 				//FIFTH :SHOWING THE CONTACTS TO THE USER TO CHOOSE THE PARTICIPANTS OF HIS GROUP
 				// GETTING THE NUMBER OF CONTACTS FROM DATABASE
-				String^ sqlQuery4 = "SELECT COUNT( FID )  FROM HasContacts WHERE CID = '27';";
+				String^ sqlQuery4 = "SELECT COUNT( FID )  FROM HasContacts WHERE CID = '" + LoginForm::cont->Id + "';";
 				SqlCommand cmd4(sqlQuery4, connection);
 				SqlDataReader^ reader4 = cmd4.ExecuteReader();
 				reader4->Read();      //ANY READER MUST BE CLOSED                                 
@@ -548,7 +548,7 @@ namespace ChitChat {
 					connection->Open();
 				}
 
-				String^ sqlQuery = "SELECT FID  FROM HasContacts WHERE CID = '27';";
+				String^ sqlQuery = "SELECT FID  FROM HasContacts WHERE CID = '" + LoginForm::cont->Id + "';";
 
 				SqlCommand cmd(sqlQuery, connection);
 				SqlDataReader^ reader = cmd.ExecuteReader();
@@ -595,23 +595,15 @@ namespace ChitChat {
 
 					SqlCommand cmd(sqlQuery1, connection);
 					SqlDataReader^ reader1 = cmd.ExecuteReader();
-					reader1->Read();
 
-					if (reader1->HasRows) {
-
-
-						array<Byte>^ img = (array<Byte>^)(reader1["Image"]);
-						if (img == nullptr) {
-							this->profilePic->Image = nullptr;
-
-						}
-						else
+					if (reader1->Read()) {
+						if (!reader1->IsDBNull(0))
 						{
-							MemoryStream^ m = gcnew MemoryStream(img);
+							MemoryStream^ m = gcnew MemoryStream((array<Byte>^)reader1["Image"]);
 							this->profilePic->Image = Image::FromStream(m);
-							reader1->Close();
 
 						}
+						reader1->Close();
 
 					}
 					else
@@ -753,8 +745,8 @@ namespace ChitChat {
 	}
 
 
-	
-private: System::Void groupIMG_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-};
+
+	private: System::Void groupIMG_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	};
 }

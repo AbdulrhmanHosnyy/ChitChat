@@ -6,6 +6,7 @@
 #include "StoryMain.h"
 #include "AddForm.h"
 #include "CreateGroup.h"
+#include "MyForm.h"
 namespace ChitChat {
 
 	using namespace System;
@@ -572,7 +573,12 @@ namespace ChitChat {
 				this->lbl_msgtime->Hide();
 
 			}
-			else { this->lbl_msgtime->Text = chatData[i]->timeDate.ToString(); }
+			else {
+				time_t TimeDate = (time_t)chatData[i]->timeDate;
+				char* c = ctime(&TimeDate);
+				String^ STimeDate = gcnew String(c);
+				this->lbl_msgtime->Text = STimeDate;
+			}
 
 			//
 			//chat_btn
@@ -582,12 +588,12 @@ namespace ChitChat {
 				static_cast<System::Byte>(0)));
 			b->ForeColor = System::Drawing::Color::DarkSlateBlue;
 			b->Location = System::Drawing::Point(109, 3);
-			b->Name = L"b_btn";
+			b->Name = chatData[i]->CHID.ToString();
 			b->Size = System::Drawing::Size(448, 94);
 			b->TabIndex = 0;
 			b->UseVisualStyleBackColor = false;
 			b->Click += gcnew System::EventHandler(this, &Groups::b_Click);
-			b->Text = chatData[i]->CHID.ToString();////////////////////////////////////////////////////////////////
+			b->Text = chatData[i]->CID.ToString();////////////////////////////////////////////////////////////////
 
 
 
@@ -696,7 +702,10 @@ namespace ChitChat {
 		btn = (Button^)sender;    //**
 		//THIS ACTION SOULD TRANSFERE THE USER TO THE GORUP CHAT ROOM
 
-
+		MyForm^ myForm = gcnew MyForm(Convert::ToInt32(btn->Text), Convert::ToInt32(btn->Name));
+		this->Hide();
+		myForm->ShowDialog();
+		Show();
 
 	}
 
@@ -723,20 +732,20 @@ namespace ChitChat {
 		myForm->ShowDialog();
 		Show();
 	}
-private: System::Void addContactToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	AddForm^ addFriend = gcnew AddForm();
-	this->Hide();
-	addFriend->ShowDialog();
-	Show();
-}
-private: System::Void btn_status_Click(System::Object^ sender, System::EventArgs^ e) {
-	StoryMain^ myStory = gcnew StoryMain();
-	this->Hide();
-	myStory->ShowDialog();
-	Show();
-}
-private: System::Void btn_contacts_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->Close();
-}
-};
+	private: System::Void addContactToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		AddForm^ addFriend = gcnew AddForm();
+		this->Hide();
+		addFriend->ShowDialog();
+		Show();
+	}
+	private: System::Void btn_status_Click(System::Object^ sender, System::EventArgs^ e) {
+		StoryMain^ myStory = gcnew StoryMain();
+		this->Hide();
+		myStory->ShowDialog();
+		Show();
+	}
+	private: System::Void btn_contacts_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
+	}
+	};
 }

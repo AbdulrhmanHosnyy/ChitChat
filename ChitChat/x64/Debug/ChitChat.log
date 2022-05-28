@@ -1,1 +1,126 @@
-﻿  ChitChat.vcxproj -> C:\Users\HP\source\repos\ChitChat\x64\Debug\ChitChat.exe
+﻿  Groups.cpp
+C:\Users\HP\source\repos\ChitChat\ChitChat\LoginForm.h(409,21): warning C4101: 'ex': unreferenced local variable
+C:\Users\HP\source\repos\ChitChat\ChitChat\UserProfileForm.h(379,1): warning C4965: implicit box of integer 0; use nullptr or explicit cast
+C:\Users\HP\source\repos\ChitChat\ChitChat\UserProfileForm.h(392,1): warning C4965: implicit box of integer 0; use nullptr or explicit cast
+C:\Users\HP\source\repos\ChitChat\ChitChat\AddStory.h(206,13): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\HP\source\repos\ChitChat\ChitChat\AddForm.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\HP\source\repos\ChitChat\ChitChat\AddForm.h(261,1): warning C4965: implicit box of integer 0; use nullptr or explicit cast
+C:\Users\HP\source\repos\ChitChat\ChitChat\CreateGroup.h(468,51): warning C4129: ';': unrecognized character escape sequence
+  The contents of <format> are available only in c++latest mode with concepts support;
+  see https://github.com/microsoft/STL/issues/1814 for details.
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(31,29): warning C4677: 'q': signature of non-private member contains assembly private type 'cliext::queue<message ^,cliext::deque<_Value_t> ^>'
+          with
+          [
+              _Value_t=message ^
+          ]
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(31): message : see declaration of 'cliext::queue<message ^,cliext::deque<_Value_t> ^>'
+          with
+          [
+              _Value_t=message ^
+          ]
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(31,29): warning C4677: 'q': signature of non-private member contains assembly private type 'message'
+C:\Users\HP\source\repos\ChitChat\ChitChat\message.h(5): message : see declaration of 'message'
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(31,29): warning C4677: 'q': signature of non-private member contains assembly private type 'cliext::deque<_Value_t>'
+          with
+          [
+              _Value_t=message ^
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.31.31103\include\cliext\queue(344): message : see declaration of 'cliext::deque<_Value_t>'
+          with
+          [
+              _Value_t=message ^
+          ]
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(318,51): warning C4129: ';': unrecognized character escape sequence
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(336,1): warning C4311: '<function-style-cast>': pointer truncation from 'char *' to 'int'
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(336,1): warning C4302: '<function-style-cast>': truncation from 'char *' to 'int'
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(334,15): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\HP\source\repos\ChitChat\ChitChat\Groups.h(387,54): warning C4129: ';': unrecognized character escape sequence
+C:\Users\HP\source\repos\ChitChat\ChitChat\Groups.h(578,15): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  home.cpp
+C:\Users\HP\source\repos\ChitChat\ChitChat\LoginForm.h(409,21): warning C4101: 'ex': unreferenced local variable
+C:\Users\HP\source\repos\ChitChat\ChitChat\CreateGroup.h(468,51): warning C4129: ';': unrecognized character escape sequence
+C:\Users\HP\source\repos\ChitChat\ChitChat\UserProfileForm.h(379,1): warning C4965: implicit box of integer 0; use nullptr or explicit cast
+C:\Users\HP\source\repos\ChitChat\ChitChat\UserProfileForm.h(392,1): warning C4965: implicit box of integer 0; use nullptr or explicit cast
+C:\Users\HP\source\repos\ChitChat\ChitChat\AddStory.h(206,13): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\HP\source\repos\ChitChat\ChitChat\AddForm.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\HP\source\repos\ChitChat\ChitChat\AddForm.h(261,1): warning C4965: implicit box of integer 0; use nullptr or explicit cast
+  The contents of <format> are available only in c++latest mode with concepts support;
+  see https://github.com/microsoft/STL/issues/1814 for details.
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(31,29): warning C4677: 'q': signature of non-private member contains assembly private type 'cliext::queue<message ^,cliext::deque<_Value_t> ^>'
+          with
+          [
+              _Value_t=message ^
+          ]
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(31): message : see declaration of 'cliext::queue<message ^,cliext::deque<_Value_t> ^>'
+          with
+          [
+              _Value_t=message ^
+          ]
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(31,29): warning C4677: 'q': signature of non-private member contains assembly private type 'message'
+C:\Users\HP\source\repos\ChitChat\ChitChat\message.h(5): message : see declaration of 'message'
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(31,29): warning C4677: 'q': signature of non-private member contains assembly private type 'cliext::deque<_Value_t>'
+          with
+          [
+              _Value_t=message ^
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.31.31103\include\cliext\queue(344): message : see declaration of 'cliext::deque<_Value_t>'
+          with
+          [
+              _Value_t=message ^
+          ]
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(318,51): warning C4129: ';': unrecognized character escape sequence
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(336,1): warning C4311: '<function-style-cast>': pointer truncation from 'char *' to 'int'
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(336,1): warning C4302: '<function-style-cast>': truncation from 'char *' to 'int'
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(334,15): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\HP\source\repos\ChitChat\ChitChat\Groups.h(387,54): warning C4129: ';': unrecognized character escape sequence
+C:\Users\HP\source\repos\ChitChat\ChitChat\Groups.h(578,15): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\HP\source\repos\ChitChat\ChitChat\home.h(374,54): warning C4129: ';': unrecognized character escape sequence
+C:\Users\HP\source\repos\ChitChat\ChitChat\home.h(569,15): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\HP\source\repos\ChitChat\ChitChat\home.h(625,13): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  main.cpp
+C:\Users\HP\source\repos\ChitChat\ChitChat\LoginForm.h(409,21): warning C4101: 'ex': unreferenced local variable
+C:\Users\HP\source\repos\ChitChat\ChitChat\RegisterForm.h(543,13): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\HP\source\repos\ChitChat\ChitChat\AddStory.h(206,13): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  The contents of <format> are available only in c++latest mode with concepts support;
+  see https://github.com/microsoft/STL/issues/1814 for details.
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(31,29): warning C4677: 'q': signature of non-private member contains assembly private type 'cliext::queue<message ^,cliext::deque<_Value_t> ^>'
+          with
+          [
+              _Value_t=message ^
+          ]
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(31): message : see declaration of 'cliext::queue<message ^,cliext::deque<_Value_t> ^>'
+          with
+          [
+              _Value_t=message ^
+          ]
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(31,29): warning C4677: 'q': signature of non-private member contains assembly private type 'message'
+C:\Users\HP\source\repos\ChitChat\ChitChat\message.h(5): message : see declaration of 'message'
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(31,29): warning C4677: 'q': signature of non-private member contains assembly private type 'cliext::deque<_Value_t>'
+          with
+          [
+              _Value_t=message ^
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.31.31103\include\cliext\queue(344): message : see declaration of 'cliext::deque<_Value_t>'
+          with
+          [
+              _Value_t=message ^
+          ]
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(318,51): warning C4129: ';': unrecognized character escape sequence
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(336,1): warning C4311: '<function-style-cast>': pointer truncation from 'char *' to 'int'
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(336,1): warning C4302: '<function-style-cast>': truncation from 'char *' to 'int'
+C:\Users\HP\source\repos\ChitChat\ChitChat\MyForm.h(334,15): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\HP\source\repos\ChitChat\ChitChat\Testy.h(142,1): warning C4965: implicit box of integer 0; use nullptr or explicit cast
+C:\Users\HP\source\repos\ChitChat\ChitChat\UserProfileForm.h(379,1): warning C4965: implicit box of integer 0; use nullptr or explicit cast
+C:\Users\HP\source\repos\ChitChat\ChitChat\UserProfileForm.h(392,1): warning C4965: implicit box of integer 0; use nullptr or explicit cast
+C:\Users\HP\source\repos\ChitChat\ChitChat\CreateGroup.h(468,51): warning C4129: ';': unrecognized character escape sequence
+C:\Users\HP\source\repos\ChitChat\ChitChat\AddForm.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\HP\source\repos\ChitChat\ChitChat\AddForm.h(261,1): warning C4965: implicit box of integer 0; use nullptr or explicit cast
+C:\Users\HP\source\repos\ChitChat\ChitChat\Groups.h(387,54): warning C4129: ';': unrecognized character escape sequence
+C:\Users\HP\source\repos\ChitChat\ChitChat\Groups.h(578,15): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\HP\source\repos\ChitChat\ChitChat\home.h(374,54): warning C4129: ';': unrecognized character escape sequence
+C:\Users\HP\source\repos\ChitChat\ChitChat\home.h(569,15): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\HP\source\repos\ChitChat\ChitChat\home.h(625,13): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\HP\source\repos\ChitChat\ChitChat\main.cpp(17,33): warning C4829: Possibly incorrect parameters to function main. Consider 'int main(Platform::Array<Platform::String^>^ argv)'
+  Generating Code...
+  AddForm.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  ChitChat.vcxproj -> C:\Users\HP\source\repos\ChitChat\x64\Debug\ChitChat.exe

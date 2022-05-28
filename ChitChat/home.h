@@ -113,7 +113,7 @@ namespace ChitChat {
 			   this->pnl_top->Dock = System::Windows::Forms::DockStyle::Top;
 			   this->pnl_top->Location = System::Drawing::Point(0, 0);
 			   this->pnl_top->Name = L"pnl_top";
-			   this->pnl_top->Size = System::Drawing::Size(566, 161);
+			   this->pnl_top->Size = System::Drawing::Size(577, 161);
 			   this->pnl_top->TabIndex = 0;
 			   // 
 			   // btn_contacts
@@ -125,7 +125,7 @@ namespace ChitChat {
 				   static_cast<System::Byte>(0)));
 			   this->btn_contacts->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btn_contacts.Image")));
 			   this->btn_contacts->ImageAlign = System::Drawing::ContentAlignment::MiddleRight;
-			   this->btn_contacts->Location = System::Drawing::Point(375, 94);
+			   this->btn_contacts->Location = System::Drawing::Point(385, 94);
 			   this->btn_contacts->Name = L"btn_contacts";
 			   this->btn_contacts->Size = System::Drawing::Size(178, 60);
 			   this->btn_contacts->TabIndex = 0;
@@ -142,7 +142,7 @@ namespace ChitChat {
 				   static_cast<System::Byte>(0)));
 			   this->btn_status->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btn_status.Image")));
 			   this->btn_status->ImageAlign = System::Drawing::ContentAlignment::MiddleRight;
-			   this->btn_status->Location = System::Drawing::Point(187, 94);
+			   this->btn_status->Location = System::Drawing::Point(197, 94);
 			   this->btn_status->Name = L"btn_status";
 			   this->btn_status->Size = System::Drawing::Size(178, 61);
 			   this->btn_status->TabIndex = 0;
@@ -160,7 +160,7 @@ namespace ChitChat {
 				   static_cast<System::Byte>(0)));
 			   this->btn_groups->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btn_groups.Image")));
 			   this->btn_groups->ImageAlign = System::Drawing::ContentAlignment::MiddleRight;
-			   this->btn_groups->Location = System::Drawing::Point(3, 94);
+			   this->btn_groups->Location = System::Drawing::Point(13, 94);
 			   this->btn_groups->Name = L"btn_groups";
 			   this->btn_groups->Size = System::Drawing::Size(178, 61);
 			   this->btn_groups->TabIndex = 0;
@@ -187,7 +187,7 @@ namespace ChitChat {
 			   this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->menuToolStripMenuItem });
 			   this->menuStrip1->Location = System::Drawing::Point(486, 0);
 			   this->menuStrip1->Name = L"menuStrip1";
-			   this->menuStrip1->Size = System::Drawing::Size(63, 24);
+			   this->menuStrip1->Size = System::Drawing::Size(71, 26);
 			   this->menuStrip1->TabIndex = 6;
 			   this->menuStrip1->Text = L"menuStrip1";
 			   // 
@@ -200,7 +200,7 @@ namespace ChitChat {
 			   this->menuToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->menuToolStripMenuItem->Name = L"menuToolStripMenuItem";
-			   this->menuToolStripMenuItem->Size = System::Drawing::Size(55, 20);
+			   this->menuToolStripMenuItem->Size = System::Drawing::Size(63, 22);
 			   this->menuToolStripMenuItem->Text = L"menu";
 			   // 
 			   // myProfileToolStripMenuItem
@@ -208,7 +208,7 @@ namespace ChitChat {
 			   this->myProfileToolStripMenuItem->BackColor = System::Drawing::SystemColors::ControlDark;
 			   this->myProfileToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"myProfileToolStripMenuItem.Image")));
 			   this->myProfileToolStripMenuItem->Name = L"myProfileToolStripMenuItem";
-			   this->myProfileToolStripMenuItem->Size = System::Drawing::Size(170, 22);
+			   this->myProfileToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			   this->myProfileToolStripMenuItem->Text = L"My Profile";
 			   this->myProfileToolStripMenuItem->Click += gcnew System::EventHandler(this, &home::myProfileToolStripMenuItem_Click);
 			   // 
@@ -217,7 +217,7 @@ namespace ChitChat {
 			   this->addContactToolStripMenuItem->BackColor = System::Drawing::SystemColors::ControlDark;
 			   this->addContactToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"addContactToolStripMenuItem.Image")));
 			   this->addContactToolStripMenuItem->Name = L"addContactToolStripMenuItem";
-			   this->addContactToolStripMenuItem->Size = System::Drawing::Size(170, 22);
+			   this->addContactToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			   this->addContactToolStripMenuItem->Text = L"Add Contact";
 			   this->addContactToolStripMenuItem->Click += gcnew System::EventHandler(this, &home::addContactToolStripMenuItem_Click);
 			   // 
@@ -226,7 +226,7 @@ namespace ChitChat {
 			   this->createGoupToolStripMenuItem->BackColor = System::Drawing::SystemColors::ControlDark;
 			   this->createGoupToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"createGoupToolStripMenuItem.Image")));
 			   this->createGoupToolStripMenuItem->Name = L"createGoupToolStripMenuItem";
-			   this->createGoupToolStripMenuItem->Size = System::Drawing::Size(170, 22);
+			   this->createGoupToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			   this->createGoupToolStripMenuItem->Text = L"Creat Group";
 			   this->createGoupToolStripMenuItem->Click += gcnew System::EventHandler(this, &home::createGoupToolStripMenuItem_Click);
 			   // 
@@ -235,7 +235,7 @@ namespace ChitChat {
 			   this->switchAcountToolStripMenuItem->BackColor = System::Drawing::SystemColors::ControlDark;
 			   this->switchAcountToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"switchAcountToolStripMenuItem.Image")));
 			   this->switchAcountToolStripMenuItem->Name = L"switchAcountToolStripMenuItem";
-			   this->switchAcountToolStripMenuItem->Size = System::Drawing::Size(170, 22);
+			   this->switchAcountToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			   this->switchAcountToolStripMenuItem->Text = L"Switch Account";
 			   this->switchAcountToolStripMenuItem->Click += gcnew System::EventHandler(this, &home::logOutToolStripMenuItem_Click);
 			   // 
@@ -247,7 +247,7 @@ namespace ChitChat {
 			   this->label1->ForeColor = System::Drawing::SystemColors::AppWorkspace;
 			   this->label1->Location = System::Drawing::Point(88, 18);
 			   this->label1->Name = L"label1";
-			   this->label1->Size = System::Drawing::Size(129, 31);
+			   this->label1->Size = System::Drawing::Size(152, 38);
 			   this->label1->TabIndex = 0;
 			   this->label1->Text = L"ChitChat";
 			   // 
@@ -270,7 +270,7 @@ namespace ChitChat {
 			   this->pnl_container->Dock = System::Windows::Forms::DockStyle::Fill;
 			   this->pnl_container->Location = System::Drawing::Point(0, 161);
 			   this->pnl_container->Name = L"pnl_container";
-			   this->pnl_container->Size = System::Drawing::Size(566, 588);
+			   this->pnl_container->Size = System::Drawing::Size(577, 588);
 			   this->pnl_container->TabIndex = 1;
 			   this->pnl_container->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &home::pnl_container_Paint);
 			   // 
@@ -294,7 +294,7 @@ namespace ChitChat {
 				   static_cast<System::Byte>(0)));
 			   this->lbl_msgtime->Location = System::Drawing::Point(341, 77);
 			   this->lbl_msgtime->Name = L"lbl_msgtime";
-			   this->lbl_msgtime->Size = System::Drawing::Size(46, 17);
+			   this->lbl_msgtime->Size = System::Drawing::Size(53, 20);
 			   this->lbl_msgtime->TabIndex = 6;
 			   this->lbl_msgtime->Text = L"label2";
 			   // 
@@ -305,7 +305,7 @@ namespace ChitChat {
 			   this->lbl_msgtxt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Italic));
 			   this->lbl_msgtxt->Location = System::Drawing::Point(128, 54);
 			   this->lbl_msgtxt->Name = L"lbl_msgtxt";
-			   this->lbl_msgtxt->Size = System::Drawing::Size(60, 24);
+			   this->lbl_msgtxt->Size = System::Drawing::Size(79, 29);
 			   this->lbl_msgtxt->TabIndex = 5;
 			   this->lbl_msgtxt->Text = L"label2";
 			   // 
@@ -318,7 +318,7 @@ namespace ChitChat {
 			   this->lbl_name->ForeColor = System::Drawing::Color::DarkSlateGray;
 			   this->lbl_name->Location = System::Drawing::Point(126, 14);
 			   this->lbl_name->Name = L"lbl_name";
-			   this->lbl_name->Size = System::Drawing::Size(79, 29);
+			   this->lbl_name->Size = System::Drawing::Size(95, 36);
 			   this->lbl_name->TabIndex = 4;
 			   this->lbl_name->Text = L"label3";
 			   // 
@@ -346,9 +346,9 @@ namespace ChitChat {
 			   // 
 			   // home
 			   // 
-			   this->AutoScaleDimensions = System::Drawing::SizeF(10, 22);
+			   this->AutoScaleDimensions = System::Drawing::SizeF(14, 29);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			   this->ClientSize = System::Drawing::Size(566, 749);
+			   this->ClientSize = System::Drawing::Size(577, 749);
 			   this->Controls->Add(this->pnl_container);
 			   this->Controls->Add(this->pnl_top);
 			   this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -371,12 +371,15 @@ namespace ChitChat {
 
 		   }
 #pragma endregion
-	SqlConnection^ connection = gcnew SqlConnection("Data Source=.\;Initial Catalog=ChitChatDB;Integrated Security=True");
+		   SqlConnection^ connection = gcnew SqlConnection("Data Source=.\;Initial Catalog=ChitChatDB;Integrated Security=True");
 	private:List<int>^ LCHID;
 	private:List<int>^ LCID;
 	private:List<showChats^>^ chatData;
 	private:showChats^ showChatObj;
+	private:void c()
+	{
 
+	}
 	private: System::Void pnl_container_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 
 		LCHID = gcnew List<int>();
@@ -432,8 +435,11 @@ namespace ChitChat {
 
 				if (reader2->Read())
 				{
-					MemoryStream^ m = gcnew MemoryStream((array<Byte>^)reader2[0]);
-					showChatObj->img = Image::FromStream(m);
+					if (!reader2->IsDBNull(0)) {
+						MemoryStream^ m = gcnew MemoryStream((array<Byte>^)reader2[0]);
+						showChatObj->img = Image::FromStream(m);
+
+					}
 					reader2->Close();
 				}
 
@@ -456,6 +462,7 @@ namespace ChitChat {
 				while (reader4->Read())
 				{
 					showChatObj->text = (String^)reader4[0];
+
 					showChatObj->timeDate = (int)reader4[1];
 
 				}reader4->Close();
@@ -557,7 +564,12 @@ namespace ChitChat {
 				this->lbl_msgtime->Hide();
 
 			}
-			else { this->lbl_msgtime->Text = chatData[i]->timeDate.ToString(); }
+			else {
+				time_t TimeDate = (time_t)chatData[i]->timeDate;
+				char* c = ctime(&TimeDate);
+				String^ STimeDate = gcnew String(c);
+				this->lbl_msgtime->Text = STimeDate;
+			}
 			//
 			//chat_btn
 			//
@@ -602,10 +614,10 @@ namespace ChitChat {
 		}
 
 		//THIS ACTION SOULD TRANSFERE THE USER TO THE CHAT ROOM
-		MyForm ^myForm = gcnew MyForm(Convert::ToInt32(btn->Text), Convert::ToInt32(btn->Name));
-			this->Hide();
-			myForm->ShowDialog();
-			Show();
+		MyForm^ myForm = gcnew MyForm(Convert::ToInt32(btn->Text), Convert::ToInt32(btn->Name));
+		this->Hide();
+		myForm->ShowDialog();
+		Show();
 
 	}
 	private: System::Void logOutToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -623,13 +635,13 @@ namespace ChitChat {
 			cmd.Parameters->AddWithValue("@CID", LoginForm::cont->Id);
 			cmd.ExecuteNonQuery();
 
-			
+
 		}
 		catch (Exception^ e)
 		{
 			MessageBox::Show(e->Message);
 		}
-		LoginForm ^logOut = gcnew LoginForm();
+		LoginForm^ logOut = gcnew LoginForm();
 		this->Hide();
 		logOut->ShowDialog();
 		Show();
@@ -647,23 +659,23 @@ namespace ChitChat {
 		myForm->ShowDialog();
 		Show();
 	}
-private: System::Void btn_status_Click(System::Object^ sender, System::EventArgs^ e) {
-	StoryMain^ myStory = gcnew StoryMain();
-	this->Hide();
-	myStory->ShowDialog();
-	Show();
-}
-private: System::Void addContactToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	AddForm^ addFriend = gcnew AddForm();
-	this->Hide();
-	addFriend->ShowDialog();
-	Show();
-}
-private: System::Void btn_groups_Click(System::Object^ sender, System::EventArgs^ e) {
-	Groups^ myGroups = gcnew Groups();
-	this->Hide();
-	myGroups->ShowDialog();
-	Show();
-}
-};
+	private: System::Void btn_status_Click(System::Object^ sender, System::EventArgs^ e) {
+		StoryMain^ myStory = gcnew StoryMain();
+		this->Hide();
+		myStory->ShowDialog();
+		Show();
+	}
+	private: System::Void addContactToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		AddForm^ addFriend = gcnew AddForm();
+		this->Hide();
+		addFriend->ShowDialog();
+		Show();
+	}
+	private: System::Void btn_groups_Click(System::Object^ sender, System::EventArgs^ e) {
+		Groups^ myGroups = gcnew Groups();
+		this->Hide();
+		myGroups->ShowDialog();
+		Show();
+	}
+	};
 }
