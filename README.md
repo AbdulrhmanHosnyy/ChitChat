@@ -1,7 +1,7 @@
 # ChitChat
 ChitChat application where you can register and login, navigate from home page, create chat group and text your friends, send them messages, add new contacts, switch account, and add stories.
 
-##Contirbuters
+## Contirbuters
 Abdulrhman Hosny Muhammed Kamel     
 20201700434     
 Section 15      
