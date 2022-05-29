@@ -57,9 +57,9 @@ SQL Database.
 #### GUI :
 WinForms.
 #### OOP :
-Abstraction.
-Encapsulation.
-Polymorphism.
+Abstraction.          
+Encapsulation.        
+Polymorphism.     
 
 ___________________
 
