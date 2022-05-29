@@ -517,7 +517,10 @@ namespace ChitChat {
 	showStory();
 
     }
+
+		   public:bool switchToHome = false;  //++++++++++++++++++++++++++++++
     private: System::Void GoBackButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->switchToHome = true;
 	this->Close();
     }
 };

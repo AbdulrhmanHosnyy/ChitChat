@@ -181,7 +181,10 @@ namespace ChitChat {
 
 		}
 #pragma endregion
+		 public:bool switchToHome = false;  //++++++++++++++++++++++++++++++
 	private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		this->switchToHome = true;
 		this->Close();
 	}
 
@@ -300,6 +303,7 @@ namespace ChitChat {
 
 			}
 			sqlConn.Close();
+			this->switchToHome = true;
 			this->Close();
 		}
 		catch (Exception^ ex) {

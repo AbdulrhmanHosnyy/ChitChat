@@ -398,6 +398,7 @@ namespace ChitChat {
 			command1.Parameters->AddWithValue("@Fname", this->FNameLabel->Text->ToString());
 			command1.Parameters->AddWithValue("@Lname", this->LNameLabel->Text->ToString());
 			sqlConn.Close();
+			this->switchToHome = true;
 			this->Close();
 		}
 		catch (Exception^ e)
@@ -411,7 +412,11 @@ namespace ChitChat {
 		else
 			this->Visability->Text = "Visable";
 	}
+
+
+		   public:bool switchToHome = false;  //++++++++++++++++++++++++++++++
     private: System::Void GoBackButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->switchToHome = true;
 	this->Close();
 }
 };

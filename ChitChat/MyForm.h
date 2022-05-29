@@ -8,6 +8,8 @@
 #include <string.h>
 #include "ViewUserProfile.h"
 #include "LoginForm.h"
+#include "home.h"
+#include "Groups.h"
 namespace ChitChat {
 
 	using namespace System;
@@ -27,13 +29,17 @@ namespace ChitChat {
 	{
 	public:
 		int z = 1;
-		bool group =false;
+		bool group = false;
 		cliext::queue<message^>^ q;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Label^ name_txt;
+	private: System::Windows::Forms::Button^ btn_unsend;
+
 
 
 	public:
+
+
 
 
 
@@ -50,16 +56,16 @@ namespace ChitChat {
 		}
 
 
-	public:int CHID, CID;
-		MyForm(int cid, int chid)
-		{
-			CHID = chid;
-			CID = cid;
-			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
-		}
+		//public:int CHID, CID;
+			//MyForm(int cid, int chid)
+			//{
+			//	CHID = chid;
+			//	CID = cid;
+			//	InitializeComponent();
+			//	//
+			//	//TODO: Add the constructor code here
+			//	//
+			//}
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -108,6 +114,7 @@ namespace ChitChat {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->top_panal = (gcnew System::Windows::Forms::Panel());
+			this->btn_unsend = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->user_name = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
@@ -129,6 +136,7 @@ namespace ChitChat {
 			// top_panal
 			// 
 			this->top_panal->BackColor = System::Drawing::Color::Transparent;
+			this->top_panal->Controls->Add(this->btn_unsend);
 			this->top_panal->Controls->Add(this->button1);
 			this->top_panal->Controls->Add(this->user_name);
 			this->top_panal->Controls->Add(this->pictureBox1);
@@ -141,19 +149,33 @@ namespace ChitChat {
 			this->top_panal->TabIndex = 0;
 			this->top_panal->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::top_panal_Paint);
 			// 
+			// btn_unsend
+			// 
+			this->btn_unsend->BackColor = System::Drawing::Color::Gray;
+			this->btn_unsend->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btn_unsend->Location = System::Drawing::Point(324, 25);
+			this->btn_unsend->Name = L"btn_unsend";
+			this->btn_unsend->Size = System::Drawing::Size(154, 47);
+			this->btn_unsend->TabIndex = 3;
+			this->btn_unsend->Text = L"unsend message!";
+			this->btn_unsend->UseVisualStyleBackColor = false;
+			this->btn_unsend->Click += gcnew System::EventHandler(this, &MyForm::btn_unsend_Click);
+			this->btn_unsend->Hide();
+			// 
 			// button1
 			// 
-			this->button1->BackColor = System::Drawing::Color::Transparent;
-			this->button1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.BackgroundImage")));
+			this->button1->BackColor = System::Drawing::Color::DimGray;
 			this->button1->FlatAppearance->BorderSize = 0;
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button1->Font = (gcnew System::Drawing::Font(L"MV Boli", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->button1->ForeColor = System::Drawing::Color::IndianRed;
 			this->button1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.Image")));
-			this->button1->Location = System::Drawing::Point(483, 11);
+			this->button1->Location = System::Drawing::Point(483, 25);
 			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(56, 46);
+			this->button1->Size = System::Drawing::Size(56, 47);
 			this->button1->TabIndex = 2;
 			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
@@ -172,11 +194,11 @@ namespace ChitChat {
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(11, 2);
+			this->pictureBox1->Location = System::Drawing::Point(3, 2);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(91, 83);
-			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Click += gcnew System::EventHandler(this, &MyForm::pictureBox1_Click);
@@ -194,8 +216,8 @@ namespace ChitChat {
 			// 
 			// send_bt
 			// 
-			this->send_bt->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"send_bt.BackgroundImage")));
-			this->send_bt->Font = (gcnew System::Drawing::Font(L"MV Boli", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->send_bt->BackColor = System::Drawing::Color::DimGray;
+			this->send_bt->Font = (gcnew System::Drawing::Font(L"MV Boli", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->send_bt->ForeColor = System::Drawing::Color::White;
 			this->send_bt->Location = System::Drawing::Point(407, 0);
@@ -205,12 +227,14 @@ namespace ChitChat {
 			this->send_bt->Size = System::Drawing::Size(101, 60);
 			this->send_bt->TabIndex = 1;
 			this->send_bt->Text = L"send";
-			this->send_bt->UseVisualStyleBackColor = true;
+			this->send_bt->UseVisualStyleBackColor = false;
 			this->send_bt->Click += gcnew System::EventHandler(this, &MyForm::send_bt_Click);
 			// 
 			// textBox1
 			// 
 			this->textBox1->BackColor = System::Drawing::Color::DarkGray;
+			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->textBox1->ForeColor = System::Drawing::Color::Black;
 			this->textBox1->Location = System::Drawing::Point(3, 2);
 			this->textBox1->Margin = System::Windows::Forms::Padding(2);
@@ -303,6 +327,7 @@ namespace ChitChat {
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"MyForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->top_panal->ResumeLayout(false);
 			this->top_panal->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
@@ -314,8 +339,14 @@ namespace ChitChat {
 
 		}
 #pragma endregion
-
 		SqlConnection^ connection = gcnew SqlConnection("Data Source=.\;Initial Catalog=ChitChatDB;Integrated Security=True");
+		public :int ch = 0;
+		void f() {
+			if (home::switchToChatroom)
+				ch = home::CHID;
+			else
+				ch = Groups::CHID;
+		}
 		void insert_message() {
 
 
@@ -333,14 +364,14 @@ namespace ChitChat {
 				time_t TimeDate = time(0);
 				char* c = ctime(&TimeDate);
 
-				int Time = int(c);
+				int Time = (int)(TimeDate);
 
 				String^ STimeDate = gcnew String(c);
 				STimeDate = STimeDate->Substring(11, 5);
 
 				cmd.Parameters->AddWithValue("@text", this->textBox1->Text);
 				cmd.Parameters->AddWithValue("@cid", LoginForm::cont->Id);
-				cmd.Parameters->AddWithValue("@chid", CHID);
+				cmd.Parameters->AddWithValue("@chid", ch);
 				cmd.Parameters->AddWithValue("@type", false);
 				cmd.Parameters->AddWithValue("@date", STimeDate);
 				cmd.Parameters->AddWithValue("@time", Time);
@@ -380,14 +411,14 @@ namespace ChitChat {
 				String^ sqlQuery = "SELECT MID ,Text , Time , CID , Type ,Date FROM Messages WHERE CHID = @CHID  ;";
 
 				SqlCommand cmd(sqlQuery, connection);
-				cmd.Parameters->AddWithValue("@CHID", CHID);
+				cmd.Parameters->AddWithValue("@CHID", ch);
 				SqlDataReader^ reader = cmd.ExecuteReader();
 
-				
+
 				while (reader->Read())
 				{
 
-					message^ m = gcnew message((int)reader[0], (int)CHID, (String^)reader[1]->ToString(), (bool)reader[4], (String^)reader[2]->ToString(), (int)reader[3], reader[5]->ToString());
+					message^ m = gcnew message((int)reader[0], (int)(ch), (String^)reader[1]->ToString(), (bool)reader[4], (String^)reader[2]->ToString(), (int)reader[3], reader[5]->ToString());
 
 
 					q->push(m);
@@ -396,7 +427,7 @@ namespace ChitChat {
 
 
 				}
-				
+
 				reader->Close();
 
 
@@ -416,7 +447,7 @@ namespace ChitChat {
 
 				String^ sqlQuery = "SELECT Type FROM Chatrooms WHERE CHID = @CHID ;";
 				SqlCommand cmd(sqlQuery, connection);
-				cmd.Parameters->AddWithValue("@CHID", CHID);
+				cmd.Parameters->AddWithValue("@CHID", ch);
 				SqlDataReader^ reader = cmd.ExecuteReader();
 				reader->Read();
 				group = (bool)reader[0];
@@ -428,7 +459,7 @@ namespace ChitChat {
 				MessageBox::Show(e->Message);
 			}
 
-			
+
 
 
 			if (group == false) {
@@ -495,7 +526,7 @@ namespace ChitChat {
 							this->msg_pnl->BackColor = System::Drawing::Color::DarkGoldenrod;
 							this->msg_text->Location = System::Drawing::Point(30, 21);
 							this->msg_time->Location = System::Drawing::Point(250, 47);
-							
+
 
 						}
 
@@ -531,7 +562,7 @@ namespace ChitChat {
 						this->seen_box->UseVisualStyleBackColor = true;
 						// 
 
-						
+
 
 
 
@@ -559,8 +590,8 @@ namespace ChitChat {
 
 				for (int j = 0; j < i; j++)
 				{
-					
-					
+
+
 
 					if (z == 1) {
 
@@ -598,8 +629,8 @@ namespace ChitChat {
 						this->msg_time->Name = L"msg_time";
 						this->msg_time->Size = System::Drawing::Size(44, 16);
 						this->msg_time->TabIndex = 1;
-						                       															
-						
+
+
 						if (n->get_usereid() == LoginForm::cont->Id) {
 							this->msg_pnl->Margin = System::Windows::Forms::Padding(0, 10, 200, 10);
 							this->msg_pnl->BackColor = System::Drawing::Color::Beige;
@@ -611,7 +642,7 @@ namespace ChitChat {
 						else
 						{
 
-							
+
 							this->msg_pnl->Controls->Add(this->name_txt);
 							this->msg_pnl->Margin = System::Windows::Forms::Padding(200, 10, 0, 10);
 							this->msg_pnl->BackColor = System::Drawing::Color::DarkGoldenrod;
@@ -653,7 +684,7 @@ namespace ChitChat {
 						}
 
 
-						
+
 						//
 						//msg_text
 						//
@@ -663,7 +694,7 @@ namespace ChitChat {
 						this->msg_text->Size = System::Drawing::Size(50, 15);
 						this->msg_text->TabIndex = 0;
 						this->msg_text->AutoSize = true;
-						
+
 						//
 						// seen_box
 						// 
@@ -680,8 +711,8 @@ namespace ChitChat {
 						this->seen_box->TabIndex = 2;
 						this->seen_box->Text = L"seen";
 						this->seen_box->UseVisualStyleBackColor = true;
-									
-									
+
+
 
 						this->container_pnl->Controls->Add(this->msg_pnl);
 
@@ -699,11 +730,11 @@ namespace ChitChat {
 
 
 
-		
-		
-	
-		
-			
+
+
+
+
+
 
 		}
 
@@ -749,7 +780,7 @@ namespace ChitChat {
 
 
 			this->msg_pnl->BackColor = System::Drawing::Color::Beige;
-			
+
 
 			//
 			//msg_text
@@ -782,10 +813,11 @@ namespace ChitChat {
 
 
 		}
+		this->btn_unsend->Show();
 	}
 
 
- private: Image^ img;
+	private: Image^ img;
 
 	private: System::Void top_panal_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 
@@ -797,7 +829,7 @@ namespace ChitChat {
 
 			String^ sqlQuery = "SELECT Type FROM Chatrooms WHERE CHID = @CHID ;";
 			SqlCommand cmd(sqlQuery, connection);
-			cmd.Parameters->AddWithValue("@CHID", CHID);
+			cmd.Parameters->AddWithValue("@CHID", ch);
 			SqlDataReader^ reader = cmd.ExecuteReader();
 			reader->Read();
 			group = (bool)reader[0];
@@ -821,7 +853,7 @@ namespace ChitChat {
 
 				String^ sqlQuery = "SELECT G_Name FROM GroupChat WHERE CHID = @cHid ;";
 				SqlCommand cmd(sqlQuery, connection);
-				cmd.Parameters->AddWithValue("@chid", CHID );
+				cmd.Parameters->AddWithValue("@chid", ch);
 				SqlDataReader^ reader = cmd.ExecuteReader();
 				reader->Read();
 				this->user_name->Text = reader[0]->ToString();
@@ -843,7 +875,7 @@ namespace ChitChat {
 
 				String^ sqlQuery = "SELECT Fname , Lname FROM Contacts WHERE CID = @cid ;";
 				SqlCommand cmd(sqlQuery, connection);
-				cmd.Parameters->AddWithValue("@cid", CID);
+				cmd.Parameters->AddWithValue("@cid", home::CID);
 				SqlDataReader^ reader = cmd.ExecuteReader();
 				if (reader->Read())
 				{
@@ -856,7 +888,7 @@ namespace ChitChat {
 
 				String^ sqlQuery1 = "SELECT Image FROM UserProfile WHERE CID = @CID;";
 				SqlCommand command1(sqlQuery1, connection);
-				command1.Parameters->AddWithValue("@CID", CID);
+				command1.Parameters->AddWithValue("@CID", home::CID);
 
 				SqlDataReader^ reader1 = command1.ExecuteReader();
 
@@ -877,13 +909,13 @@ namespace ChitChat {
 				MessageBox::Show(e->Message);
 			}
 		}
-		
+
 		this->top_panal->Controls->Add(this->user_name);
 		this->top_panal->Controls->Add(this->pictureBox1);
-			
 
-		}
-	
+
+	}
+
 
 
 	private: System::Void container_pnl_Paint_1(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
@@ -892,43 +924,104 @@ namespace ChitChat {
 	}
 
 
-private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
-	int val;
+	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+		int val;
+		try
+		{
+			if (connection->State != ConnectionState::Open) {
+				connection->Open();
+			}
+			String^ sqlQuery = "SELECT Visability FROM UserProfile WHERE CID = @CID ;";
+			SqlCommand cmd(sqlQuery, connection);
+			cmd.Parameters->AddWithValue("@CID", home::CID);
+			SqlDataReader^ reader = cmd.ExecuteReader();
+			if (reader->Read())
+			{
+				if (!reader->IsDBNull(0))
+				{
+					val = reader->GetInt32(0);
+				}
+			}
+			reader->Close();
+			connection->Close();
+
+		}
+		catch (Exception^ e)
+		{
+			MessageBox::Show(e->Message);
+		}
+		if (val == 1)
+		{
+			ViewUserProfile^ viewUserProfile = gcnew ViewUserProfile(home::CID);
+			this->Hide();
+			viewUserProfile->ShowDialog();
+			Show();
+		}
+
+	}
+
+	 public:bool switchToHome = false;//++++++++++++++++++++++++++++++
+	 public:bool switchToGroup = false;//++++++++++++++++++++++++++++++
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (group)
+			this->switchToGroup = true;
+		else
+		    this->switchToHome = true;
+		this->Close();
+	}
+	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		f();
+	}
+
+		public: int maxMID;
+		public: int senderCID;
+		 public: bool refreshMessage = false;
+private: System::Void btn_unsend_Click(System::Object^ sender, System::EventArgs^ e) {
 	try
 	{
 		if (connection->State != ConnectionState::Open) {
 			connection->Open();
 		}
-		String^ sqlQuery = "SELECT Visability FROM UserProfile WHERE CID = @CID ;";
-		SqlCommand cmd(sqlQuery, connection);
-		cmd.Parameters->AddWithValue("@CID", CID);
-		SqlDataReader^ reader = cmd.ExecuteReader();
-		if(reader->Read())
+		String^ sqlQuery1 = "SELECT max(MID) FROM Messages; ";
+		SqlCommand cmd1(sqlQuery1, connection);
+		SqlDataReader^ reader = cmd1.ExecuteReader();
+		if (reader->Read())
 		{
-			if (!reader->IsDBNull(0))
-			{
-				val = reader->GetInt32(0);
-			}
+			maxMID = (int)reader[0];
 		}
+		//geting the last msg id
 		reader->Close();
+
+
+		String^ sqlQuery2 = "SELECT CID FROM Messages WHERE MID='" + maxMID + "';";
+		SqlCommand cmd2(sqlQuery2, connection);
+		SqlDataReader^ reader2 = cmd2.ExecuteReader();
+		if (reader2->Read())
+		{
+			senderCID = (int)reader2[0];   //geting cid of the last sender
+			
+		}reader2->Close();
+
+		if (senderCID == LoginForm::cont->Id) {
+
+			String^ sqlQuery3 = "DELETE FROM Messages WHERE MID ='" + maxMID + "';";
+			SqlCommand cmd3(sqlQuery3, connection);
+			cmd3.ExecuteNonQuery();
+			q->pop();
+			this->refreshMessage = true;
+			this->Close();
+		}
 		connection->Close();
-	
+		
+		//MyForm::UpdateStyles();
+
+
 	}
 	catch (Exception^ e)
 	{
 		MessageBox::Show(e->Message);
 	}
-	if (val == 1)
-	{
-		ViewUserProfile^ viewUserProfile = gcnew ViewUserProfile(CID);
-		this->Hide();
-		viewUserProfile->ShowDialog();
-		Show();
-	}
-	
-}
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->Close();
+
 }
 };
 }

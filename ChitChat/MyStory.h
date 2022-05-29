@@ -365,7 +365,6 @@ private: System::Void Previous_Click(System::Object^ sender, System::EventArgs^ 
 		this->Close();
 	}
 }
-
 private: System::Void Delete_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (myStory->Count != 0)
 	{ 

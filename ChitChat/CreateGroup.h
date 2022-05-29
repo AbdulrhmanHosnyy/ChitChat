@@ -115,9 +115,9 @@ namespace ChitChat {
 			this->pnl_top->Controls->Add(this->pictureBox1);
 			this->pnl_top->Dock = System::Windows::Forms::DockStyle::Top;
 			this->pnl_top->Location = System::Drawing::Point(0, 0);
-			this->pnl_top->Margin = System::Windows::Forms::Padding(2);
+			this->pnl_top->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->pnl_top->Name = L"pnl_top";
-			this->pnl_top->Size = System::Drawing::Size(555, 148);
+			this->pnl_top->Size = System::Drawing::Size(740, 182);
 			this->pnl_top->TabIndex = 0;
 			// 
 			// label1
@@ -126,10 +126,9 @@ namespace ChitChat {
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 28.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::Color::Fuchsia;
-			this->label1->Location = System::Drawing::Point(42, 17);
-			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label1->Location = System::Drawing::Point(56, 21);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(47, 44);
+			this->label1->Size = System::Drawing::Size(58, 54);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"N";
 			// 
@@ -138,10 +137,9 @@ namespace ChitChat {
 			this->label8->AutoSize = true;
 			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 28.2F, System::Drawing::FontStyle::Bold));
 			this->label8->ForeColor = System::Drawing::Color::Fuchsia;
-			this->label8->Location = System::Drawing::Point(466, 103);
-			this->label8->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label8->Location = System::Drawing::Point(621, 127);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(45, 44);
+			this->label8->Size = System::Drawing::Size(55, 54);
 			this->label8->TabIndex = 1;
 			this->label8->Text = L"P";
 			// 
@@ -150,10 +148,9 @@ namespace ChitChat {
 			this->label7->AutoSize = true;
 			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 28.2F, System::Drawing::FontStyle::Bold));
 			this->label7->ForeColor = System::Drawing::Color::Fuchsia;
-			this->label7->Location = System::Drawing::Point(485, 80);
-			this->label7->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label7->Location = System::Drawing::Point(647, 98);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(47, 44);
+			this->label7->Size = System::Drawing::Size(58, 54);
 			this->label7->TabIndex = 1;
 			this->label7->Text = L"U";
 			// 
@@ -162,10 +159,9 @@ namespace ChitChat {
 			this->label6->AutoSize = true;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 28.2F, System::Drawing::FontStyle::Bold));
 			this->label6->ForeColor = System::Drawing::Color::Fuchsia;
-			this->label6->Location = System::Drawing::Point(466, 56);
-			this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label6->Location = System::Drawing::Point(621, 69);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(50, 44);
+			this->label6->Size = System::Drawing::Size(61, 54);
 			this->label6->TabIndex = 1;
 			this->label6->Text = L"O";
 			// 
@@ -174,10 +170,9 @@ namespace ChitChat {
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 28.2F, System::Drawing::FontStyle::Bold));
 			this->label5->ForeColor = System::Drawing::Color::Fuchsia;
-			this->label5->Location = System::Drawing::Point(485, 32);
-			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label5->Location = System::Drawing::Point(647, 39);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(47, 44);
+			this->label5->Size = System::Drawing::Size(58, 54);
 			this->label5->TabIndex = 1;
 			this->label5->Text = L"R";
 			// 
@@ -186,10 +181,9 @@ namespace ChitChat {
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 28.2F, System::Drawing::FontStyle::Bold));
 			this->label4->ForeColor = System::Drawing::Color::Fuchsia;
-			this->label4->Location = System::Drawing::Point(466, 9);
-			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label4->Location = System::Drawing::Point(621, 11);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(50, 44);
+			this->label4->Size = System::Drawing::Size(61, 54);
 			this->label4->TabIndex = 1;
 			this->label4->Text = L"G";
 			// 
@@ -198,10 +192,9 @@ namespace ChitChat {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 28.2F, System::Drawing::FontStyle::Bold));
 			this->label3->ForeColor = System::Drawing::Color::Fuchsia;
-			this->label3->Location = System::Drawing::Point(42, 95);
-			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label3->Location = System::Drawing::Point(56, 117);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(56, 44);
+			this->label3->Size = System::Drawing::Size(68, 54);
 			this->label3->TabIndex = 1;
 			this->label3->Text = L"W";
 			// 
@@ -210,10 +203,9 @@ namespace ChitChat {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 28.2F, System::Drawing::FontStyle::Bold));
 			this->label2->ForeColor = System::Drawing::Color::Fuchsia;
-			this->label2->Location = System::Drawing::Point(42, 56);
-			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label2->Location = System::Drawing::Point(56, 69);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(45, 44);
+			this->label2->Size = System::Drawing::Size(55, 54);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"E";
 			// 
@@ -223,9 +215,9 @@ namespace ChitChat {
 			this->pictureBox1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->Location = System::Drawing::Point(0, 0);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(2);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(555, 148);
+			this->pictureBox1->Size = System::Drawing::Size(740, 182);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
@@ -244,10 +236,10 @@ namespace ChitChat {
 			this->pnl_gname->Controls->Add(this->label12);
 			this->pnl_gname->Controls->Add(this->label11);
 			this->pnl_gname->Dock = System::Windows::Forms::DockStyle::Top;
-			this->pnl_gname->Location = System::Drawing::Point(0, 148);
-			this->pnl_gname->Margin = System::Windows::Forms::Padding(2);
+			this->pnl_gname->Location = System::Drawing::Point(0, 182);
+			this->pnl_gname->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->pnl_gname->Name = L"pnl_gname";
-			this->pnl_gname->Size = System::Drawing::Size(555, 152);
+			this->pnl_gname->Size = System::Drawing::Size(740, 187);
 			this->pnl_gname->TabIndex = 1;
 			// 
 			// btn_finish
@@ -255,10 +247,10 @@ namespace ChitChat {
 			this->btn_finish->BackColor = System::Drawing::Color::Cyan;
 			this->btn_finish->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btn_finish->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic))));
-			this->btn_finish->Location = System::Drawing::Point(452, 97);
-			this->btn_finish->Margin = System::Windows::Forms::Padding(2);
+			this->btn_finish->Location = System::Drawing::Point(603, 119);
+			this->btn_finish->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_finish->Name = L"btn_finish";
-			this->btn_finish->Size = System::Drawing::Size(86, 34);
+			this->btn_finish->Size = System::Drawing::Size(115, 42);
 			this->btn_finish->TabIndex = 5;
 			this->btn_finish->Text = L"Finish";
 			this->btn_finish->UseVisualStyleBackColor = false;
@@ -271,10 +263,10 @@ namespace ChitChat {
 			this->btn_browse->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic))));
 			this->btn_browse->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btn_browse.Image")));
 			this->btn_browse->ImageAlign = System::Drawing::ContentAlignment::MiddleRight;
-			this->btn_browse->Location = System::Drawing::Point(36, 93);
-			this->btn_browse->Margin = System::Windows::Forms::Padding(2);
+			this->btn_browse->Location = System::Drawing::Point(48, 114);
+			this->btn_browse->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_browse->Name = L"btn_browse";
-			this->btn_browse->Size = System::Drawing::Size(210, 38);
+			this->btn_browse->Size = System::Drawing::Size(280, 47);
 			this->btn_browse->TabIndex = 4;
 			this->btn_browse->Text = L"Browse Image ";
 			this->btn_browse->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -285,10 +277,10 @@ namespace ChitChat {
 			// 
 			this->groupIMG->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->groupIMG->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"groupIMG.BackgroundImage")));
-			this->groupIMG->Location = System::Drawing::Point(318, 58);
-			this->groupIMG->Margin = System::Windows::Forms::Padding(2);
+			this->groupIMG->Location = System::Drawing::Point(424, 71);
+			this->groupIMG->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->groupIMG->Name = L"groupIMG";
-			this->groupIMG->Size = System::Drawing::Size(98, 81);
+			this->groupIMG->Size = System::Drawing::Size(131, 100);
 			this->groupIMG->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->groupIMG->TabIndex = 3;
 			this->groupIMG->TabStop = false;
@@ -300,10 +292,10 @@ namespace ChitChat {
 			this->btn_create->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btn_create->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->btn_create->Location = System::Drawing::Point(452, 65);
-			this->btn_create->Margin = System::Windows::Forms::Padding(2);
+			this->btn_create->Location = System::Drawing::Point(603, 80);
+			this->btn_create->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_create->Name = L"btn_create";
-			this->btn_create->Size = System::Drawing::Size(86, 32);
+			this->btn_create->Size = System::Drawing::Size(115, 39);
 			this->btn_create->TabIndex = 2;
 			this->btn_create->Text = L"Create";
 			this->btn_create->UseVisualStyleBackColor = false;
@@ -315,10 +307,9 @@ namespace ChitChat {
 			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label9->ForeColor = System::Drawing::Color::Fuchsia;
-			this->label9->Location = System::Drawing::Point(20, 58);
-			this->label9->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label9->Location = System::Drawing::Point(27, 71);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(294, 29);
+			this->label9->Size = System::Drawing::Size(362, 36);
 			this->label9->TabIndex = 0;
 			this->label9->Text = L"Choose A Group Picture";
 			// 
@@ -328,10 +319,9 @@ namespace ChitChat {
 			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label10->ForeColor = System::Drawing::Color::Fuchsia;
-			this->label10->Location = System::Drawing::Point(20, 11);
-			this->label10->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label10->Location = System::Drawing::Point(27, 14);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(281, 29);
+			this->label10->Size = System::Drawing::Size(343, 36);
 			this->label10->TabIndex = 0;
 			this->label10->Text = L"Choose A Group Name";
 			// 
@@ -341,11 +331,11 @@ namespace ChitChat {
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->txt_gname->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->txt_gname->Location = System::Drawing::Point(318, 11);
-			this->txt_gname->Margin = System::Windows::Forms::Padding(2);
+			this->txt_gname->Location = System::Drawing::Point(424, 14);
+			this->txt_gname->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->txt_gname->Multiline = true;
 			this->txt_gname->Name = L"txt_gname";
-			this->txt_gname->Size = System::Drawing::Size(235, 43);
+			this->txt_gname->Size = System::Drawing::Size(312, 52);
 			this->txt_gname->TabIndex = 1;
 			// 
 			// label12
@@ -354,10 +344,9 @@ namespace ChitChat {
 			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label12->ForeColor = System::Drawing::Color::Fuchsia;
-			this->label12->Location = System::Drawing::Point(-5, 63);
-			this->label12->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label12->Location = System::Drawing::Point(-7, 78);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(26, 31);
+			this->label12->Size = System::Drawing::Size(31, 38);
 			this->label12->TabIndex = 1;
 			this->label12->Text = L"*";
 			// 
@@ -367,10 +356,9 @@ namespace ChitChat {
 			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label11->ForeColor = System::Drawing::Color::Fuchsia;
-			this->label11->Location = System::Drawing::Point(2, 17);
-			this->label11->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label11->Location = System::Drawing::Point(3, 21);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(26, 31);
+			this->label11->Size = System::Drawing::Size(31, 38);
 			this->label11->TabIndex = 1;
 			this->label11->Text = L"*";
 			// 
@@ -379,10 +367,10 @@ namespace ChitChat {
 			this->pnl_container->AutoScroll = true;
 			this->pnl_container->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->pnl_container->Dock = System::Windows::Forms::DockStyle::Bottom;
-			this->pnl_container->Location = System::Drawing::Point(0, 284);
-			this->pnl_container->Margin = System::Windows::Forms::Padding(2);
+			this->pnl_container->Location = System::Drawing::Point(0, 449);
+			this->pnl_container->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->pnl_container->Name = L"pnl_container";
-			this->pnl_container->Size = System::Drawing::Size(555, 356);
+			this->pnl_container->Size = System::Drawing::Size(740, 339);
 			this->pnl_container->TabIndex = 4;
 			// 
 			// chatBlock
@@ -401,7 +389,7 @@ namespace ChitChat {
 			this->lbl_name->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18));
 			this->lbl_name->Location = System::Drawing::Point(140, 37);
 			this->lbl_name->Name = L"lbl_name";
-			this->lbl_name->Size = System::Drawing::Size(92, 29);
+			this->lbl_name->Size = System::Drawing::Size(112, 36);
 			this->lbl_name->TabIndex = 2;
 			this->lbl_name->Text = L"label13";
 			// 
@@ -430,24 +418,24 @@ namespace ChitChat {
 			// 
 			this->pnl_titleChoose->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->pnl_titleChoose->Dock = System::Windows::Forms::DockStyle::Top;
-			this->pnl_titleChoose->Location = System::Drawing::Point(0, 300);
-			this->pnl_titleChoose->Margin = System::Windows::Forms::Padding(2);
+			this->pnl_titleChoose->Location = System::Drawing::Point(0, 369);
+			this->pnl_titleChoose->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->pnl_titleChoose->Name = L"pnl_titleChoose";
-			this->pnl_titleChoose->Size = System::Drawing::Size(555, 62);
+			this->pnl_titleChoose->Size = System::Drawing::Size(740, 76);
 			this->pnl_titleChoose->TabIndex = 5;
 			// 
 			// CreateGroup
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Black;
-			this->ClientSize = System::Drawing::Size(555, 640);
+			this->ClientSize = System::Drawing::Size(740, 788);
 			this->Controls->Add(this->pnl_titleChoose);
 			this->Controls->Add(this->pnl_container);
 			this->Controls->Add(this->pnl_gname);
 			this->Controls->Add(this->pnl_top);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-			this->Margin = System::Windows::Forms::Padding(2);
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"CreateGroup";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"CreateGroup";
@@ -531,6 +519,13 @@ namespace ChitChat {
 				reader4->Read();      //ANY READER MUST BE CLOSED                                 
 				counter = (int)reader4[0];
 				reader4->Close();
+
+				String^ sqlQuery5 = "SELECT COUNT( CID )  FROM HasContacts WHERE FID = '" + LoginForm::cont->Id + "';";
+				SqlCommand cmd5(sqlQuery5, connection);
+				SqlDataReader^ reader5 = cmd5.ExecuteReader();
+				reader5->Read();      //ANY READER MUST BE CLOSED                                 
+				counter += (int)reader5[0];
+				reader5->Close();
 			}
 			catch (Exception^ e)
 			{
@@ -544,6 +539,7 @@ namespace ChitChat {
 
 			try                                              // GETTING THE FRINDS IDS FROM DATABASE 
 			{
+				int i = 0;
 				if (connection->State != ConnectionState::Open) {
 					connection->Open();
 				}
@@ -554,7 +550,6 @@ namespace ChitChat {
 				SqlDataReader^ reader = cmd.ExecuteReader();
 
 
-				int i = 0;
 				while (reader->Read())
 				{
 
@@ -563,6 +558,21 @@ namespace ChitChat {
 
 				}
 				reader->Close();
+
+				String^ sqlQuery1 = "SELECT CID  FROM HasContacts WHERE FID = '" + LoginForm::cont->Id + "';";
+
+				SqlCommand cmd1(sqlQuery1, connection);
+				SqlDataReader^ reader1 = cmd1.ExecuteReader();
+
+
+				while (reader1->Read())
+				{
+
+					FID[i] = (int)reader1[0];
+					i++;
+
+				}
+				reader1->Close();
 			}
 			catch (Exception^ e)
 			{
@@ -595,13 +605,19 @@ namespace ChitChat {
 
 					SqlCommand cmd(sqlQuery1, connection);
 					SqlDataReader^ reader1 = cmd.ExecuteReader();
+					reader1->Read();
 
-					if (reader1->Read()) {
+					if (reader1->HasRows) {
+
 						if (!reader1->IsDBNull(0))
 						{
-							MemoryStream^ m = gcnew MemoryStream((array<Byte>^)reader1["Image"]);
-							this->profilePic->Image = Image::FromStream(m);
+							array<Byte>^ img = (array<Byte>^)(reader1["Image"]);
+							
+							
+								MemoryStream^ m = gcnew MemoryStream(img);
+								this->profilePic->Image = Image::FromStream(m);
 
+							
 						}
 						reader1->Close();
 
@@ -737,10 +753,12 @@ namespace ChitChat {
 
 
 
-
+	public:bool switchToGroups = false;  //++++++++++++++++++++++++++++++
 	private: System::Void btn_finish_Click(System::Object^ sender, System::EventArgs^ e) {
 		//SHOULD RETURN YOU BACK TO THE HOME PAGE
+		this->switchToGroups = true;
 		this->Close();
+
 
 	}
 
