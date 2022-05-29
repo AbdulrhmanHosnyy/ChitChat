@@ -48,12 +48,12 @@ ____________________________________________________
 #### Languages :
 C++.
 #### DataStructers :
-Lists.
-Queues.
+Lists.    
+Queues.   
 #### DataBase :
-ERD.
-Schema.
-SQL Database.
+ERD.    
+Schema.   
+SQL Database.   
 #### GUI :
 WinForms.
 #### OOP :
@@ -67,7 +67,7 @@ ___________________
 
 ##### Abdulrhman Hosny Muhammed Kamel.	
 
-Implemtned StoryMain, MyStory, FriendStory, AddStory, and Story classes.  	
+Implemtned StoryMain, MyStory, FriendStory, AddStory, and Story classes.  	    
 DataStructure used is List.	
 
 ___________________
@@ -87,14 +87,14 @@ ___________________
 
 ##### Saleh Adel Saleh Muhammed.		
 
-Implemtned home, Groups, CreateGroup, and showChats classes.  		
+Implemtned home, Groups, CreateGroup, and showChats classes.  		    
 DataStructure used is List.		
 
 ___________________
 
 ##### Hossam Eldeen Mostafa Abdelbaseet.		
 
-Implemtned SingalChat class.			
+Implemtned SingalChat class.			    
 DataStructure used is Queue.		
 
 ___________________		
@@ -102,7 +102,7 @@ ___________________
 
 ##### Hossam Mostafa Nasr Mostafa. 			
 
-Implemtned GroupChat class.  			
+Implemtned GroupChat class.  			      
 DataStructure used is Queue.	
 
 ___________________
